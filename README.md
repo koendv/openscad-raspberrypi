@@ -1,4 +1,4 @@
-# OpenSCAD on Raspberry Pi Build Notes 
+# OpenSCAD on Raspberry Pi Build Notes
 
 These are build notes on compiling [OpenSCAD-2019.05](http://www.openscad.org) to an [AppImage](http://www.appimage.org) on a [raspberry pi 4](https://www.raspberrypi.org) running 2019-07-10-raspbian-buster-full.
 You can download the binary [here](https://github.com/koendv/openscad-raspberrypi/releases/download/v1.0/OpenSCAD-2019.05-armhf.AppImage).
@@ -27,26 +27,26 @@ source ./scripts/setenv-unibuild.sh
 ```
 Output of `check-dependencies.sh`:
 ```
-koen@raspberrypi:~/src/openscad-2019.05 $ ./scripts/check-dependencies.sh 
-depname           minimum           found             OKness            
-qt                4.4               4.8.7             OK                
-qscintilla2       2.7               2.10.4            OK                
-cgal              3.6               4.13              OK                
-gmp               5.0               6.1.2             OK                
-mpfr              3.0               4.0.2             OK                
-boost             1.35              1.67              OK                
-opencsg           1.3.2             1.4.2             OK                
-glew              1.5.4             1.7.0             OK                
-eigen             3.0               3.3.7             OK                
-glib2             2.0               2.58.3            OK                
-fontconfig        2.10              2.13.             OK                
-freetype2         2.4               2.9.1             OK                
-harfbuzz          0.9.19            2.3.1             OK                
-libzip            0.10.1            1.5.1             OK                
-bison             2.4               3.3.2             OK                
-flex              2.5.35            2.6.4             OK                
-make              3                 4.2.1             OK                
-double-conversion 2.0.1             2.0.1             OK     
+koen@raspberrypi:~/src/openscad-2019.05 $ ./scripts/check-dependencies.sh
+depname           minimum           found             OKness
+qt                4.4               4.8.7             OK
+qscintilla2       2.7               2.10.4            OK
+cgal              3.6               4.13              OK
+gmp               5.0               6.1.2             OK
+mpfr              3.0               4.0.2             OK
+boost             1.35              1.67              OK
+opencsg           1.3.2             1.4.2             OK
+glew              1.5.4             1.7.0             OK
+eigen             3.0               3.3.7             OK
+glib2             2.0               2.58.3            OK
+fontconfig        2.10              2.13.             OK
+freetype2         2.4               2.9.1             OK
+harfbuzz          0.9.19            2.3.1             OK
+libzip            0.10.1            1.5.1             OK
+bison             2.4               3.3.2             OK
+flex              2.5.35            2.6.4             OK
+make              3                 4.2.1             OK
+double-conversion 2.0.1             2.0.1             OK
 ```
 Build:
 ```
@@ -56,7 +56,7 @@ make
 When using Qt4, before running `make` edit the Makefile: in the line `LIBS =` remove `-lQtMultimedia`. Else `make` fails with the message `/usr/bin/ld: cannot find -lQtMultimedia`.
 
 ## Create AppImage
-The AppImage contains the application (here: openscad), and all shared libraries and config files needed to run the application.
+The AppImage contains the application (here: openscad), all shared libraries and config files needed to run the application.
 
 Copy openSCAD binaries to appimage:
 ```
@@ -70,7 +70,7 @@ Copy Qt translations:
 (cd /; tar cvhf - usr/share/qt4/translations/) | (cd $INSTALL_ROOT; tar xvpf -)
 ```
 Copy openSCAD library dependencies to AppImage.
-Make a list of all shared libraries openscad uses, and copy these libraries to the AppImage directory.
+First make a list of all shared libraries used by openscad, then copy these libraries to the AppImage directory.
 
 ```
 mkdir $INSTALL_ROOT/usr/lib/
@@ -85,17 +85,17 @@ If the app uses any Qt plugins, the plugins would need to be copied too, just li
 
 Copy AppImage files:
 
-From `https://github.com/AppImage/AppImageKit/releases/` download `AppRun-armhf`. 
+From `https://github.com/AppImage/AppImageKit/releases/` download `AppRun-armhf`.
 ```
 cp ~/Downloads/AppRun-armhf $INSTALL_ROOT/AppRun
-chmod a+x $INSTALL_ROOT/AppRun 
+chmod a+x $INSTALL_ROOT/AppRun
 
 ```
 Copy desktop shortcut and icon:
 ```
 cd $INSTALL_ROOT
 cp usr/share/pixmaps/openscad.png .
-cp usr/share/applications/openscad.desktop . 
+cp usr/share/applications/openscad.desktop .
 ```
 Edit openscad.desktop and add X-AppImage-Version version info:
 ```
@@ -124,14 +124,14 @@ Test AppImage:
 ```
 ./OpenSCAD-armhf.AppImage
 ```
-Run the AppImage on a clean install of the operating system to check all dependencies have been caught. 
+Run the AppImage on a clean install of the operating system to check all dependencies have been caught.
 
 # Debugging
-In case of problems, try running
+In case of shared library problems, try comparing the output of
 ```
-LD_DEBUG=libs appimagetool-armhf.AppImage -n $INSTALL_ROOT
+LD_DEBUG=libs ./OpenSCAD-armhf.AppImage
 ```
-and comparing the output with the output of 
+with the output of
 ```
 LD_DEBUG=libs ./openscad
 ```
