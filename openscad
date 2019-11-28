@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# wrapper to pass absolute file name to openscad
+#
+/usr/local/bin/OpenSCAD-2019.05-armhf.AppImage $(realpath "$1")
+#not truncated
+
+
