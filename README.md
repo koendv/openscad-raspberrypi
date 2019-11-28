@@ -7,13 +7,31 @@ You can download the binary [here](https://github.com/koendv/openscad-raspberryp
 ```
 sudo apt-get install cmake gawk bison flex gettext itstool libqt4-opengl-dev libboost-all-dev libxmu-dev libxi-dev libzip-dev libxml2-dev libfontconfig1-dev libharfbuzz-dev uuid-dev libglew-dev libxml2-dev ragel libqscintilla2-qt4-dev libdouble-conversion-dev libcgal-dev libeigen3-dev libopencsg-dev
 ```
+### Build AutomaticComponentToolkit
+OpenSCAD uses lib3mf-dev. lib3mf-dev is missing from raspbian. AutomaticComponentToolkit is needed to build lib3mf. Compile AutomaticComponentToolkit.
+```
+apt-get install golang
+git clone https://github.com/Autodesk/AutomaticComponentToolkit
+cd AutomaticComponentToolkit/
+sh ./Build/build.sh
+cd ..
+```
+This produces three binaries: act.darwin, act.exe and act.linux.
 ### Install lib3MF from source
-lib3mf-dev is missing from raspbian. Compile from source, and install in /usr .
+Compile lib3mf from source, and install in /usr .
+
 ```
 git clone https://github.com/3MFConsortium/lib3mf.git
 cd lib3mf
 git submodule init
 git submodule update --init
+```
+Replace the x86 binaries in lib3mf/AutomaticComponentToolkit/bin with the arm binaries you just compiled:
+```
+cp ../AutomaticComponentToolkit/act.linux  ./AutomaticComponentToolkit/bin/act.linux
+```
+Build lib3mf:
+```
 cmake -DCMAKE_INSTALL_PREFIX=/usr
 make
 sudo make install
