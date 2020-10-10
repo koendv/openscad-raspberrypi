@@ -1,5 +1,7 @@
 # OpenSCAD on Raspberry Pi Build Notes
 
+*This project is no longer needed, you can download OpenSCAD for 64-bit raspberry pi from the [OpenSCAD website](http://www.openscad.org/downloads.html) instead*
+
 These are build notes on compiling [OpenSCAD-2019.05](http://www.openscad.org) to an [AppImage](http://www.appimage.org) on a [raspberry pi 4](https://www.raspberrypi.org) running 2019-07-10-raspbian-buster-full.
 You can download the binary [here](https://github.com/koendv/openscad-raspberrypi/releases/download/v1.0/OpenSCAD-2019.05-armhf.AppImage).
 
