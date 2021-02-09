@@ -33,7 +33,7 @@ Select color scheme "Ash".
 
 An anaglyph codes depth information using color. The algorithm used here works fine for objects that are gray or pastel color, but not for saturated colors. But for many simple tasks, grayscale is sufficient. 
 
-Algorithms for full-color anaglyphs exist, e.g. [Dubois filtering](http://www.site.uottawa.ca/~edubois/anaglyph/). Dubois filtering maps colors in colors that do not clash with the 3D info. Implementing Dubois filtering in OpenGL requires rendering left and right images to textures, and a fragment shader that uses these textures as input. For the moment being, I'll use graytones.
+Algorithms for full-color anaglyphs exist, e.g. [Dubois filtering](http://www.site.uottawa.ca/~edubois/anaglyph/). Dubois filtering maps colors to colors that do not clash with the 3D glasses. Implementing Dubois filtering in OpenGL requires rendering left and right images to textures, and a fragment shader that uses these textures as input. For the moment being, I'll use graytones.
 
 When viewing, you may wish to set "Show axes" to off, as it's jarring if an axis protrudes from the screen and points straight at you. In general, objects "behind" the screen are easier on the eye than objects that "stick out"
 from the screen.
