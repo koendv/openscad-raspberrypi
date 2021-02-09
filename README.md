@@ -7,7 +7,7 @@ This is the OpenSCAD CAD editor, with support for showing your designs in 3D whe
 
 ## Sample screen
 
-[![](images/openscad_screenshot_big.png)](images/openscad_screenshot_small.png)
+[![screenshot](images/openscad_screenshot_big.png)](images/openscad_screenshot_big.png)
 
 You need red/cyan colored glasses to see the 3D effect.
 
