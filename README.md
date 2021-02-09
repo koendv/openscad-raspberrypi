@@ -57,7 +57,7 @@ cd openscad
 git submodule update --init
 ```
 ### Patch for 3D anaglyph
-Download patch and ico
+Download patch and icon
 
 ```
 wget https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/anaglyph.patch
@@ -72,9 +72,7 @@ First check all dependencies are installed:
 source ./scripts/setenv-unibuild.sh
 ./scripts/check-dependencies.sh
 ```
-Verify the output of *check-dependencies* is "OK".
-
-Build:
+Check the output of *check-dependencies* is "OK", then build:
 ```
 qmake openscad.pro "PREFIX=/usr"
 make -j4
@@ -88,7 +86,6 @@ Copy openSCAD binaries to appimage:
 export INSTALL_ROOT=$HOME/OpenSCAD-aarch64.AppDir
 mkdir $INSTALL_ROOT
 make install
-
 ```
 Copy Qt translations:
 ```
