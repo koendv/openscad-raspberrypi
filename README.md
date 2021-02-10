@@ -3,7 +3,7 @@
 
 ![Reel3D No. 7020 plastic flip-up clip-on](images/anaglyph_glasses.gif)
 
-This is the OpenSCAD CAD editor, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
+This is the OpenSCAD CAD editor, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
 
 ## Sample screen
 
@@ -13,7 +13,7 @@ You need red/cyan colored glasses to see the 3D effect.
 
 ## Downloads
 
-- [Binary](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi 64-bit.
+- [Binary](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi.
 - [Patch](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/anaglyph.patch) for compiling openscad with support for 3D glasses
 
 ## Usage
@@ -47,7 +47,6 @@ These are build notes on compiling [OpenSCAD-2020.02](http://www.openscad.org) t
 ```
 sudo apt-get upgrade
 sudo apt-get install cmake gawk bison flex gettext itstool libcgal-dev libeigen3-dev libfontconfig1-dev libharfbuzz-dev libopengl-dev libglew-dev libopencsg-dev libxml2-dev libboost-all-dev libzip-dev libcairo2-dev lib3mf-dev libqscintilla2-qt5-dev qtmultimedia5-dev imagemagick libqt5gamepad5-dev libhidapi-dev libspnav-dev libdouble-conversion-dev qt5-default
-
 ```
 ### Download sources
 
@@ -111,7 +110,6 @@ From `https://github.com/AppImage/AppImageKit/releases/` download `AppRun-aarch6
 ```
 cp ~/Downloads/AppRun-aarch64 $INSTALL_ROOT/AppRun
 chmod a+x $INSTALL_ROOT/AppRun
-
 ```
 Copy desktop shortcut and icon:
 ```
