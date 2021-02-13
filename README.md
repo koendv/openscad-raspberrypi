@@ -23,6 +23,8 @@ You need red/cyan colored glasses to see the 3D effect.
 - Choose the "Ash" color scheme to get monochrome gray output. From the menu, choose *Edit->Preferences->3D View*.
 Select color scheme "Ash".
 
+- Switch displaying axis off. The mind rebels if an axis sticks out of the screen, coming straigh at you. In many cases, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
+
 - Click the render icon ![render](images/render-32.png) to render your object.
 
 - Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode.
@@ -31,16 +33,16 @@ Select color scheme "Ash".
 
 ## Notes
 
-An anaglyph codes depth information using color. The algorithm used here works fine for objects that are gray or pastel color, but not for saturated colors. But for many simple tasks, grayscale is sufficient. 
+When exporting images, OpenSCAD assumes Imagemagick is installed. Install imagemagick with:
+```apt-get install imagemagick```
 
-Algorithms for full-color anaglyphs exist, e.g. [Dubois filtering](http://www.site.uottawa.ca/~edubois/anaglyph/). Dubois filtering maps colors to colors that do not clash with the 3D glasses. Implementing Dubois filtering in OpenGL requires rendering left and right images to textures, and a fragment shader that uses these textures as input. For the moment being, I'll use graytones.
+The built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.
 
-When viewing, you may wish to set "Show axes" to off, as it's jarring if an axis protrudes from the screen and points straight at you. In general, objects "behind" the screen are easier on the eye than objects that "stick out"
-from the screen.
+[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) has not been implemented yet. This means that if an object has red or cyan color, the depth illusion will fail. But for many simple tasks, grayscale is sufficient.
 
 ## Build notes
 
-These are build notes on compiling [OpenSCAD-2020.02](http://www.openscad.org) to an [AppImage](http://www.appimage.org) on a [raspberry pi 4](https://www.raspberrypi.org) running 2020-08-20-raspios-buster-arm64.
+These are build notes on compiling [OpenSCAD](http://www.openscad.org) to an [AppImage](http://www.appimage.org) on a [raspberry pi 4](https://www.raspberrypi.org) running 2020-08-20-raspios-buster-arm64.
 
 ### Install build dependencies
 
