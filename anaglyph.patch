@@ -1,33 +1,3 @@
-diff --git a/color-schemes/render/ash.json b/color-schemes/render/ash.json
-new file mode 100644
-index 000000000..5b8fc8257
---- /dev/null
-+++ b/color-schemes/render/ash.json
-@@ -0,0 +1,20 @@
-+{
-+    "name" : "Ash",
-+    "index" : 2000,
-+    "show-in-gui" : true,
-+    "description" : "monochrome version of Cornfield",
-+
-+    "colors" : {
-+        "background" :         "#fdfdfd",
-+        "axes-color" :         "#000000",
-+        "opencsg-face-front" : "#d1d1d1",
-+        "opencsg-face-back" :  "#b8b8b8",
-+        "cgal-face-front" :    "#d1d1d1",
-+        "cgal-face-back" :     "#b8b8b8",
-+        "cgal-face-2d" :       "#939393",
-+        "cgal-edge-front" :    "#e5e5e5",
-+        "cgal-edge-back" :     "#c5c5c5",
-+        "cgal-edge-2d" :       "#363636",
-+        "crosshair" :          "#1b1b1b"
-+    }
-+}
-diff --git a/images/Anaglyph-32.png b/images/Anaglyph-32.png
-new file mode 100644
-index 000000000..b7bc5c4a0
-Binary files /dev/null and b/images/Anaglyph-32.png differ
 diff --git a/openscad.qrc b/openscad.qrc
 index 0b143032c..247305a3b 100644
 --- a/openscad.qrc
@@ -41,7 +11,7 @@ index 0b143032c..247305a3b 100644
    </qresource>
  </RCC>
 diff --git a/src/Camera.cc b/src/Camera.cc
-index 4c13820d6..baf4d3ae0 100644
+index 4c13820d6..e9882d28c 100644
 --- a/src/Camera.cc
 +++ b/src/Camera.cc
 @@ -1,22 +1,29 @@
@@ -372,8 +342,20 @@ index 195852972..33325b762 100644
  	std::string getRendererInfo() const override;
  	float getDPI() override { return this->devicePixelRatio(); }
  
+diff --git a/src/builtin.cc b/src/builtin.cc
+index aa857908a..6f20d6b54 100644
+--- a/src/builtin.cc
++++ b/src/builtin.cc
+@@ -113,6 +113,7 @@ Builtins::Builtins()
+ 	this->assignments.emplace_back(new Assignment("$vpr", make_shared<Literal>(VectorType(0.0, 0.0, 0.0))) );
+ 	this->assignments.emplace_back(new Assignment("$vpd", make_shared<Literal>(500)) );
+ 	this->assignments.emplace_back(new Assignment("$vpf", make_shared<Literal>(22.5)) );
++	this->assignments.emplace_back(new Assignment("$anaglyph", make_shared<Literal>(Value::undefined.clone())) ); // true if rendering anaglyph 3d
+ }
+ 
+ void Builtins::initKeywordList()
 diff --git a/src/mainwin.cc b/src/mainwin.cc
-index c5edddeec..97e03e7ff 100755
+index c5edddeec..6819854d7 100755
 --- a/src/mainwin.cc
 +++ b/src/mainwin.cc
 @@ -445,6 +445,7 @@ MainWindow::MainWindow(const QStringList &filenames)
@@ -401,7 +383,7 @@ index c5edddeec..97e03e7ff 100755
  		viewOrthogonal();
  	} else {
  		viewPerspective();
-@@ -2773,9 +2776,12 @@ void MainWindow::viewPerspective()
+@@ -2773,9 +2776,13 @@ void MainWindow::viewPerspective()
  {
  	QSettingsCached settings;
  	settings.setValue("view/orthogonalProjection",false);
@@ -409,12 +391,13 @@ index c5edddeec..97e03e7ff 100755
  	viewActionPerspective->setChecked(true);
  	viewActionOrthogonal->setChecked(false);
 +	viewActionAnaglyph->setChecked(false);
++	this->top_ctx->set_variable("$anaglyph", Value(false));
  	this->qglview->setOrthoMode(false);
 +	this->qglview->setAnaglyphMode(false);
  	this->qglview->updateGL();
  }
  
-@@ -2783,9 +2789,26 @@ void MainWindow::viewOrthogonal()
+@@ -2783,9 +2790,28 @@ void MainWindow::viewOrthogonal()
  {
  	QSettingsCached settings;
  	settings.setValue("view/orthogonalProjection",true);
@@ -423,6 +406,7 @@ index c5edddeec..97e03e7ff 100755
  	viewActionPerspective->setChecked(false);
  	viewActionOrthogonal->setChecked(true);
 +	viewActionAnaglyph->setChecked(false);
++	this->top_ctx->set_variable("$anaglyph", Value(false));
  	this->qglview->setOrthoMode(true);
 +	this->qglview->setAnaglyphMode(false);
 +	this->qglview->updateGL();
@@ -436,6 +420,7 @@ index c5edddeec..97e03e7ff 100755
 +	viewActionPerspective->setChecked(false);
 +	viewActionOrthogonal->setChecked(false);
 +	viewActionAnaglyph->setChecked(true);
++	this->top_ctx->set_variable("$anaglyph", Value(true));
 +	this->qglview->setOrthoMode(false);
 +	this->qglview->setAnaglyphMode(true);
  	this->qglview->updateGL();

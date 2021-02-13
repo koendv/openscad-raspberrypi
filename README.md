@@ -5,6 +5,8 @@
 
 This is the OpenSCAD CAD editor, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
 
+Before sending a design a 3D printer I take a look at it using 3D glasses. If I spot an error before printing, even only once, these glasses have already earned their cost.
+
 ## Sample screen
 
 [![screenshot](images/openscad_screenshot_big.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/openscad_screenshot_big.png)
@@ -16,6 +18,9 @@ You need red/cyan colored glasses to see the 3D effect.
 - [Binary](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi.
 - [Patch](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/anaglyph.patch) for compiling openscad with support for 3D glasses
 
+You can download source and binary completely free of charge, but if you want to buy me a coffee I'm not saying no.
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Q5Q03LPDQ)
+
 ## Usage
 
 - Start OpenSCAD and load your .scad source file.
@@ -23,7 +28,7 @@ You need red/cyan colored glasses to see the 3D effect.
 - Choose the "Ash" color scheme to get monochrome gray output. From the menu, choose *Edit->Preferences->3D View*.
 Select color scheme "Ash".
 
-- Switch displaying axis off. The mind rebels if an axis sticks out of the screen, coming straigh at you. In many cases, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
+- Switch displaying axis off. The mind rebels if an axis sticks out of the screen, coming straigh at you. To me, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
 
 - Click the render icon ![render](images/render-32.png) to render your object.
 
@@ -36,9 +41,9 @@ Select color scheme "Ash".
 When exporting images, OpenSCAD assumes Imagemagick is installed. Install imagemagick with:
 ```apt-get install imagemagick```
 
-The built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.
+The built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.  
 
-[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) has not been implemented yet. This means that if an object has red or cyan color, the depth illusion will fail. But for many simple tasks, grayscale is sufficient.
+[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) has not been implemented yet. This means that if an object has red or cyan color, the depth illusion will fail. But for many simple tasks, grayscale is sufficient. 
 
 ## Build notes
 
@@ -130,7 +135,7 @@ Exec=openscad %f
 MimeType=application/x-openscad;
 Categories=Graphics;3DGraphics;Engineering;
 Keywords=3d;solid;geometry;csg;model;stl;
-X-AppImage-Version=2021.02.09
+X-AppImage-Version=2021.02.13
 ```
 Create AppStream metadata:
 ```
