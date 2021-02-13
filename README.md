@@ -38,9 +38,6 @@ Select color scheme "Ash".
 
 ## Notes
 
-When exporting images, OpenSCAD assumes Imagemagick is installed. Install imagemagick with:
-```apt-get install imagemagick```
-
 The built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.  
 
 [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) has not been implemented yet. This means that if an object has red or cyan color, the depth illusion will fail. But for many simple tasks, grayscale is sufficient. 
