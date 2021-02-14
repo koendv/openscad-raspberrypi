@@ -18,7 +18,7 @@ You need red/cyan colored glasses to see the 3D effect.
 - [Binary](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi.
 - [Patch](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/anaglyph.patch) for compiling openscad with support for 3D glasses
 
-Source and binary are free of charge, but if you want to buy me a cup of tea I would't say no:
+Source and binary are free of charge, but if you want to buy me a cup of tea I won't say no:
 
 [![ko-fi](images/kofibutton.svg)](https://ko-fi.com/Q5Q03LPDQ)
 ## Usage
