@@ -5,7 +5,7 @@
 
 This is the OpenSCAD CAD editor, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
 
-Before sending a design a 3D printer I take a look using 3D glasses. If I spot an error before printing, even only once, these glasses have already earned their cost.
+Before sending a design a 3D printer I take a look using 3D glasses. The way I see it, if I spot an error before printing, even only once, these glasses have already paid for themselves.
 
 ## Sample screen
 
