@@ -5,7 +5,7 @@
 
 This is the OpenSCAD CAD editor, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
 
-Before sending a design a 3D printer I take a look using 3D glasses. The way I see it, if I spot an error before printing, even only once, these glasses have already paid for themselves.
+I use this to check a design before sending it to a 3D printer. The way I see it, if I spot an error before printing, even only once, these glasses have already paid for themselves.
 
 ## Sample screen
 
@@ -16,9 +16,9 @@ You need red/cyan colored glasses to see the 3D effect.
 ## Downloads
 
 - [Binary](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi.
-- [Patch](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/anaglyph.patch) for compiling openscad with support for 3D glasses
+- [Patch](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/anaglyph.patch) and [icon](images/Anaglyph-32.png) for compiling openscad with support for 3D glasses.
 
-Source and binary are free of charge, but if you want to buy me a cup of tea I won't say no:
+Source and binary are free, of course, but if you want to buy me a cup of tea I won't say no:
 
 [![ko-fi](images/kofibutton.svg)](https://ko-fi.com/Q5Q03LPDQ)
 ## Usage
@@ -38,9 +38,9 @@ Select color scheme "Ash".
 
 ## Notes
 
-The built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.  
+The built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.
 
-[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) has not been implemented yet. This means that if an object has red or cyan color, the depth illusion will fail. But for many simple tasks, grayscale is sufficient. 
+[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) has not been implemented yet. This means that if an object has red or cyan color, the depth illusion will fail. But for many simple tasks, grayscale is sufficient.
 
 ## Build notes
 
@@ -149,5 +149,10 @@ Test AppImage:
 ./OpenSCAD-aarch64.AppImage
 ```
 Run the AppImage on a clean install of the operating system to check all dependencies have been caught.
+
+### 32-bit version
+
+The 32-bit version for Raspberry Pi OS 2021-01-11-raspios-buster-armhf differs in that Qt5, lib3mf and QScintilla have been [compiled from source](https://github.com/koendv/qt5-opengl-raspberrypi).
+
 ## Credits
 After a patch by Josef Pavlik

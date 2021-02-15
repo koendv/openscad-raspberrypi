@@ -1,3 +1,33 @@
+diff --git a/color-schemes/render/ash.json b/color-schemes/render/ash.json
+new file mode 100644
+index 000000000..5b8fc8257
+--- /dev/null
++++ b/color-schemes/render/ash.json
+@@ -0,0 +1,20 @@
++{
++    "name" : "Ash",
++    "index" : 2000,
++    "show-in-gui" : true,
++    "description" : "monochrome version of Cornfield",
++
++    "colors" : {
++        "background" :         "#fdfdfd",
++        "axes-color" :         "#000000",
++        "opencsg-face-front" : "#d1d1d1",
++        "opencsg-face-back" :  "#b8b8b8",
++        "cgal-face-front" :    "#d1d1d1",
++        "cgal-face-back" :     "#b8b8b8",
++        "cgal-face-2d" :       "#939393",
++        "cgal-edge-front" :    "#e5e5e5",
++        "cgal-edge-back" :     "#c5c5c5",
++        "cgal-edge-2d" :       "#363636",
++        "crosshair" :          "#1b1b1b"
++    }
++}
+diff --git a/images/Anaglyph-32.png b/images/Anaglyph-32.png
+new file mode 100644
+index 000000000..b7bc5c4a0
+Binary files /dev/null and b/images/Anaglyph-32.png differ
 diff --git a/openscad.qrc b/openscad.qrc
 index 0b143032c..247305a3b 100644
 --- a/openscad.qrc
