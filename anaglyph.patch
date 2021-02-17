@@ -1,9 +1,9 @@
 diff --git a/color-schemes/render/ash.json b/color-schemes/render/ash.json
 new file mode 100644
-index 000000000..5b8fc8257
+index 000000000..eb28280a3
 --- /dev/null
 +++ b/color-schemes/render/ash.json
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,21 @@
 +{
 +    "name" : "Ash",
 +    "index" : 2000,
@@ -12,6 +12,7 @@ index 000000000..5b8fc8257
 +
 +    "colors" : {
 +        "background" :         "#fdfdfd",
++        "highlight" :          "#51ff5180",
 +        "axes-color" :         "#000000",
 +        "opencsg-face-front" : "#d1d1d1",
 +        "opencsg-face-back" :  "#b8b8b8",
@@ -24,6 +25,215 @@ index 000000000..5b8fc8257
 +        "crosshair" :          "#1b1b1b"
 +    }
 +}
+diff --git a/color-schemes/render/beforedawn.json b/color-schemes/render/beforedawn.json
+index d4d98bba9..0f05c2f85 100644
+--- a/color-schemes/render/beforedawn.json
++++ b/color-schemes/render/beforedawn.json
+@@ -5,6 +5,7 @@
+ 
+     "colors" : {
+         "background" :         "#333333",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#c1c1c1",
+         "opencsg-face-front" : "#cccccc",
+         "opencsg-face-back" :  "#5563dd",
+diff --git a/color-schemes/render/deepocean.json b/color-schemes/render/deepocean.json
+index 9ce164fdc..f5179c583 100644
+--- a/color-schemes/render/deepocean.json
++++ b/color-schemes/render/deepocean.json
+@@ -5,6 +5,7 @@
+ 
+     "colors" : {
+         "background" :         "#333333",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#c1c1c1",
+         "opencsg-face-front" : "#eeeeee",
+         "opencsg-face-back" :  "#0babc8",
+diff --git a/color-schemes/render/gencolorscheme.py b/color-schemes/render/gencolorscheme.py
+new file mode 100755
+index 000000000..de90e6e3e
+--- /dev/null
++++ b/color-schemes/render/gencolorscheme.py
+@@ -0,0 +1,55 @@
++#!/usr/bin/python3
++# print openscad color scheme
++
++import colorsys
++
++# print rgb as hex string
++# r=0..255, g=0..255, b=0.255
++def rgb(r, g, b):
++  hexval = hex(256*256*256+r*256*256+g*256+b)
++  return hexval[3:9]
++
++# print rgb as hex string
++# h=0..360, s=0..100, v=0..100
++def hsv(h, s, v):
++  color = tuple(int(round(i * 255)) for i in colorsys.hsv_to_rgb(h/360.0,s/100.0,v/100.0))
++  return rgb(color[0], color[1], color[2])
++
++# color scheme
++background =         rgb(255,255,255)
++highlight =          hsv(60,50,80)
++axes_color =         hsv(60,50,50)
++opencsg_face_front = hsv(75,50,80)
++opencsg_face_back =  hsv(285,50,80)
++cgal_face_front =    hsv(75,50,90)
++cgal_face_back =     hsv(285,50,80)
++cgal_face_2d =       hsv(90,50,90)
++cgal_edge_front =    hsv(75,50,90)
++cgal_edge_back =     hsv(290,50,80)
++cgal_edge_2d =       hsv(275,50,80)
++crosshair =          hsv(0,0,50)
++
++print (f'''{{
++    "name" : "Red Cyan Glasses",
++    "index" : 2001,
++    "show-in-gui" : true,
++    "description" : "3d anaglyph",
++    "_comment" : "created by gencolorscheme.py",
++
++    "colors" : {{
++        "background" :         "#{background}",
++        "highlight" :          "#{highlight}80",
++        "axes-color" :         "#{axes_color}",
++        "opencsg-face-front" : "#{opencsg_face_front}",
++        "opencsg-face-back" :  "#{opencsg_face_back}",
++        "cgal-face-front" :    "#{cgal_face_front}",
++        "cgal-face-back" :     "#{cgal_face_back}",
++        "cgal-face-2d" :       "#{cgal_face_2d}",
++        "cgal-edge-front" :    "#{cgal_edge_front}",
++        "cgal-edge-back" :     "#{cgal_edge_back}",
++        "cgal-edge-2d" :       "#{cgal_edge_2d}",
++        "crosshair" :          "#{crosshair}"
++    }}
++}}''')
++
++#not truncated
+diff --git a/color-schemes/render/metallic.json b/color-schemes/render/metallic.json
+index 838558769..08e91129e 100644
+--- a/color-schemes/render/metallic.json
++++ b/color-schemes/render/metallic.json
+@@ -5,6 +5,7 @@
+ 
+     "colors" : {
+         "background" :         "#aaaaff",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#222233",
+         "opencsg-face-front" : "#ddddff",
+         "opencsg-face-back" :  "#dd22dd",
+diff --git a/color-schemes/render/monotone.json b/color-schemes/render/monotone.json
+index df1a79aa7..06cb8f8d9 100644
+--- a/color-schemes/render/monotone.json
++++ b/color-schemes/render/monotone.json
+@@ -6,6 +6,7 @@
+ 
+     "colors" : {
+         "background" :         "#ffffe5",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#191916",
+         "opencsg-face-front" : "#f9d72c",
+         "opencsg-face-back" :  "#f9d72c",
+diff --git a/color-schemes/render/nature.json b/color-schemes/render/nature.json
+index 6250e7a33..b71ec0b44 100644
+--- a/color-schemes/render/nature.json
++++ b/color-schemes/render/nature.json
+@@ -5,6 +5,7 @@
+ 
+     "colors" : {
+         "background" :         "#fafafa",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#323232",
+         "opencsg-face-front" : "#16a085",
+         "opencsg-face-back" :  "#dbf4da",
+diff --git a/color-schemes/render/redcyanglasses.json b/color-schemes/render/redcyanglasses.json
+new file mode 100644
+index 000000000..2087ed474
+--- /dev/null
++++ b/color-schemes/render/redcyanglasses.json
+@@ -0,0 +1,22 @@
++{
++    "name" : "Red Cyan Glasses",
++    "index" : 2001,
++    "show-in-gui" : true,
++    "description" : "3d anaglyph",
++    "_comment" : "created by gencolorscheme.py",
++
++    "colors" : {
++        "background" :         "#ffffff",
++        "highlight" :          "#cccc6680",
++        "axes-color" :         "#808040",
++        "opencsg-face-front" : "#b3cc66",
++        "opencsg-face-back" :  "#b366cc",
++        "cgal-face-front" :    "#c9e673",
++        "cgal-face-back" :     "#b366cc",
++        "cgal-face-2d" :       "#ace673",
++        "cgal-edge-front" :    "#c9e673",
++        "cgal-edge-back" :     "#bb66cc",
++        "cgal-edge-2d" :       "#a266cc",
++        "crosshair" :          "#808080"
++    }
++}
+diff --git a/color-schemes/render/solarized.json b/color-schemes/render/solarized.json
+index 0fd5002b1..f7c482d4b 100644
+--- a/color-schemes/render/solarized.json
++++ b/color-schemes/render/solarized.json
+@@ -5,6 +5,7 @@
+ 
+     "colors" : {
+         "background" :         "#fdf6e3",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#191816",
+         "opencsg-face-front" : "#b58800",
+         "opencsg-face-back" :  "#882233",
+diff --git a/color-schemes/render/starnight.json b/color-schemes/render/starnight.json
+index 88a9510c3..6e076a377 100644
+--- a/color-schemes/render/starnight.json
++++ b/color-schemes/render/starnight.json
+@@ -5,6 +5,7 @@
+ 
+     "colors" : {
+         "background" :         "#000000",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#e5e5e5",
+         "opencsg-face-front" : "#ffffe0",
+         "opencsg-face-back" :  "#00ffff",
+diff --git a/color-schemes/render/sunset.json b/color-schemes/render/sunset.json
+index bd7ae26b1..c22880d37 100644
+--- a/color-schemes/render/sunset.json
++++ b/color-schemes/render/sunset.json
+@@ -5,6 +5,7 @@
+ 
+     "colors" : {
+         "background" :         "#aa4444",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#220d0d",
+         "opencsg-face-front" : "#ffaaaa",
+         "opencsg-face-back" :  "#882233",
+diff --git a/color-schemes/render/tomorrow-night.json b/color-schemes/render/tomorrow-night.json
+index 8b7966c0a..90363a2b9 100644
+--- a/color-schemes/render/tomorrow-night.json
++++ b/color-schemes/render/tomorrow-night.json
+@@ -5,6 +5,7 @@
+ 
+     "colors" : {
+         "background" :         "#1d1f21",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#e8e8e8",
+         "opencsg-face-front" : "#81a2be",
+         "opencsg-face-back" :  "#de935f",
+diff --git a/color-schemes/render/tomorrow.json b/color-schemes/render/tomorrow.json
+index 559e23fe3..1b098cbe1 100644
+--- a/color-schemes/render/tomorrow.json
++++ b/color-schemes/render/tomorrow.json
+@@ -5,6 +5,7 @@
+ 
+     "colors" : {
+         "background" :         "#f8f8f8",
++        "highlight" :          "#ff515180",
+         "axes-color" :         "#181818",
+         "opencsg-face-front" : "#4271ae",
+         "opencsg-face-back" :  "#f5871f",
 diff --git a/images/Anaglyph-32.png b/images/Anaglyph-32.png
 new file mode 100644
 index 000000000..b7bc5c4a0
@@ -41,7 +251,7 @@ index 0b143032c..247305a3b 100644
    </qresource>
  </RCC>
 diff --git a/src/Camera.cc b/src/Camera.cc
-index 4c13820d6..e9882d28c 100644
+index 4c13820d6..baf4d3ae0 100644
 --- a/src/Camera.cc
 +++ b/src/Camera.cc
 @@ -1,22 +1,29 @@
@@ -53,7 +263,7 @@ index 4c13820d6..e9882d28c 100644
  
  static const double DEFAULT_DISTANCE = 140.0;
  static const double DEFAULT_FOV = 22.5;
-+static const float DEFAULT_EYE_SEPARATION = 15.0; // 65 mm avg. between human eyes
++static const float DEFAULT_EYE_SEPARATION = 65.0; // 65 mm avg. between human eyes
  
  Camera::Camera() :
  	projection(ProjectionType::PERSPECTIVE), fov(DEFAULT_FOV), viewall(false), autocenter(false)
@@ -224,7 +434,7 @@ index 766387736..43631fffb 100644
    auto bgcol = ColorMap::getColor(*this->colorscheme, RenderColor::BACKGROUND_COLOR);
    auto axescolor = ColorMap::getColor(*this->colorscheme, RenderColor::AXES_COLOR);
 diff --git a/src/GLView.h b/src/GLView.h
-index 1fcd31bc8..4df9560bf 100644
+index 1fcd31bc8..2e6f49b13 100644
 --- a/src/GLView.h
 +++ b/src/GLView.h
 @@ -2,20 +2,20 @@
@@ -271,9 +481,9 @@ index 1fcd31bc8..4df9560bf 100644
  	void setCamera(const Camera &cam);
  	void setupCamera() const;
  
-+  void setup3dCamera(bool leftCamera);
-+  void paintOnce();
-+  void anaglyphHalfColor();
++	void setup3dCamera(bool leftCamera);
++	void paintOnce();
++	void anaglyphHalfColor();
 +
  	void setColorScheme(const ColorScheme &cs);
  	void setColorScheme(const std::string &cs);
@@ -384,6 +594,53 @@ index aa857908a..6f20d6b54 100644
  }
  
  void Builtins::initKeywordList()
+diff --git a/src/colormap.cc b/src/colormap.cc
+index 6b794be17..71b035635 100644
+--- a/src/colormap.cc
++++ b/src/colormap.cc
+@@ -37,6 +37,7 @@ RenderColorScheme::RenderColorScheme() : _path("")
+   _show_in_gui = true;
+ 
+   _color_scheme.insert(ColorScheme::value_type(RenderColor::BACKGROUND_COLOR, Color4f(0xff, 0xff, 0xe5)));
++  _color_scheme.insert(ColorScheme::value_type(RenderColor::HIGHLIGHT_COLOR, Color4f(0xff, 0x51, 0x51, 0x80))); // 50% transparencency
+   _color_scheme.insert(ColorScheme::value_type(RenderColor::AXES_COLOR, Color4f(0x00, 0x00, 0x00)));
+   _color_scheme.insert(ColorScheme::value_type(RenderColor::OPENCSG_FACE_FRONT_COLOR, Color4f(0xf9, 0xd7, 0x2c)));
+   _color_scheme.insert(ColorScheme::value_type(RenderColor::OPENCSG_FACE_BACK_COLOR, Color4f(0x9d, 0xcb, 0x51)));
+@@ -58,6 +59,7 @@ RenderColorScheme::RenderColorScheme(fs::path path) : _path(path)
+ 	_show_in_gui = pt.get<bool>("show-in-gui");
+ 	
+ 	addColor(RenderColor::BACKGROUND_COLOR, "background");
++	addColor(RenderColor::HIGHLIGHT_COLOR, "highlight");
+ 	addColor(RenderColor::AXES_COLOR, "axes-color");
+ 	addColor(RenderColor::OPENCSG_FACE_FRONT_COLOR, "opencsg-face-front");
+ 	addColor(RenderColor::OPENCSG_FACE_BACK_COLOR, "opencsg-face-back");
+@@ -132,6 +134,14 @@ void RenderColorScheme::addColor(RenderColor colorKey, std::string key)
+     int g = (val >> 8) & 0xff;
+     int b = val & 0xff;
+     _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b)));
++  } else if ((color.length() == 9) && (color.at(0) == '#')) {
++    char *endptr;
++    unsigned int val = strtol(color.substr(1).c_str(), &endptr, 16);
++    int r = (val >> 24) & 0xff;
++    int g = (val >> 16) & 0xff;
++    int b = (val >> 8) & 0xff;
++    int a = val & 0xff;
++    _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b, a)));
+   }
+   else {
+     throw std::invalid_argument(std::string("invalid color value for key '") + key + "': '" + color + "'");
+diff --git a/src/colormap.h b/src/colormap.h
+index a0dd9c350..2567f23d6 100644
+--- a/src/colormap.h
++++ b/src/colormap.h
+@@ -13,6 +13,7 @@ namespace fs = boost::filesystem;
+ 
+ enum class RenderColor {
+ 	BACKGROUND_COLOR,
++	HIGHLIGHT_COLOR,
+ 	AXES_COLOR,
+ 	OPENCSG_FACE_FRONT_COLOR,
+ 	OPENCSG_FACE_BACK_COLOR,
 diff --git a/src/mainwin.cc b/src/mainwin.cc
 index c5edddeec..6819854d7 100755
 --- a/src/mainwin.cc
@@ -454,5 +711,17 @@ index c5edddeec..6819854d7 100755
 +	this->qglview->setOrthoMode(false);
 +	this->qglview->setAnaglyphMode(true);
  	this->qglview->updateGL();
+ }
+ 
+diff --git a/src/renderer.cc b/src/renderer.cc
+index 7964e1961..b3b9e12ad 100644
+--- a/src/renderer.cc
++++ b/src/renderer.cc
+@@ -241,6 +241,7 @@ void Renderer::setColorScheme(const ColorScheme &cs) {
+ 	colormap[ColorMode::MATERIAL_EDGES] = ColorMap::getColor(cs, RenderColor::CGAL_EDGE_FRONT_COLOR);
+ 	colormap[ColorMode::CUTOUT_EDGES] = ColorMap::getColor(cs, RenderColor::CGAL_EDGE_BACK_COLOR);
+ 	colormap[ColorMode::EMPTY_SPACE] = ColorMap::getColor(cs, RenderColor::BACKGROUND_COLOR);
++	colormap[ColorMode::HIGHLIGHT] = ColorMap::getColor(cs, RenderColor::HIGHLIGHT_COLOR);
+ 	this->colorscheme = &cs;
  }
  
