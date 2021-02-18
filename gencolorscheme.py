@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 # print openscad color scheme
+#
+# $ ./gencolorscheme.py > redcyanglasses.json
+#
 
 import colorsys
 
