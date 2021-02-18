@@ -51,12 +51,15 @@ index 9ce164fdc..f5179c583 100644
          "opencsg-face-back" :  "#0babc8",
 diff --git a/color-schemes/render/gencolorscheme.py b/color-schemes/render/gencolorscheme.py
 new file mode 100755
-index 000000000..1b6d55d17
+index 000000000..d876a8637
 --- /dev/null
 +++ b/color-schemes/render/gencolorscheme.py
-@@ -0,0 +1,55 @@
+@@ -0,0 +1,58 @@
 +#!/usr/bin/python3
 +# print openscad color scheme
++#
++# $ ./gencolorscheme.py > redcyanglasses.json
++#
 +
 +import colorsys
 +
@@ -148,7 +151,7 @@ index 6250e7a33..b71ec0b44 100644
          "opencsg-face-back" :  "#dbf4da",
 diff --git a/color-schemes/render/redcyanglasses.json b/color-schemes/render/redcyanglasses.json
 new file mode 100644
-index 000000000..391d65018
+index 000000000..94a843c6f
 --- /dev/null
 +++ b/color-schemes/render/redcyanglasses.json
 @@ -0,0 +1,22 @@
@@ -595,7 +598,7 @@ index aa857908a..6f20d6b54 100644
  
  void Builtins::initKeywordList()
 diff --git a/src/colormap.cc b/src/colormap.cc
-index 6b794be17..71b035635 100644
+index 6b794be17..5a04135db 100644
 --- a/src/colormap.cc
 +++ b/src/colormap.cc
 @@ -37,6 +37,7 @@ RenderColorScheme::RenderColorScheme() : _path("")
@@ -614,18 +617,24 @@ index 6b794be17..71b035635 100644
  	addColor(RenderColor::AXES_COLOR, "axes-color");
  	addColor(RenderColor::OPENCSG_FACE_FRONT_COLOR, "opencsg-face-front");
  	addColor(RenderColor::OPENCSG_FACE_BACK_COLOR, "opencsg-face-back");
-@@ -132,6 +134,14 @@ void RenderColorScheme::addColor(RenderColor colorKey, std::string key)
+@@ -125,13 +127,18 @@ void RenderColorScheme::addColor(RenderColor colorKey, std::string key)
+ {
+   const boost::property_tree::ptree &colors = pt.get_child("colors");
+   std::string color = colors.get<std::string>(key);
+-  if ((color.length() == 7) && (color.at(0) == '#')) {
++  if (((color.length() == 7) || (color.length() == 9)) && (color.at(0) == '#')) {
+     char *endptr;
+     unsigned int val = strtol(color.substr(1).c_str(), &endptr, 16);
+     int r = (val >> 16) & 0xff;
      int g = (val >> 8) & 0xff;
      int b = val & 0xff;
-     _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b)));
-+  } else if ((color.length() == 9) && (color.at(0) == '#')) {
-+    char *endptr;
-+    unsigned int val = strtol(color.substr(1).c_str(), &endptr, 16);
-+    int r = (val >> 24) & 0xff;
-+    int g = (val >> 16) & 0xff;
-+    int b = (val >> 8) & 0xff;
-+    int a = val & 0xff;
-+    _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b, a)));
+-    _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b)));
++    if (color.length() == 7)
++      _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b)));
++    else {
++      unsigned int a = strtol(color.substr(7).c_str(), &endptr, 16);
++      _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b, a)));
++    }
    }
    else {
      throw std::invalid_argument(std::string("invalid color value for key '") + key + "': '" + color + "'");
