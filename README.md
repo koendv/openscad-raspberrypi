@@ -28,15 +28,15 @@ If you like this, maybe you want to buy me a cup of tea:
 - Choose the "3D Glasses" color scheme. From the menu, choose *Edit->Preferences->3D View*.
 Select color scheme "3D Glasses".
 
-- Switch displaying axis off. ![axes](images/blackaxes.png) The mind rebels if an axis sticks out of the screen, coming straight at you. To me, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
+- Switch axis ![axes](images/blackaxes.png) off.  The mind rebels if an axis sticks out of the screen, coming straight at you. Also, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
 
 - Click the render icon ![render](images/render-32.png) to render your object.
 
 - Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode.
 
-- Put on 3D glasses
+- Put 3D glasses on.
 
-- Zoom out until the whole object is visible ![view all](images/zoom-all.png).
+- Zoom out ![view all](images/zoom-all.png) until the whole object is visible.
 
 - Press *Ctrl* and rotate the mouse scroll wheel to adjust the eye separation. Too little eye separation and the 3D effect disappears; too much and you get eyestrain. Adjust for your viewing comfort.
 
@@ -46,11 +46,11 @@ Select color scheme "3D Glasses".
 
 [![colorwheel](images/colorwheel.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorwheel.svg)
 
-The glasses used to see 3D anaglyphs have red lenses for the left eye, cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours; opposed on the colour wheel.
+The glasses used to see 3D anaglyphs have red lenses for the left eye, cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours; in opposite positions on the colour wheel.
 
 To see depth, both eyes need to see an image. If an object has pure red or cyan color, the depth illusion will fail. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the blue-green lens. Colors suitable for anaglyph  are those that can be seen through both lenses. This includes greys, greens (hue around 75) and purple (hue around 285).
 
-Because the color filters are not perfect, crosstalk may occur: a bit of the image for the left eye is seen by the right eye, and the other way round. If a color has strong green but weak red, the green may be so strong that it persists even after filtering. The left eye then sees the image for the right eye, superimposed on the image for the left eye. To lessen this effect, called *ghosting*, saturated colors should be avoided.
+If a color has strong green but weak red, the green may be so strong that it persists even after filtering. The left eye then sees a weak image for the right eye, superimposed on the image for the left eye. To lessen this effect, called *ghosting*, saturated colors should be avoided.
 
 Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlight. The color scheme "3D Glasses" uses greens and purples for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
