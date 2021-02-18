@@ -17,7 +17,7 @@ def hsv(h, s, v):
 
 # color scheme
 background =         rgb(255,255,255)
-highlight =          hsv(0,0,75)
+highlight =          hsv(0,0,20)
 axes_color =         hsv(290,50,100)
 opencsg_face_front = hsv(75,50,100)
 opencsg_face_back =  hsv(285,50,100)

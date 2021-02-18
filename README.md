@@ -18,15 +18,15 @@ You need red/cyan colored glasses to see the 3D effect.
 - [Binary](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi.
 - [Patch](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/anaglyph.patch) and [icon](images/Anaglyph-32.png) for compiling openscad with support for 3D glasses.
 
-Source and binary are free, of course, but if you want to buy me a cup of tea I won't say no:
+If you like this, maybe you want to buy me a cup of tea:
 
 [![ko-fi](images/kofibutton.svg)](https://ko-fi.com/Q5Q03LPDQ)
 ## Usage
 
 - Start OpenSCAD and load your .scad source file.
 
-- Choose the "Ash" color scheme to get monochrome gray output. From the menu, choose *Edit->Preferences->3D View*.
-Select color scheme "Ash".
+- Choose the "3D Glasses" color scheme. From the menu, choose *Edit->Preferences->3D View*.
+Select color scheme "3D Glasses".
 
 - Switch displaying axis off. The mind rebels if an axis sticks out of the screen, coming straigh at you. To me, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
 
@@ -36,7 +36,7 @@ Select color scheme "Ash".
 
 - Put on 3D glasses
 
-- Zoom out until the whole object is visible.
+- Zoom out until the whole object is visible ![view all](images/zoom-all.png).
 
 - Press *Ctrl* and rotate the mouse scroll wheel to adjust the eye separation. Too little eye separation and the 3D effect disappears; too much and you get eyestrain. Adjust for your viewing comfort.
 
@@ -52,7 +52,7 @@ If an object has pure red or cyan color, the depth illusion will fail. To see de
 
 Because the color filters are not perfect, crosstalk may occur: a bit of the image for the left eye is seen by the right eye, and the other way round. This usually occurs with saturated colors. If a color has strong green but weak red, the green may be so strong that it persists even after filtering. The left eye then sees the image for the right eye, superimposed on the image for the left eye. To lessen this effect, called *ghosting*, saturated colors should be avoided.
 
-The color scheme "3D Glasses" uses unsaturated greens and purples. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
+Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlight. The color scheme "3D Glasses" uses greens and purples for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
 ## Build notes
 

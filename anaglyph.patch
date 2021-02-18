@@ -74,7 +74,7 @@ index 000000000..1b6d55d17
 +
 +# color scheme
 +background =         rgb(255,255,255)
-+highlight =          hsv(0,0,75)
++highlight =          hsv(0,0,20)
 +axes_color =         hsv(290,50,100)
 +opencsg_face_front = hsv(75,50,100)
 +opencsg_face_back =  hsv(285,50,100)
@@ -161,7 +161,7 @@ index 000000000..391d65018
 +
 +    "colors" : {
 +        "background" :         "#ffffff",
-+        "highlight" :          "#bfbfbf80",
++        "highlight" :          "#33333380",
 +        "axes-color" :         "#ea80ff",
 +        "opencsg-face-front" : "#dfff80",
 +        "opencsg-face-back" :  "#df80ff",
