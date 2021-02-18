@@ -3,7 +3,7 @@
 
 ![Reel3D No. 7020 plastic flip-up clip-on](images/anaglyph_glasses.gif)
 
-This is the OpenSCAD CAD editor, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
+This is the OpenSCAD CAD modeller, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
 
 I use this to check a design before sending it to a 3D printer. The way I see it, if I spot an error before printing, even only once, these glasses have already paid for themselves.
 
@@ -28,7 +28,7 @@ If you like this, maybe you want to buy me a cup of tea:
 - Choose the "3D Glasses" color scheme. From the menu, choose *Edit->Preferences->3D View*.
 Select color scheme "3D Glasses".
 
-- Switch displaying axis off. The mind rebels if an axis sticks out of the screen, coming straigh at you. To me, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
+- Switch displaying axis off. ![axes](images/blackaxes.png) The mind rebels if an axis sticks out of the screen, coming straight at you. To me, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
 
 - Click the render icon ![render](images/render-32.png) to render your object.
 
@@ -48,11 +48,15 @@ Select color scheme "3D Glasses".
 
 The glasses used to see 3D anaglyphs have red lenses for the left eye, cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours; opposed on the colour wheel.
 
-If an object has pure red or cyan color, the depth illusion will fail. To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the blue-green lens. Colors suitable for anaglyph  are those that can be seen through both lenses.  This includes greys, greens (hue around 75) and purple (hue around 285).
+To see depth, both eyes need to see an image. If an object has pure red or cyan color, the depth illusion will fail. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the blue-green lens. Colors suitable for anaglyph  are those that can be seen through both lenses. This includes greys, greens (hue around 75) and purple (hue around 285).
 
-Because the color filters are not perfect, crosstalk may occur: a bit of the image for the left eye is seen by the right eye, and the other way round. This usually occurs with saturated colors. If a color has strong green but weak red, the green may be so strong that it persists even after filtering. The left eye then sees the image for the right eye, superimposed on the image for the left eye. To lessen this effect, called *ghosting*, saturated colors should be avoided.
+Because the color filters are not perfect, crosstalk may occur: a bit of the image for the left eye is seen by the right eye, and the other way round. If a color has strong green but weak red, the green may be so strong that it persists even after filtering. The left eye then sees the image for the right eye, superimposed on the image for the left eye. To lessen this effect, called *ghosting*, saturated colors should be avoided.
 
 Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlight. The color scheme "3D Glasses" uses greens and purples for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
+
+### References
+- [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that maps colors in colors suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures.
+
 
 ## Build notes
 
@@ -165,9 +169,6 @@ Run the AppImage on a clean install of the operating system to check all depende
 ### 32-bit version
 
 The 32-bit version for Raspberry Pi OS 2021-01-11-raspios-buster-armhf differs in that Qt5, lib3mf and QScintilla have been [compiled from source](https://github.com/koendv/qt5-opengl-raspberrypi).
-
-### References
-- [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/)
 
 ## Credits
 After a patch by Josef Pavlik
