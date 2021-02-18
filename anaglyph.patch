@@ -1,6 +1,6 @@
 diff --git a/color-schemes/render/ash.json b/color-schemes/render/ash.json
 new file mode 100644
-index 000000000..eb28280a3
+index 000000000..969038cc4
 --- /dev/null
 +++ b/color-schemes/render/ash.json
 @@ -0,0 +1,21 @@
@@ -12,7 +12,7 @@ index 000000000..eb28280a3
 +
 +    "colors" : {
 +        "background" :         "#fdfdfd",
-+        "highlight" :          "#51ff5180",
++        "highlight" :          "#ffff8080",
 +        "axes-color" :         "#000000",
 +        "opencsg-face-front" : "#d1d1d1",
 +        "opencsg-face-back" :  "#b8b8b8",
@@ -51,7 +51,7 @@ index 9ce164fdc..f5179c583 100644
          "opencsg-face-back" :  "#0babc8",
 diff --git a/color-schemes/render/gencolorscheme.py b/color-schemes/render/gencolorscheme.py
 new file mode 100755
-index 000000000..de90e6e3e
+index 000000000..1b6d55d17
 --- /dev/null
 +++ b/color-schemes/render/gencolorscheme.py
 @@ -0,0 +1,55 @@
@@ -74,20 +74,20 @@ index 000000000..de90e6e3e
 +
 +# color scheme
 +background =         rgb(255,255,255)
-+highlight =          hsv(60,50,80)
-+axes_color =         hsv(60,50,50)
-+opencsg_face_front = hsv(75,50,80)
-+opencsg_face_back =  hsv(285,50,80)
-+cgal_face_front =    hsv(75,50,90)
-+cgal_face_back =     hsv(285,50,80)
-+cgal_face_2d =       hsv(90,50,90)
-+cgal_edge_front =    hsv(75,50,90)
-+cgal_edge_back =     hsv(290,50,80)
-+cgal_edge_2d =       hsv(275,50,80)
-+crosshair =          hsv(0,0,50)
++highlight =          hsv(0,0,75)
++axes_color =         hsv(290,50,100)
++opencsg_face_front = hsv(75,50,100)
++opencsg_face_back =  hsv(285,50,100)
++cgal_face_front =    hsv(75,50,100)
++cgal_face_back =     hsv(285,50,100)
++cgal_face_2d =       hsv(90,50,100)
++cgal_edge_front =    hsv(75,50,100)
++cgal_edge_back =     hsv(290,50,100)
++cgal_edge_2d =       hsv(275,50,100)
++crosshair =          hsv(290,50,50)
 +
 +print (f'''{{
-+    "name" : "Red Cyan Glasses",
++    "name" : "3D Glasses",
 +    "index" : 2001,
 +    "show-in-gui" : true,
 +    "description" : "3d anaglyph",
@@ -148,12 +148,12 @@ index 6250e7a33..b71ec0b44 100644
          "opencsg-face-back" :  "#dbf4da",
 diff --git a/color-schemes/render/redcyanglasses.json b/color-schemes/render/redcyanglasses.json
 new file mode 100644
-index 000000000..2087ed474
+index 000000000..391d65018
 --- /dev/null
 +++ b/color-schemes/render/redcyanglasses.json
 @@ -0,0 +1,22 @@
 +{
-+    "name" : "Red Cyan Glasses",
++    "name" : "3D Glasses",
 +    "index" : 2001,
 +    "show-in-gui" : true,
 +    "description" : "3d anaglyph",
@@ -161,17 +161,17 @@ index 000000000..2087ed474
 +
 +    "colors" : {
 +        "background" :         "#ffffff",
-+        "highlight" :          "#cccc6680",
-+        "axes-color" :         "#808040",
-+        "opencsg-face-front" : "#b3cc66",
-+        "opencsg-face-back" :  "#b366cc",
-+        "cgal-face-front" :    "#c9e673",
-+        "cgal-face-back" :     "#b366cc",
-+        "cgal-face-2d" :       "#ace673",
-+        "cgal-edge-front" :    "#c9e673",
-+        "cgal-edge-back" :     "#bb66cc",
-+        "cgal-edge-2d" :       "#a266cc",
-+        "crosshair" :          "#808080"
++        "highlight" :          "#bfbfbf80",
++        "axes-color" :         "#ea80ff",
++        "opencsg-face-front" : "#dfff80",
++        "opencsg-face-back" :  "#df80ff",
++        "cgal-face-front" :    "#dfff80",
++        "cgal-face-back" :     "#df80ff",
++        "cgal-face-2d" :       "#bfff80",
++        "cgal-edge-front" :    "#dfff80",
++        "cgal-edge-back" :     "#ea80ff",
++        "cgal-edge-2d" :       "#ca80ff",
++        "crosshair" :          "#754080"
 +    }
 +}
 diff --git a/color-schemes/render/solarized.json b/color-schemes/render/solarized.json
@@ -251,7 +251,7 @@ index 0b143032c..247305a3b 100644
    </qresource>
  </RCC>
 diff --git a/src/Camera.cc b/src/Camera.cc
-index 4c13820d6..baf4d3ae0 100644
+index 4c13820d6..8ef77a43e 100644
 --- a/src/Camera.cc
 +++ b/src/Camera.cc
 @@ -1,22 +1,29 @@
@@ -263,7 +263,7 @@ index 4c13820d6..baf4d3ae0 100644
  
  static const double DEFAULT_DISTANCE = 140.0;
  static const double DEFAULT_FOV = 22.5;
-+static const float DEFAULT_EYE_SEPARATION = 65.0; // 65 mm avg. between human eyes
++static const float DEFAULT_EYE_SEPARATION = 35.0; // 65 mm avg. between human eyes
  
  Camera::Camera() :
  	projection(ProjectionType::PERSPECTIVE), fov(DEFAULT_FOV), viewall(false), autocenter(false)
