@@ -30,7 +30,7 @@ Select color scheme "3D Glasses".
 
 - Switch axis ![axes](images/blackaxes.png) off.  The mind rebels if an axis sticks out of the screen, coming straight at you. Also, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
 
-- Click the render icon ![render](images/render-32.png) to render your object.
+- Click the render icon ![render](images/render-32.png) to render your object. Movement is much more fluid once your design has been rendered.
 
 - Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode.
 
@@ -52,11 +52,10 @@ To see depth, both eyes need to see an image. If an object has pure red or cyan 
 
 If a color has strong green but weak red, the green may be so strong that it persists even after filtering. The left eye then sees a weak image for the right eye, superimposed on the image for the left eye. To lessen this effect, called *ghosting*, saturated colors should be avoided.
 
-Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlight. The color scheme "3D Glasses" uses greens and purples for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
+Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlights. The color scheme "3D Glasses" uses green for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
 ### References
 - [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that maps colors in colors suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures.
-
 
 ## Build notes
 
