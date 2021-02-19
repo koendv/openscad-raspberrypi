@@ -59,7 +59,7 @@ Apart from hue, saturation also plays a role. If a color has strong green but we
 Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlights. The color scheme "3D Glasses" uses green for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
 ### References
-- [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. This would be nice to have in OpenSCAD also.
+- [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. Dubois shading probably would be the best solution for OpenSCAD also.
 
 ## Build notes
 
