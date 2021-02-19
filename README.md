@@ -5,7 +5,7 @@
 
 This is the OpenSCAD CAD modeller, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
 
-I use 3D glasses to check a design before sending it to a 3D printer. The way I see it, if I spot an error before printing, even only once, these glasses have already paid for themselves.
+I use 3D glasses to check a design before sending the design to a 3D printer. The way I see it, if I spot an error before printing, even only once, these glasses have already paid for themselves.
 
 ## Sample screen
 
@@ -23,20 +23,20 @@ If you like this, maybe you want to buy me a cup of tea:
 [![ko-fi](images/kofibutton.svg)](https://ko-fi.com/Q5Q03LPDQ)
 ## Usage
 
-- Start OpenSCAD and load your .scad source file.
+- Start OpenSCAD and load your .scad source file. As an example, render the OpenSCAD logo. From the menu, choose *File->Examples->Basics->logo.scad*.
 
 - Choose the "3D Glasses" color scheme. From the menu, choose *Edit->Preferences->3D View*.
 Select color scheme "3D Glasses".
 
 - Switch axis ![axes](images/blackaxes.png) off.  The mind rebels if an axis sticks out of the screen, coming straight at you. Also, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
 
-- Click the render icon ![render](images/render-32.png) to render your object. Movement is much more fluid once your design has been rendered.
+- Click the render icon ![render](images/render-32.png) to render your object.
 
 - Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode.
 
 - Put 3D glasses on.
 
-- Zoom out ![view all](images/zoom-all.png) until the whole object is visible.
+- Reset view ![reset view](images/Command-Reset-32.png) and zoom out ![view all](images/zoom-all.png) so the whole object is visible.
 
 - Press *Ctrl* and rotate the mouse scroll wheel to adjust the eye separation. Too little eye separation and the 3D effect disappears; too much and you get eyestrain. Adjust for your viewing comfort.
 
@@ -48,14 +48,14 @@ Select color scheme "3D Glasses".
 
 The glasses used to see 3D anaglyphs have red lenses for the left eye, cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours; in opposite positions on the colour wheel.
 
-To see depth, both eyes need to see an image. If an object has pure red or cyan color, the depth illusion will fail. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the blue-green lens. Colors suitable for anaglyph  are those that can be seen through both lenses. This includes greys, greens (hue around 75) and purple (hue around 285).
+To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the blue-green lens. If an object has pure red or cyan color, the depth illusion will fail. Colors most suitable for anaglyph are a mix of red and cyan. This includes greys, greens (hue around 75) and purple (hue around 285).
 
-If a color has strong green but weak red, the green may be so strong that it persists even after filtering. The left eye then sees a weak image for the right eye, superimposed on the image for the left eye. To lessen this effect, called *ghosting*, saturated colors should be avoided.
+Apart from hue, saturation also plays a role. If a color has strong green but weak red, the green may be so strong that it persists even after filtering. The left eye then sees a weak image for the right eye, superimposed on the image for the left eye. To lessen this effect, called *ghosting*, saturated colors should be avoided.
 
 Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlights. The color scheme "3D Glasses" uses green for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
 ### References
-- [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that maps colors to colors suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. This would be nice to have in OpenSCAD alo.
+- [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. This would be nice to have in OpenSCAD also.
 
 ## Build notes
 
