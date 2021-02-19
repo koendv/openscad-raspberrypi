@@ -5,7 +5,7 @@
 
 This is the OpenSCAD CAD modeller, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
 
-I use this to check a design before sending it to a 3D printer. The way I see it, if I spot an error before printing, even only once, these glasses have already paid for themselves.
+I use 3D glasses to check a design before sending it to a 3D printer. The way I see it, if I spot an error before printing, even only once, these glasses have already paid for themselves.
 
 ## Sample screen
 
@@ -55,7 +55,7 @@ If a color has strong green but weak red, the green may be so strong that it per
 Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlights. The color scheme "3D Glasses" uses green for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
 ### References
-- [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that maps colors in colors suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures.
+- [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that maps colors to colors suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. This would be nice to have in OpenSCAD alo.
 
 ## Build notes
 
