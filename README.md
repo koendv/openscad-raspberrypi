@@ -23,6 +23,8 @@ If you like this, maybe you want to buy me a cup of tea:
 [![ko-fi](images/kofibutton.svg)](https://ko-fi.com/Q5Q03LPDQ)
 ## Usage
 
+A walk-through that shows how to see a model in anaglyph 3D.
+
 - Start OpenSCAD and load your .scad source file. As an example, render the OpenSCAD logo. From the menu, choose *File->Examples->Basics->logo.scad*.
 
 - Choose the "3D Glasses" color scheme. From the menu, choose *Edit->Preferences->3D View*.
@@ -40,9 +42,11 @@ Select color scheme "3D Glasses".
 
 - Press *Ctrl* and rotate the mouse scroll wheel to adjust the eye separation. Too little eye separation and the 3D effect disappears; too much and you get eyestrain. Adjust for your viewing comfort.
 
-- The built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.
-
+- The built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.  You can use this variable in your scripts.
+ 
 ## Colors
+
+Which colors are suitable for anaglyph 3D?
 
 [![colorwheel](images/colorwheel.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorwheel.svg)
 
