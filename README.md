@@ -50,17 +50,17 @@ Which colors are suitable for anaglyph 3D?
 
 [![colorwheel](images/colorwheel.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorwheel.svg)
 
-This color wheel shows all colors of the rainbow. The numbers are the color [hue](https://en.wikipedia.org/wiki/HSL_and_HSV), numbered from 0 to 360. 
+This color wheel shows all colors of the rainbow. The numbers are the color [hue](https://en.wikipedia.org/wiki/HSL_and_HSV), a number from 0 to 360. 
 
 The glasses used to see 3D anaglyphs have red lenses for the left eye, and cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours. Complementary colours are in opposite positions on the colour wheel.
 
-To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the blue-green lens. If an object has pure red or cyan color, the depth illusion will fail. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green (hue around 75) and purple (hue around 285).
+To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green (hue around 75) and purple (hue around 285).
 
-Apart from hue, saturation also plays a role. If a color has strong green but weak red, the green may be so strong that it persists even after filtering through the blue lens. The eye then sees two images superimposed. To lessen this effect, called *ghosting*, saturated colors should be avoided.
+Apart from hue, saturation also plays a role. If a color has strong green but weak red, the green may be so strong that it persists even after filtering through the cyan lens. The eye then sees two images superimposed. To lessen this effect, called *ghosting*, saturated colors should be avoided.
 
 Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlights. The color scheme "3D Glasses" uses green for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
-The ideal color scheme depends upon screen and glasses used. If you wanted to print anaglyphs, the colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the red lens, and once through the right lens, and this way determine the colors to use.
+The ideal color scheme depends upon screen and glasses used. If you wanted to print anaglyphs, the colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the red lens, and once through the right lens, and this way determine the best colors to use.
 
 ### References
 - [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. Dubois shading probably would be a good solution for OpenSCAD also.
