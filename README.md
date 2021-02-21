@@ -1,11 +1,9 @@
 
-# OpenSCAD w/ 3D
+# OpenSCAD with 3D glasses
 
 ![Reel3D No. 7020 plastic flip-up clip-on](images/anaglyph_glasses.gif)
 
-This is the OpenSCAD CAD modeller, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. Anaglyph 3D glasses are glasses with red and cyan colored lenses.
-
-I use 3D glasses to check a design before sending the design to a 3D printer. The way I see it, if I spot an error before printing, even only once, these glasses have already paid for themselves.
+This is the OpenSCAD CAD modeller, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. The anaglyph 3D glasses used are glasses with red and cyan colored lenses.
 
 ## Sample screen
 
@@ -42,11 +40,11 @@ Select color scheme "3D Glasses".
 
 - Press *Ctrl* and rotate the mouse scroll wheel to adjust the eye separation. Too little eye separation and the 3D effect disappears; too much and you get eyestrain. Adjust for your viewing comfort.
 
-- The built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.  You can use this variable in your scripts.
- 
-## Colors
+## Programming
 
-Which colors are suitable for anaglyph 3D?
+When programming OpenSCAD, the built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.  You can use this variable in your OpenSCAD scripts.
+ 
+## Which colors are suitable for anaglyph 3D?
 
 [![colorwheel](images/colorwheel.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorwheel.svg)
 
@@ -54,16 +52,18 @@ This color wheel shows all colors of the rainbow. The numbers are the color [hue
 
 The glasses used to see 3D anaglyphs have red lenses for the left eye, and cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours. Complementary colours are in opposite positions on the colour wheel.
 
-To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green (hue around 75) and purple (hue around 285).
+To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail because only one eye gets an image. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green (hue around 75) and purple (hue around 285).
 
 Apart from hue, saturation also plays a role. If a color has strong green but weak red, the green may be so strong that it persists even after filtering through the cyan lens. The eye then sees two images superimposed. To lessen this effect, called *ghosting*, saturated colors should be avoided.
 
+## Color Schemes
+
 Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlights. The color scheme "3D Glasses" uses green for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
-The ideal color scheme depends upon display and glasses used. If you wanted to print anaglyphs, the colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the red lens, and once through the right lens, and this way determine the best colors to use.
+The ideal color scheme depends upon display and glasses used. If you wanted to print anaglyphs, the ideal colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the red lens, and once through the right lens, and this way choose the colors to use.
 
-### References
-- [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. Dubois shading probably would be a good solution for OpenSCAD also.
+## Next step
+[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. Dubois shading probably would be a good solution for OpenSCAD also.
 
 ## Build notes
 
@@ -178,8 +178,12 @@ Run the AppImage on a clean install of the operating system to check all depende
 The 32-bit version for Raspberry Pi OS 2021-01-11-raspios-buster-armhf differs in that Qt5, lib3mf and QScintilla have been [compiled from source](https://github.com/koendv/qt5-opengl-raspberrypi). Configuration command line:
 ```
 qmake openscad.pro "PREFIX=/usr" "LIB3MF_INCLUDEPATH=/usr/include/Bindings/Cpp"  "LIB3MF_LIBPATH=-l3mf -lzip -lz"
-
 ```
+or. if using cmake, 
+```
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DLIB3MF_INCLUDE_DIRS=/usr/include/Bindings/Cpp "-DLIB3MF_LIBRARIES=-l3mf -lzip -lz" ..
+```
+
 
 ## Credits
 After a patch by Josef Pavlik
