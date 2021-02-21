@@ -60,7 +60,7 @@ Apart from hue, saturation also plays a role. If a color has strong green but we
 
 Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlights. The color scheme "3D Glasses" uses green for the object, and grey for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
-The ideal color scheme depends upon display and glasses used. If you wanted to print anaglyphs, the ideal colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the red lens, and once through the right lens, and this way choose the colors to use.
+The ideal color scheme depends upon display and glasses used. If you wanted to print anaglyphs, the ideal colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
 
 ## Next step
 [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. Dubois shading probably would be a good solution for OpenSCAD also.
