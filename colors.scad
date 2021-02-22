@@ -20,13 +20,13 @@ function hsv(h, s = 1, v = 1, a = 1, p, q, t) = (p == undef || q == undef || t =
 function hsv1(h, s, v) = hsv(h/360,s/100,v/100);
 
 // hue, saturation, and luminosity values
-hval= [60, 75, 90, 270, 285, 300];
-sval=  [0, 25, 50, 75, 100];
+hval = [60, 75, 90, 270, 285, 300];
+sval = [0, 25, 50, 75, 100];
 vval = [50, 75, 100];
 
 for (h = [0:5]) {
-    for (s =  [0:4]) {
-        for (v =  [0:2]) {
+    for (s = [0:4]) {
+        for (v = [0:2]) {
             translate([h*20, s*20, v*20])
             color(hsv1(hval[h],sval[s],vval[v]))
             cube(10, center=true);
