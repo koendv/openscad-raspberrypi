@@ -63,7 +63,10 @@ Two color schemes are provided. The color scheme "Ash" uses grey colors for the 
 The ideal color scheme depends upon display and glasses used. If you wanted to print anaglyphs, the ideal colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
 
 ## Next step
-[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. Programs like [citra](https://citra-emu.org/) and  [bino](https://bino3d.org/) implement a Dubois shader in OpenGL using textures. Dubois shading probably would be a good solution for OpenSCAD also.
+
+![Dubois shading](images/dubois.png)
+
+[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. The picture above shows on the inside a color wheel, and on the outside what the same colors look like when using Dubois shading. Dubois shading probably would be a good solution for OpenSCAD also. Next release.
 
 ## Build notes
 
