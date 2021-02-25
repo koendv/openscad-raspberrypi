@@ -72,7 +72,7 @@ The Dubois algorithm is designed to make 3D anaglyphs from two photographs. To m
 
 However, in OpenSCAD we are not taking pictures; we are *generating* pictures. OpenSCAD renders your model with the color scheme chosen in *Edit->Preferences->3D View->Color Scheme*. This includes surface front and back color, edge color, background color, highlight color. Instead of changing the color of millions of pixels of the rendered model, it is faster to only change the small number of colors of the color scheme. In 3D anaglyph mode, the colors of the color scheme, and the arguments of *color()* commands in user scripts, are changed in a way similar to the Dubois algorithm.
 
-The Dubois algorithm is applied to the pixels after rendering. This algorithm is applied to the colors before rendering. The result is a savings of tens of millions of multiplications and additions per frame.
+Comparing both, the Dubois algorithm is applied to the pixels after rendering. The algorithm used here in OpenSCAD is applied to the color before rendering. The result is a savings of tens of millions of multiplications and additions per frame.
 
 A small walkthrough to see the algorithm at work:
 
