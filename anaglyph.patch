@@ -1,6 +1,18 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1f8f44ef1..33a04426c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -423,6 +423,7 @@ set(CORE_SOURCES
+   src/csgnode.cc
+   src/csgops.cc
+   src/degree_trig.cc
++  src/dubois.cc
+   src/dxfdata.cc
+   src/dxfdim.cc
+   src/evalcontext.cc
 diff --git a/color-schemes/render/ash.json b/color-schemes/render/ash.json
 new file mode 100644
-index 000000000..969038cc4
+index 000000000..c1f1f6c75
 --- /dev/null
 +++ b/color-schemes/render/ash.json
 @@ -0,0 +1,21 @@
@@ -12,7 +24,7 @@ index 000000000..969038cc4
 +
 +    "colors" : {
 +        "background" :         "#fdfdfd",
-+        "highlight" :          "#ffff8080",
++        "highlight" :          "#df80ff80",
 +        "axes-color" :         "#000000",
 +        "opencsg-face-front" : "#d1d1d1",
 +        "opencsg-face-back" :  "#b8b8b8",
@@ -51,7 +63,7 @@ index 9ce164fdc..f5179c583 100644
          "opencsg-face-back" :  "#0babc8",
 diff --git a/color-schemes/render/gencolorscheme.py b/color-schemes/render/gencolorscheme.py
 new file mode 100755
-index 000000000..d876a8637
+index 000000000..b09b99001
 --- /dev/null
 +++ b/color-schemes/render/gencolorscheme.py
 @@ -0,0 +1,58 @@
@@ -69,7 +81,7 @@ index 000000000..d876a8637
 +  hexval = hex(256*256*256+r*256*256+g*256+b)
 +  return hexval[3:9]
 +
-+# print rgb as hex string
++# print hsv as hex string
 +# h=0..360, s=0..100, v=0..100
 +def hsv(h, s, v):
 +  color = tuple(int(round(i * 255)) for i in colorsys.hsv_to_rgb(h/360.0,s/100.0,v/100.0))
@@ -437,7 +449,7 @@ index 766387736..43631fffb 100644
    auto bgcol = ColorMap::getColor(*this->colorscheme, RenderColor::BACKGROUND_COLOR);
    auto axescolor = ColorMap::getColor(*this->colorscheme, RenderColor::AXES_COLOR);
 diff --git a/src/GLView.h b/src/GLView.h
-index 1fcd31bc8..2e6f49b13 100644
+index 1fcd31bc8..d43a7843b 100644
 --- a/src/GLView.h
 +++ b/src/GLView.h
 @@ -2,20 +2,20 @@
@@ -471,15 +483,6 @@ index 1fcd31bc8..2e6f49b13 100644
  
  #include <Eigen/Core>
  #include <Eigen/Geometry>
-@@ -29,7 +29,7 @@ class GLView
- {
- public:
- 	GLView();
--	void setRenderer(class Renderer* r);
-+	void setRenderer(class Renderer *r);
- 	Renderer *getRenderer() const { return this->renderer; }
- 
- 	void initializeGL();
 @@ -39,6 +39,10 @@ public:
  	void setCamera(const Camera &cam);
  	void setupCamera() const;
@@ -491,15 +494,6 @@ index 1fcd31bc8..2e6f49b13 100644
  	void setColorScheme(const ColorScheme &cs);
  	void setColorScheme(const std::string &cs);
  	void updateColorScheme();
-@@ -58,7 +62,7 @@ public:
- 	virtual std::string getRendererInfo() const = 0;
- 	virtual float getDPI() { return 1.0f; }
- 
--	virtual ~GLView(){};
-+	virtual ~GLView() {}
- 
- 	Renderer *renderer;
- 	const ColorScheme *colorscheme;
 diff --git a/src/MainWindow.h b/src/MainWindow.h
 index aaed0e139..25f08b381 100644
 --- a/src/MainWindow.h
@@ -650,11 +644,79 @@ index a0dd9c350..2567f23d6 100644
  	AXES_COLOR,
  	OPENCSG_FACE_FRONT_COLOR,
  	OPENCSG_FACE_BACK_COLOR,
+diff --git a/src/dubois.cc b/src/dubois.cc
+new file mode 100644
+index 000000000..e1ab8c702
+--- /dev/null
++++ b/src/dubois.cc
+@@ -0,0 +1,37 @@
++#include "dubois.h"
++
++bool change_color = false;
++
++void duboisOn() {
++  change_color = true;
++}
++
++void duboisOff() {
++  change_color = false;
++}
++
++/* Calculate Dubois color. Assume left and right image are the same. */
++
++Color4f duboisColor(Color4f c_in) {
++  Color4f c_out;
++  if (change_color) {
++
++    // values for lcd
++    // from "Producing Anaglyphs from Synthetic Images",
++    // https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.7.6968&rep=rep1&type=pdf#page=4
++
++    c_out[0] = (0.4561   -.0434706)*c_in[0]+ ( .500484 -.0879388)*c_in[1]+( .176381 -0.00155529)*c_in[2];
++    c_out[1] = (-.0400822+.378476) *c_in[0]+ (-.0378246+.73364)  *c_in[1]+(-.0157589 -.0184503) *c_in[2];
++    c_out[2] = (-.0152161-.0721527)*c_in[0]+ (-.0205971-.112961) *c_in[1]+(-.00546856+1.2264)   *c_in[2];
++    c_out[3] = c_in[3];
++
++    for (int i = 0; i < 3; i++) {
++      if (c_out[i] < 0.0) c_out[i] = 0.0;
++      else if (c_out[i] > 1.0) c_out[i] = 1.0;
++    }
++  } else {
++    c_out = c_in;
++  }
++  return c_out;
++}
++// not truncated
+diff --git a/src/dubois.h b/src/dubois.h
+new file mode 100644
+index 000000000..21ce503cc
+--- /dev/null
++++ b/src/dubois.h
+@@ -0,0 +1,11 @@
++#ifndef DUBOIS_H
++#define DUBOIS_H
++
++#include <linalg.h>
++
++static bool use_dubois;
++void duboisOn();
++void duboisOff();
++Color4f duboisColor(Color4f c_in);
++
++#endif
 diff --git a/src/mainwin.cc b/src/mainwin.cc
-index c5edddeec..6819854d7 100755
+index c5edddeec..8ed4d07b6 100755
 --- a/src/mainwin.cc
 +++ b/src/mainwin.cc
-@@ -445,6 +445,7 @@ MainWindow::MainWindow(const QStringList &filenames)
+@@ -43,6 +43,7 @@
+ #include "modcontext.h"
+ #include "progress.h"
+ #include "dxfdim.h"
++#include "dubois.h"
+ #include "settings.h"
+ #include "AboutDialog.h"
+ #include "FontListDialog.h"
+@@ -445,6 +446,7 @@ MainWindow::MainWindow(const QStringList &filenames)
  	connect(this->viewActionViewAll, SIGNAL(triggered()), this, SLOT(viewAll()));
  	connect(this->viewActionPerspective, SIGNAL(triggered()), this, SLOT(viewPerspective()));
  	connect(this->viewActionOrthogonal, SIGNAL(triggered()), this, SLOT(viewOrthogonal()));
@@ -662,7 +724,7 @@ index c5edddeec..6819854d7 100755
  	connect(this->viewActionZoomIn, SIGNAL(triggered()), qglview, SLOT(ZoomIn()));
  	connect(this->viewActionZoomOut, SIGNAL(triggered()), qglview, SLOT(ZoomOut()));
  	connect(this->viewActionHideEditorToolBar, SIGNAL(triggered()), this, SLOT(hideEditorToolbar()));
-@@ -752,10 +753,12 @@ void MainWindow::loadViewSettings(){
+@@ -752,10 +754,12 @@ void MainWindow::loadViewSettings(){
  		viewModeShowCrosshairs();
  	}
  	if (settings.value("view/showScaleProportional", true).toBool()) {
@@ -679,7 +741,7 @@ index c5edddeec..6819854d7 100755
  		viewOrthogonal();
  	} else {
  		viewPerspective();
-@@ -2773,9 +2776,13 @@ void MainWindow::viewPerspective()
+@@ -2773,9 +2777,14 @@ void MainWindow::viewPerspective()
  {
  	QSettingsCached settings;
  	settings.setValue("view/orthogonalProjection",false);
@@ -687,13 +749,14 @@ index c5edddeec..6819854d7 100755
  	viewActionPerspective->setChecked(true);
  	viewActionOrthogonal->setChecked(false);
 +	viewActionAnaglyph->setChecked(false);
++	duboisOff();
 +	this->top_ctx->set_variable("$anaglyph", Value(false));
  	this->qglview->setOrthoMode(false);
 +	this->qglview->setAnaglyphMode(false);
  	this->qglview->updateGL();
  }
  
-@@ -2783,9 +2790,28 @@ void MainWindow::viewOrthogonal()
+@@ -2783,9 +2792,30 @@ void MainWindow::viewOrthogonal()
  {
  	QSettingsCached settings;
  	settings.setValue("view/orthogonalProjection",true);
@@ -702,6 +765,7 @@ index c5edddeec..6819854d7 100755
  	viewActionPerspective->setChecked(false);
  	viewActionOrthogonal->setChecked(true);
 +	viewActionAnaglyph->setChecked(false);
++	duboisOff();
 +	this->top_ctx->set_variable("$anaglyph", Value(false));
  	this->qglview->setOrthoMode(true);
 +	this->qglview->setAnaglyphMode(false);
@@ -716,6 +780,7 @@ index c5edddeec..6819854d7 100755
 +	viewActionPerspective->setChecked(false);
 +	viewActionOrthogonal->setChecked(false);
 +	viewActionAnaglyph->setChecked(true);
++	duboisOn();
 +	this->top_ctx->set_variable("$anaglyph", Value(true));
 +	this->qglview->setOrthoMode(false);
 +	this->qglview->setAnaglyphMode(true);
@@ -723,14 +788,62 @@ index c5edddeec..6819854d7 100755
  }
  
 diff --git a/src/renderer.cc b/src/renderer.cc
-index 7964e1961..b3b9e12ad 100644
+index 7964e1961..6afd150cd 100644
 --- a/src/renderer.cc
 +++ b/src/renderer.cc
-@@ -241,6 +241,7 @@ void Renderer::setColorScheme(const ColorScheme &cs) {
- 	colormap[ColorMode::MATERIAL_EDGES] = ColorMap::getColor(cs, RenderColor::CGAL_EDGE_FRONT_COLOR);
- 	colormap[ColorMode::CUTOUT_EDGES] = ColorMap::getColor(cs, RenderColor::CGAL_EDGE_BACK_COLOR);
- 	colormap[ColorMode::EMPTY_SPACE] = ColorMap::getColor(cs, RenderColor::BACKGROUND_COLOR);
-+	colormap[ColorMode::HIGHLIGHT] = ColorMap::getColor(cs, RenderColor::HIGHLIGHT_COLOR);
+@@ -9,6 +9,7 @@
+ 
+ #include "polyset-utils.h"
+ #include "grid.h"
++#include "dubois.h"
+ #include <Eigen/LU>
+ 
+ Renderer::Renderer() : colorscheme(nullptr)
+@@ -236,11 +237,12 @@ represented in the colorscheme (yet). Also edgecolors are currently the
+ same for CGAL & OpenCSG */
+ void Renderer::setColorScheme(const ColorScheme &cs) {
+ 	PRINTD("setColorScheme");
+-	colormap[ColorMode::MATERIAL] = ColorMap::getColor(cs, RenderColor::OPENCSG_FACE_FRONT_COLOR);
+-	colormap[ColorMode::CUTOUT] = ColorMap::getColor(cs, RenderColor::OPENCSG_FACE_BACK_COLOR);
+-	colormap[ColorMode::MATERIAL_EDGES] = ColorMap::getColor(cs, RenderColor::CGAL_EDGE_FRONT_COLOR);
+-	colormap[ColorMode::CUTOUT_EDGES] = ColorMap::getColor(cs, RenderColor::CGAL_EDGE_BACK_COLOR);
+-	colormap[ColorMode::EMPTY_SPACE] = ColorMap::getColor(cs, RenderColor::BACKGROUND_COLOR);
++	colormap[ColorMode::MATERIAL] = duboisColor(ColorMap::getColor(cs, RenderColor::OPENCSG_FACE_FRONT_COLOR));
++	colormap[ColorMode::CUTOUT] = duboisColor(ColorMap::getColor(cs, RenderColor::OPENCSG_FACE_BACK_COLOR));
++	colormap[ColorMode::MATERIAL_EDGES] = duboisColor(ColorMap::getColor(cs, RenderColor::CGAL_EDGE_FRONT_COLOR));
++	colormap[ColorMode::CUTOUT_EDGES] = duboisColor(ColorMap::getColor(cs, RenderColor::CGAL_EDGE_BACK_COLOR));
++	colormap[ColorMode::EMPTY_SPACE] = duboisColor(ColorMap::getColor(cs, RenderColor::BACKGROUND_COLOR));
++	colormap[ColorMode::HIGHLIGHT] = duboisColor(ColorMap::getColor(cs, RenderColor::HIGHLIGHT_COLOR));
  	this->colorscheme = &cs;
  }
+ 
+diff --git a/src/state.h b/src/state.h
+index ca07f3a6f..1e60671c7 100644
+--- a/src/state.h
++++ b/src/state.h
+@@ -2,6 +2,7 @@
+ 
+ #include <cstring>
+ #include "linalg.h"
++#include "dubois.h"
+ 
+ #define FLAG(var, flag, on) on ? (var |= flag) : (var &= ~flag)
+ 
+@@ -14,7 +15,7 @@ public:
+ 		this->color_.fill(-1.0f);
+ 	}
+   virtual ~State() {}
+-  
++
+   void setPrefix(bool on) { FLAG(this->flags, PREFIX, on); }
+   void setPostfix(bool on) { FLAG(this->flags, POSTFIX, on); }
+   void setHighlight(bool on) { FLAG(this->flags, HIGHLIGHT, on); }
+@@ -22,7 +23,7 @@ public:
+   void setNumChildren(unsigned int numc) { this->numchildren = numc; }
+   void setParent(const AbstractNode *parent) { this->parentnode = parent; }
+ 	void setMatrix(const Transform3d &m) { this->matrix_ = m; }
+-	void setColor(const Color4f &c) { this->color_ = c; }
++	void setColor(const Color4f &c) { this->color_ = duboisColor(c); }
+ 	void setPreferNef(bool on) { FLAG(this->flags, PREFERNEF, on); }
+ 	bool preferNef() const { return this->flags & PREFERNEF; }
  
