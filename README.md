@@ -84,6 +84,8 @@ A small walkthrough to see the algorithm at work:
 
 - Click preview ![render](images/preview-32.png) again. Because OpenSCAD is in anaglyph mode, the model is rendered with Dubois colors. The colors are changed, especially red and cyan, and now all four objects are easily viewed in 3D. [Screenshot after Dubois](images/after_dubois.png)
 
+- Click perspective view ![perspective view](images/perspective1.png) to return to normal 2D view and preview ![render](images/preview-32.png) to restore normal colors.
+
 ## Build notes
 
 These are build notes on compiling [OpenSCAD](http://www.openscad.org) to an [AppImage](http://www.appimage.org) on a [raspberry pi 4](https://www.raspberrypi.org) running 2020-08-20-raspios-buster-arm64.
