@@ -616,7 +616,7 @@ index 6b794be17..71b035635 100644
      _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b)));
 +  } else if ((color.length() == 9) && (color.at(0) == '#')) {
 +    char *endptr;
-+    unsigned int val = strtol(color.substr(1).c_str(), &endptr, 16);
++    unsigned long int val = strtoul(color.substr(1).c_str(), &endptr, 16);
 +    int r = (val >> 24) & 0xff;
 +    int g = (val >> 16) & 0xff;
 +    int b = (val >> 8) & 0xff;
