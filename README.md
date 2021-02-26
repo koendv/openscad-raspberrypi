@@ -58,7 +58,7 @@ Apart from hue, saturation also plays a role. If a color has strong green but we
 
 ## Color Schemes
 
-Two color schemes are provided. The color scheme "Ash" uses grey colors for the object, and green for the highlights. The color scheme "3D Glasses" uses green for the object, and purple for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
+A color schemeis provided. The color scheme "3D Glasses" uses green for the object, and purple for the highlight. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
 The ideal color scheme depends upon display and glasses used. If you wanted to print anaglyphs, the ideal colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
 
