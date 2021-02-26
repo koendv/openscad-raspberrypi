@@ -1,8 +1,14 @@
+commit 0add1367d9a8d2b18aa1f4aa6d66635d6a8e31f3
+Author: Koen De Vleeschauwer <kdv@kdvelectronics.eu>
+Date:   Fri Feb 26 11:19:42 2021 +0100
+
+    anaglyph
+
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 1f8f44ef1..33a04426c 100644
+index a0646c1df..692199d4b 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -423,6 +423,7 @@ set(CORE_SOURCES
+@@ -466,6 +466,7 @@ set(CORE_SOURCES
    src/csgnode.cc
    src/csgops.cc
    src/degree_trig.cc
@@ -10,33 +16,6 @@ index 1f8f44ef1..33a04426c 100644
    src/dxfdata.cc
    src/dxfdim.cc
    src/evalcontext.cc
-diff --git a/color-schemes/render/ash.json b/color-schemes/render/ash.json
-new file mode 100644
-index 000000000..c1f1f6c75
---- /dev/null
-+++ b/color-schemes/render/ash.json
-@@ -0,0 +1,21 @@
-+{
-+    "name" : "Ash",
-+    "index" : 2000,
-+    "show-in-gui" : true,
-+    "description" : "monochrome version of Cornfield",
-+
-+    "colors" : {
-+        "background" :         "#fdfdfd",
-+        "highlight" :          "#df80ff80",
-+        "axes-color" :         "#000000",
-+        "opencsg-face-front" : "#d1d1d1",
-+        "opencsg-face-back" :  "#b8b8b8",
-+        "cgal-face-front" :    "#d1d1d1",
-+        "cgal-face-back" :     "#b8b8b8",
-+        "cgal-face-2d" :       "#939393",
-+        "cgal-edge-front" :    "#e5e5e5",
-+        "cgal-edge-back" :     "#c5c5c5",
-+        "cgal-edge-2d" :       "#363636",
-+        "crosshair" :          "#1b1b1b"
-+    }
-+}
 diff --git a/color-schemes/render/beforedawn.json b/color-schemes/render/beforedawn.json
 index d4d98bba9..0f05c2f85 100644
 --- a/color-schemes/render/beforedawn.json
@@ -253,6 +232,26 @@ diff --git a/images/Anaglyph-32.png b/images/Anaglyph-32.png
 new file mode 100644
 index 000000000..b7bc5c4a0
 Binary files /dev/null and b/images/Anaglyph-32.png differ
+diff --git a/openscad.pro b/openscad.pro
+index 20b39b553..b837e037c 100755
+--- a/openscad.pro
++++ b/openscad.pro
+@@ -281,6 +281,7 @@ HEADERS += src/version_check.h \
+            src/settings.h \
+            src/rendersettings.h \
+            src/colormap.h \
++           src/dubois.h \
+            src/ThrownTogetherRenderer.h \
+            src/CGAL_OGL_Polyhedron.h \
+            src/QGLView.h \
+@@ -520,6 +521,7 @@ SOURCES += \
+            src/renderer.cc \
+ 	   src/VertexArray.cc \
+            src/VBORenderer.cc \
++           src/dubois.cc \
+            src/colormap.cc \
+            src/ThrownTogetherRenderer.cc \
+            src/svg.cc \
 diff --git a/openscad.qrc b/openscad.qrc
 index 0b143032c..247305a3b 100644
 --- a/openscad.qrc
@@ -552,10 +551,10 @@ index c3ea8e0e9..93eede35f 100644
     <property name="checkable">
      <bool>true</bool>
 diff --git a/src/QGLView.cc b/src/QGLView.cc
-index bce613073..c2d7f0b6c 100644
+index 0234ea662..cab4598fb 100644
 --- a/src/QGLView.cc
 +++ b/src/QGLView.cc
-@@ -324,7 +324,10 @@ void QGLView::wheelEvent(QWheelEvent *event)
+@@ -329,7 +329,10 @@ void QGLView::wheelEvent(QWheelEvent *event)
  {
  	const auto pos = event->pos();
  	const int v = event->angleDelta().y();
@@ -592,7 +591,7 @@ index aa857908a..6f20d6b54 100644
  
  void Builtins::initKeywordList()
 diff --git a/src/colormap.cc b/src/colormap.cc
-index 6b794be17..5a04135db 100644
+index 6b794be17..71b035635 100644
 --- a/src/colormap.cc
 +++ b/src/colormap.cc
 @@ -37,6 +37,7 @@ RenderColorScheme::RenderColorScheme() : _path("")
@@ -611,24 +610,18 @@ index 6b794be17..5a04135db 100644
  	addColor(RenderColor::AXES_COLOR, "axes-color");
  	addColor(RenderColor::OPENCSG_FACE_FRONT_COLOR, "opencsg-face-front");
  	addColor(RenderColor::OPENCSG_FACE_BACK_COLOR, "opencsg-face-back");
-@@ -125,13 +127,18 @@ void RenderColorScheme::addColor(RenderColor colorKey, std::string key)
- {
-   const boost::property_tree::ptree &colors = pt.get_child("colors");
-   std::string color = colors.get<std::string>(key);
--  if ((color.length() == 7) && (color.at(0) == '#')) {
-+  if (((color.length() == 7) || (color.length() == 9)) && (color.at(0) == '#')) {
-     char *endptr;
-     unsigned int val = strtol(color.substr(1).c_str(), &endptr, 16);
-     int r = (val >> 16) & 0xff;
+@@ -132,6 +134,14 @@ void RenderColorScheme::addColor(RenderColor colorKey, std::string key)
      int g = (val >> 8) & 0xff;
      int b = val & 0xff;
--    _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b)));
-+    if (color.length() == 7)
-+      _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b)));
-+    else {
-+      unsigned int a = strtol(color.substr(7).c_str(), &endptr, 16);
-+      _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b, a)));
-+    }
+     _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b)));
++  } else if ((color.length() == 9) && (color.at(0) == '#')) {
++    char *endptr;
++    unsigned int val = strtol(color.substr(1).c_str(), &endptr, 16);
++    int r = (val >> 24) & 0xff;
++    int g = (val >> 16) & 0xff;
++    int b = (val >> 8) & 0xff;
++    int a = val & 0xff;
++    _color_scheme.insert(ColorScheme::value_type(colorKey, Color4f(r, g, b, a)));
    }
    else {
      throw std::invalid_argument(std::string("invalid color value for key '") + key + "': '" + color + "'");
@@ -705,7 +698,7 @@ index 000000000..21ce503cc
 +
 +#endif
 diff --git a/src/mainwin.cc b/src/mainwin.cc
-index c5edddeec..8ed4d07b6 100755
+index 39bb52597..6ad38ce93 100755
 --- a/src/mainwin.cc
 +++ b/src/mainwin.cc
 @@ -43,6 +43,7 @@
