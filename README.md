@@ -70,7 +70,7 @@ The ideal color scheme depends upon display and glasses used. If you wanted to p
 
 The Dubois algorithm is designed to make 3D anaglyphs from two photographs. To make an anaglyph from two photographs, the Dubois algorithm iterates over all pixels, and does a matrix multiplication of a 3x6 matrix with a 6x1 vector for every pixel. 
 
-However, in OpenSCAD we are not taking pictures; we are *generating* pictures. OpenSCAD renders your model with the color scheme chosen in *Edit->Preferences->3D View->Color Scheme*. A color scheme includes surface front and back color, edge color, background color, highlight color. Instead of changing the color of millions of pixels of the rendered model, it is faster to only change the small number of colors of the color scheme. In OpenSCAD 3D anaglyph mode, the colors of the color scheme, and the arguments of *color()* commands in user scripts, are changed in a way similar to the Dubois algorithm.
+However, in OpenSCAD we are not taking pictures; we are *generating* pictures. OpenSCAD renders your model with the color scheme chosen in *Edit->Preferences->3D View->Color Scheme*. A color scheme includes surface front and back color, edge color, background color, highlight color. Instead of changing the color of millions of pixels of the rendered model, it is faster to only change the small number of colors of the color scheme. In OpenSCAD 3D anaglyph mode, the colors of the color scheme, and the arguments of *color()* instructions in user scripts, are changed in a way similar to the Dubois algorithm.
 
 Comparing both, the Dubois algorithm is applied to the pixels after rendering. The algorithm used here in OpenSCAD is applied to the color before rendering. The advantage is a savings of tens of millions of multiplications and additions per frame.
 
@@ -85,6 +85,8 @@ A small walkthrough to see the algorithm at work:
 - Click preview ![render](images/preview-32.png) again. Because OpenSCAD is in anaglyph mode, the model is rendered with Dubois colors. The colors are changed, especially red and cyan, and now all four objects are easily viewed in 3D. [Screenshot after Dubois](images/after_dubois.png)
 
 - Click perspective view ![perspective view](images/perspective1.png) to return to normal 2D view and preview ![render](images/preview-32.png) to restore normal colors.
+
+The color scheme is updated automatically when changing to/from 3D view. Clicking preview to update the colors is only necessary if the OpenSCAD script contains *color()* instructions.
 
 ## Build notes
 
