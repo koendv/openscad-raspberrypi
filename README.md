@@ -62,6 +62,9 @@ A color scheme for red/cyan anaglyphs is provided. The color scheme "3D Glasses"
 
 The ideal color scheme depends upon display and glasses used. If you wanted to print anaglyphs, the ideal colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
 
+The "3D Glasses" color scheme can also be used to print anaglyphs. Note 3D anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 degrees, or, for a printed anaglyph, if you turn the paper 90 degrees. 
+
+
 ## Dubois shading
 
 ![Dubois shading](images/dubois.png)
