@@ -54,7 +54,7 @@ The glasses used to see 3D anaglyphs have red lenses for the left eye, and cyan 
 
 To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail because only one eye gets an image. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green (hue around 75) and purple (hue around 285). To some degree colors are subjective, and what colors to use is dependent upon the combination of display and 3D glasses used.
 
-Apart from hue, saturation also plays a role. If a color has strong green but weak red, the green may be so strong that it persists even after filtering through the cyan lens. The eye then sees two images superimposed. This is called *ghosting*. To lessen this effect, saturated colors should be avoided.
+Apart from hue, saturation also plays a role. The cyan lens dampens green and lets red pass through. However, if a color has strong green but weak red then, after filtering through the cyan lens, green and red may be more or less the same strength. The eye then sees two images superimposed. This is called *ghosting*. For less *ghosting*, avoid saturated colors.
 
 ## Color Scheme
 
@@ -62,7 +62,7 @@ A color scheme for red/cyan anaglyphs is provided. The color scheme "3D Glasses"
 
 The ideal color scheme depends upon display and glasses used. If you wanted to print anaglyphs, the ideal colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
 
-The "3D Glasses" color scheme can also be used to print anaglyphs. Note 3D anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 degrees, or, for a printed anaglyph, if you turn the paper 90 degrees. 
+Note 3D anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 degrees, or, for a printed anaglyph, if you turn the paper 90 degrees.
 
 
 ## Dubois shading
@@ -71,13 +71,13 @@ The "3D Glasses" color scheme can also be used to print anaglyphs. Note 3D anagl
 
 [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. The picture above shows on the inside a color wheel, and on the outside what the same colors look like after Dubois shading. Notice how red and cyan change. Also, after applying Dubois filtering, colors are less saturated, more "washed out".
 
-The Dubois algorithm is designed to make 3D anaglyphs from two photographs. To make an anaglyph from two photographs, the Dubois algorithm iterates over all pixels, and does a matrix multiplication of a 3x6 matrix with a 6x1 vector for every pixel. 
+The Dubois algorithm is designed to make 3D anaglyphs from two photographs. To make an anaglyph from two photographs, the Dubois algorithm iterates over all pixels, and calculates the color of the pixel based upon the color of the pixel in left and right image.
 
 However, in OpenSCAD we are not taking pictures; we are *generating* pictures. OpenSCAD renders your model with the color scheme chosen in *Edit->Preferences->3D View->Color Scheme*. A color scheme includes surface front and back color, edge color, background color, highlight color. Instead of changing the color of millions of pixels of the rendered model, it is faster to only change the small number of colors of the color scheme. In OpenSCAD 3D anaglyph mode, the colors of the color scheme, and the arguments of *color()* instructions in user scripts, are changed in a way similar to the Dubois algorithm.
 
 Comparing both, the Dubois algorithm is applied to the pixels after rendering. The algorithm used here in OpenSCAD is applied to the color before rendering. The advantage is a savings of tens of millions of multiplications and additions per frame.
 
-A small walkthrough to see the algorithm at work:
+A small walkthrough to see how color replacement works:
 
 - Start OpenSCAD. From the file menu, choose *File->Examples->Basics->rotate_extrude.scad*. 
 
@@ -89,7 +89,7 @@ A small walkthrough to see the algorithm at work:
 
 - Click perspective view ![perspective view](images/perspective1.png) to return to normal 2D view and preview ![render](images/preview-32.png) to restore normal colors.
 
-The color scheme is updated automatically when changing to/from 3D view. Clicking preview to update the colors is only necessary if the OpenSCAD script contains *color()* instructions.
+The color scheme is updated automatically when changing to or from 3D view. Clicking preview to update the colors is only necessary if the OpenSCAD script contains *color()* instructions.
 
 ## Build notes
 
