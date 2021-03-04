@@ -83,9 +83,9 @@ A small walkthrough to see how color replacement works:
 
 - Choose perspective view ![perspective view](images/perspective1.png) and preview ![render](images/preview-32.png). Reset view ![reset view](images/Command-Reset-32.png) and zoom out ![view all](images/zoom-all.png). Note four objects with saturated colors - red, cyan, green and purple. [Screenshot 2D](images/saturated_colors.png)
 
-- Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode. Look using 3D glasses. Note the objects in saturated red and cyan are difficult to see in 3D. The object in green does not have this problem. [Screenshot before Dubois](images/before_dubois.png)
+- Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode. Look using 3D glasses. Note the objects in saturated red and cyan are difficult to see in 3D. The object in green does not have this problem. [Screenshot 3D before Dubois](images/before_dubois.png)
 
-- Click preview ![render](images/preview-32.png) again. Because OpenSCAD is in anaglyph mode, the model is rendered with Dubois colors. The colors are changed, especially red and cyan, and now all four objects are easily viewed in 3D. [Screenshot after Dubois](images/after_dubois.png)
+- Click preview ![render](images/preview-32.png) again. Because OpenSCAD is in anaglyph mode, the model is rendered with Dubois colors. The colors are changed, especially red and cyan, and now all four objects are easily viewed in 3D. [Screenshot 3D after Dubois](images/after_dubois.png)
 
 - Click perspective view ![perspective view](images/perspective1.png) to return to normal 2D view and preview ![render](images/preview-32.png) to restore normal colors.
 
