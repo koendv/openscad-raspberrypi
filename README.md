@@ -14,7 +14,6 @@ You need red/cyan colored glasses to see the 3D effect.
 ## Downloads
 
 - [Binaries](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi and others.
-- [Patch](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/anaglyph.patch) and [icon](images/Anaglyph-32.png) for compiling openscad with support for 3D glasses.
 
 If you like this, maybe you want to buy me a cup of tea:
 
@@ -28,7 +27,7 @@ A walk-through that shows how to see a model in anaglyph 3D.
 - Choose the "3D Glasses" color scheme. From the menu, choose *Edit->Preferences->3D View*.
 Select color scheme "3D Glasses".
 
-- Switch axis ![axes](images/blackaxes.png) off.  The mind rebels if an axis sticks out of the screen, coming straight at you. Also, objects "behind" the screen are easier on the eye than objects that "stick out" from the screen.
+- Switch axis ![axes](images/blackaxes.png) off.
 
 - Click the render icon ![render](images/render-32.png) to render your object. There are two buttons to display your model: preview and render. Preview ![render](images/preview-32.png) renders fast, colors and transparencies are preserved, but rotating the 3D model is somewhat sluggish. Render ![render](images/render-32.png) renders slower, colors and transparencies are lost, but rotating the model is fluid, and the rendering output can be written to an STL file for 3D printing.
 
@@ -36,15 +35,24 @@ Select color scheme "3D Glasses".
 
 - Put 3D glasses on.
 
-- Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode.
+- Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode. 
 
-- Press *Ctrl* and rotate the mouse scroll wheel to adjust the eye separation. Too little eye separation and the 3D effect disappears; too much and you get eyestrain. Adjust for your viewing comfort.
+## Preferences
 
-## Programming
+[![preferences](images/preferences.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/preferences.png)
 
-When programming OpenSCAD, the built-in variable $anaglyph is true when rendering in 3d anaglyph mode, false otherwise.  You can use this variable in your OpenSCAD scripts.
- 
-## Which colors are suitable for anaglyph 3D?
+You can access the preference panel using the menu *Edit->Preferences->3D View*. The preferences panel has four settings for anaglyphs: color scheme, eye separation, out of screen, and near clipping plane. 
+
+- *color scheme* A good color scheme for anaglyphs is "3D Glasses".
+- *eye separation* The *eye separation* slider sets the distance between the anaglyph "eyes". Too little eye separation and the 3D effect disappears; too much and you get eyestrain. Adjust for your viewing comfort.
+- *out of screen* Objects "behind" the screen are easier on the eye than objects that "stick out" from the screen. With the *out of screen* slider you can push the objects back, behind the screen.
+- *near clipping plane* The *near clipping plane* slider allows you to set the closest object you still want to see. To calibrate, slide *near clipping plane* completely to the left. Switch axis on, and turn the object so the axis points straight at you. Then move the *near clipping plane* slider to the right until comfortable. Do not set *near clipping plane* too much to the right, or the complete model will disappear.
+
+If the sliders for eye separation, out of screen, and near clipping distance are completely to the left, anaglyph is switched off and the 3D display behaves more or less like a normal 2D display.
+
+Not all colors are suitable for anaglyphs. First we discuss which colors are suitable, then list the measures taken to ensure all colors used are good for anaglyphs. 
+
+## Colors suitable for anaglyph 3D
 
 [![colorwheel](images/colorwheel.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorwheel.svg)
 
@@ -52,42 +60,28 @@ This color wheel shows all colors of the rainbow. The numbers are the color [hue
 
 The glasses used to see 3D anaglyphs have red lenses for the left eye, and cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours. Complementary colours are in opposite positions on the colour wheel.
 
-To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail because only one eye gets an image. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green (hue around 75) and purple (hue around 285). To some degree colors are subjective, and what colors to use is dependent upon the combination of display and 3D glasses used.
+To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail because only one eye gets an image. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green and purple. To some degree colors are subjective, and what colors to use is dependent upon the combination of display and 3D glasses used.
 
-Apart from hue, saturation also plays a role. The cyan lens dampens green and lets red pass through. However, if a color has strong green but weak red then, after filtering through the cyan lens, green and red may be more or less the same strength. The eye then sees two images superimposed. This is called *ghosting*. For less *ghosting*, avoid saturated colors.
+Apart from hue, saturation also plays a role. The cyan lens dampens green and lets red pass through. However, if a color has strong green but weak red then, after filtering through the cyan lens, green and red may be more or less the same strength. The eye then sees two images superimposed. This is called *ghosting*. Less saturated colors have less *ghosting*.
+
+To choose the correct colors, two solutions: a color scheme that uses greens, purple and grey, and Dubois shading.
 
 ## Color Scheme
 
-A color scheme for red/cyan anaglyphs is provided. The color scheme "3D Glasses" uses green, purple and grey. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
+A color scheme for red/cyan anaglyphs on lcd displays is provided. The color scheme "3D Glasses" uses green, purple and grey. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
-The ideal color scheme depends upon display and glasses used. If you wanted to print anaglyphs, the ideal colors might be slightly different. To determine which colors are best, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
+The ideal color scheme depends upon display and glasses used. Colors are slightly different for different display technologies. As an example, if you wanted to print anaglyphs, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
 
-Note 3D anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 degrees, or, for a printed anaglyph, if you turn the paper 90 degrees.
+Note anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 degrees, or, for a printed anaglyph, if you turn the paper 90 degrees.
 
 
 ## Dubois shading
 
 ![Dubois shading](images/dubois.png)
 
-[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. The picture above shows on the inside a color wheel, and on the outside what the same colors look like after Dubois shading. Notice how red and cyan change. Also, after applying Dubois filtering, colors are less saturated, more "washed out".
+[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. The picture above shows on the inside a color wheel, and on the outside what the same colors look like after Dubois shading. Notice how red and cyan change. Also, after applying Dubois, colors are less saturated, more "washed out".
 
-The Dubois algorithm is designed to make 3D anaglyphs from two photographs. To make an anaglyph from two photographs, the Dubois algorithm iterates over all pixels, and calculates the color of the pixel based upon the color of the pixel in left and right image.
-
-However, in OpenSCAD we are not taking pictures; we are *generating* pictures. OpenSCAD renders your model with the color scheme chosen in *Edit->Preferences->3D View->Color Scheme*. A color scheme includes surface front and back color, edge color, background color, highlight color. Instead of changing the color of millions of pixels of the rendered model, it is faster to only change the small number of colors of the color scheme. In OpenSCAD 3D anaglyph mode, the colors of the color scheme, and the arguments of *color()* instructions in user scripts, are changed in a way similar to the Dubois algorithm.
-
-Comparing both, the Dubois algorithm is applied to the pixels after rendering. The algorithm used here in OpenSCAD is applied to the color before rendering. The advantage is a savings of tens of millions of multiplications and additions per frame.
-
-A small walkthrough to see how color replacement works:
-
-- Start OpenSCAD. From the file menu, choose *File->Examples->Basics->rotate_extrude.scad*. 
-
-- Choose perspective view ![perspective view](images/perspective1.png) and preview ![render](images/preview-32.png). Reset view ![reset view](images/Command-Reset-32.png) and zoom out ![view all](images/zoom-all.png). Note four objects with saturated colors - red, cyan, green and purple. [Screenshot 2D](images/saturated_colors.png)
-
-- Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode. Look using 3D glasses. Note the objects in saturated red and cyan are difficult to see in 3D. The object in green does not have this problem. [Screenshot 3D before Dubois](images/before_dubois.png)
-
-- Click preview ![render](images/preview-32.png) again. Because OpenSCAD is in anaglyph mode, the model is rendered with Dubois colors. The colors are changed, especially red and cyan, and now all four objects are easily viewed in 3D. [Screenshot 3D after Dubois](images/after_dubois.png)
-
-- Click perspective view ![perspective view](images/perspective1.png) to return to normal 2D view and preview ![render](images/preview-32.png) to restore normal colors.
+Usually, the Dubois algorithm is applied to the pixels after rendering. Here, the Dubois algorithm is applied to the color scheme before rendering.
 
 The color scheme is updated automatically when changing to or from 3D view. Clicking preview to update the colors is only necessary if the OpenSCAD script contains *color()* instructions.
 
@@ -104,18 +98,9 @@ sudo apt-get install cmake gawk bison flex gettext itstool libcgal-dev libeigen3
 ### Download sources
 
 ```
-git clone http://github.com/openscad/openscad
+git clone http://github.com/koendv/openscad
 cd openscad
 git submodule update --init
-```
-### Patch for 3D anaglyph
-Download patch and icon
-
-```
-wget https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/anaglyph.patch
-wget https://github.com/koendv/openscad-raspberrypi/raw/master/images/Anaglyph-32.png
-patch -p1 < anaglyph.patch
-cp Anaglyph-32.png images/
 ```
 ### Build openscad
 First check all dependencies are installed:
