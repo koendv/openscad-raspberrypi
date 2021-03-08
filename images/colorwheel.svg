@@ -20,7 +20,7 @@
    style="fill-rule:evenodd;stroke-width:28.22200012;stroke-linejoin:round"><metadata
    id="metadata16448"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title><cc:license
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /><cc:license
          rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" /></cc:Work><cc:License
        rdf:about="http://creativecommons.org/publicdomain/zero/1.0/"><cc:permits
          rdf:resource="http://creativecommons.org/ns#Reproduction" /><cc:permits
@@ -38,9 +38,9 @@
    inkscape:window-height="1136"
    id="namedview16446"
    showgrid="false"
-   inkscape:zoom="1.3243431"
-   inkscape:cx="370.44409"
-   inkscape:cy="315.36693"
+   inkscape:zoom="1"
+   inkscape:cx="431.22685"
+   inkscape:cy="321.78006"
    inkscape:window-x="0"
    inkscape:window-y="36"
    inkscape:window-maximized="1"
@@ -64,6 +64,17 @@
    id="rect15707" />
   </clipPath>
  
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -229,1717 +240,1716 @@
 
 <g
    id="g7140"><g
-     id="g3493"
+     id="g2598"
      inkscape:export-xdpi="96"
      inkscape:export-ydpi="96"><g
-       id="g3050"><g
-         transform="translate(-5.9394738e-4,-3059.3443)"
-         id="g15748"
-         style="fill-rule:evenodd;stroke-width:28.22200012;stroke-linejoin:round">
+       style="fill-rule:evenodd;stroke-width:28.22200012;stroke-linejoin:round"
+       id="g15748"
+       transform="translate(-5.9394738e-4,-3059.3443)">
   <g
-   class="Master_Slide"
-   id="id2">
+   id="id2"
+   class="Master_Slide">
    <g
-   class="Background"
-   id="bg-id2" />
+   id="bg-id2"
+   class="Background" />
    <g
-   class="BackgroundObjects"
-   id="bo-id2" />
+   id="bo-id2"
+   class="BackgroundObjects" />
   </g>
  </g><path
-         d="M 6780.3416,5297.5599 A 5814.4526,5814.4526 0 0 1 4186.4272,271.94249 5814.4526,5814.4526 0 0 1 7090.7844,-4580.8847 L 9998.0107,454.57898 Z"
-         sodipodi:end="4.1887902"
-         sodipodi:start="2.157227"
-         sodipodi:ry="5814.4526"
-         sodipodi:rx="5814.4526"
-         sodipodi:cy="454.57898"
-         sodipodi:cx="9998.0107"
-         sodipodi:type="arc"
-         id="path17004"
-         style="fill:#ff0000;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:13.22916603;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><path
-         style="fill:#ff0000;fill-opacity:0;fill-rule:evenodd;stroke:#808080;stroke-width:105.83333588;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path17037"
-         sodipodi:type="arc"
-         sodipodi:cx="10000.01"
-         sodipodi:cy="453.57922"
-         sodipodi:rx="7517.791"
-         sodipodi:ry="7517.791"
-         sodipodi:start="4.8598713"
-         sodipodi:end="0.36739901"
-         d="m 11104.736,-6982.6 a 7517.791,7517.791 0 0 1 5389.426,3648.9416 7517.791,7517.791 0 0 1 521.937,6487.5472 L 10000.01,453.57922 Z" /><path
-         d="M 12729.879,7458.2201 A 7517.791,7517.791 0 0 1 3450.6214,4144.4723 7517.791,7517.791 0 0 1 5421.9412,-5509.5133 L 10000.01,453.57898 Z"
-         sodipodi:end="4.0576344"
-         sodipodi:start="1.1991808"
-         sodipodi:ry="7517.791"
-         sodipodi:rx="7517.791"
-         sodipodi:cy="453.57898"
-         sodipodi:cx="10000.01"
-         sodipodi:type="arc"
-         id="path17014"
-         style="fill:#ff0000;fill-opacity:0;fill-rule:evenodd;stroke:#808080;stroke-width:105.83333588;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><g
-         transform="translate(3111.0093,-6433.4212)"
-         id="g16442"
-         class="SlideGroup"
-         style="fill-rule:evenodd;stroke-width:28.22200012;stroke-linejoin:round">
+       style="fill:#ff0000;fill-opacity:0;fill-rule:evenodd;stroke:none;stroke-width:13.22916603;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path17004"
+       sodipodi:type="arc"
+       sodipodi:cx="9998.0107"
+       sodipodi:cy="454.57898"
+       sodipodi:rx="5814.4526"
+       sodipodi:ry="5814.4526"
+       sodipodi:start="2.157227"
+       sodipodi:end="4.1887902"
+       d="M 6780.3416,5297.5599 A 5814.4526,5814.4526 0 0 1 4186.4272,271.94249 5814.4526,5814.4526 0 0 1 7090.7844,-4580.8847 L 9998.0107,454.57898 Z" /><path
+       d="m 11104.736,-6982.6 a 7517.791,7517.791 0 0 1 5389.426,3648.9416 7517.791,7517.791 0 0 1 521.937,6487.5472 L 10000.01,453.57922 Z"
+       sodipodi:end="0.36739901"
+       sodipodi:start="4.8598713"
+       sodipodi:ry="7517.791"
+       sodipodi:rx="7517.791"
+       sodipodi:cy="453.57922"
+       sodipodi:cx="10000.01"
+       sodipodi:type="arc"
+       id="path17037"
+       style="fill:#ff0000;fill-opacity:0;fill-rule:evenodd;stroke:#808080;stroke-width:105.83333588;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><path
+       style="fill:#ff0000;fill-opacity:0;fill-rule:evenodd;stroke:#808080;stroke-width:105.83333588;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path17014"
+       sodipodi:type="arc"
+       sodipodi:cx="10000.01"
+       sodipodi:cy="453.57898"
+       sodipodi:rx="7517.791"
+       sodipodi:ry="7517.791"
+       sodipodi:start="0.64559257"
+       sodipodi:end="4.5869868"
+       d="M 16004.796,4976.8222 A 7517.791,7517.791 0 0 1 7151.6096,7410.8628 7517.791,7517.791 0 0 1 2547.2196,-532.87984 7517.791,7517.791 0 0 1 9059.7313,-7005.1782 L 10000.01,453.57898 Z" /><g
+       style="fill-rule:evenodd;stroke-width:28.22200012;stroke-linejoin:round"
+       class="SlideGroup"
+       id="g16442"
+       transform="translate(3111.0093,-6433.4212)">
   <g
    id="g16440">
    <g
-   clip-path="url(#presentation_clip_path)"
+   id="id1"
    class="Slide"
-   id="id1">
+   clip-path="url(#presentation_clip_path)">
     <g
-   id="g16437"
-   class="Page">
+   class="Page"
+   id="g16437">
      <g
-   id="g16435"
-   class="Group">
+   class="Group"
+   id="g16435">
       <g
-   id="g15753"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15753">
        <g
    id="id3">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 9520,13244 c -1170,485 -2275,630 -3530,465 C 4734,13543 3704,13117 2700,12346 1695,11575 1016,10691 532,9521 47,8351 -98,7246 67,5990 232,4735 659,3705 1430,2700 2201,1695 3085,1017 4255,532 5425,48 6530,-98 7785,68 c 1256,165 2286,591 3290,1362 1005,771 1684,1655 2168,2825 485,1171 630,2275 465,3531 -165,1256 -592,2285 -1363,3290 -771,1005 -1655,1683 -2825,2168 z"
    id="path15750"
-   d="m 9520,13244 c -1170,485 -2275,630 -3530,465 C 4734,13543 3704,13117 2700,12346 1695,11575 1016,10691 532,9521 47,8351 -98,7246 67,5990 232,4735 659,3705 1430,2700 2201,1695 3085,1017 4255,532 5425,48 6530,-98 7785,68 c 1256,165 2286,591 3290,1362 1005,771 1684,1655 2168,2825 485,1171 630,2275 465,3531 -165,1256 -592,2285 -1363,3290 -771,1005 -1655,1683 -2825,2168 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15758"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15758">
        <g
    id="id4">
         <path
-   style="fill:#ffffff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 8912,11777 c -900,373 -1750,485 -2715,358 C 5231,12008 4439,11680 3666,11086 2893,10493 2371,9813 1998,8913 1625,8013 1513,7163 1641,6197 1768,5231 2096,4439 2689,3666 3282,2894 3962,2372 4862,1999 c 900,-373 1750,-485 2716,-358 966,127 1758,456 2531,1049 773,593 1295,1273 1668,2173 372,900 484,1750 357,2716 -127,966 -455,1758 -1048,2531 -593,772 -1273,1294 -2174,1667 z"
    id="path15755"
-   d="m 8912,11777 c -900,373 -1750,485 -2715,358 C 5231,12008 4439,11680 3666,11086 2893,10493 2371,9813 1998,8913 1625,8013 1513,7163 1641,6197 1768,5231 2096,4439 2689,3666 3282,2894 3962,2372 4862,1999 c 900,-373 1750,-485 2716,-358 966,127 1758,456 2531,1049 773,593 1295,1273 1668,2173 372,900 484,1750 357,2716 -127,966 -455,1758 -1048,2531 -593,772 -1273,1294 -2174,1667 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:none" />
        </g>
       </g>
       <g
-   id="g15763"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15763">
        <g
    id="id5">
         <path
-   style="fill:#ffff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6887,6888 6197,1641 c 483,-63 898,-63 1381,0 z"
    id="path15760"
-   d="M 6887,6888 6197,1641 c 483,-63 898,-63 1381,0 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ffff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g15770"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15770">
        <g
    id="id6">
         <path
-   style="fill:#ffff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6489,805 V 407 h 795 v 795 h -795 z"
    id="path15765"
-   d="M 6489,805 V 407 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ffff00;stroke:none" />
+        <path
+   d="M 6489,805 V 407 h 795 v 795 h -795 z"
    id="path15767"
-   d="M 6489,805 V 407 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g15775"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15775">
        <g
    id="id7">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6492,805 V 407 h 265 v 795 h -265 z"
    id="path15772"
-   d="M 6492,805 V 407 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15780"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15780">
        <g
    id="id8">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6755,805 V 407 h 265 v 795 h -265 z"
    id="path15777"
-   d="M 6755,805 V 407 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g15785"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15785">
        <g
    id="id9">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 7019,805 V 407 h 265 v 795 h -265 z"
    id="path15782"
-   d="M 7019,805 V 407 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15790"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15790">
        <g
    id="id10">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6887,6888 691,5247 c -483,63 -898,63 -1381,0 z"
    id="path15787"
-   d="m 6887,6888 691,5247 c -483,63 -898,63 -1381,0 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g15797"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15797">
        <g
    id="id11">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6491,12975 v -398 h 795 v 795 h -795 z"
    id="path15792"
-   d="m 6491,12975 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
+        <path
+   d="m 6491,12975 v -398 h 795 v 795 h -795 z"
    id="path15794"
-   d="m 6491,12975 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g15802"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15802">
        <g
    id="id12">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6492,12975 v -398 h 265 v 795 h -265 z"
    id="path15799"
-   d="m 6492,12975 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15807"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15807">
        <g
    id="id13">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6756,12975 v -398 h 265 v 795 h -265 z"
    id="path15804"
-   d="m 6756,12975 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15812"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15812">
        <g
    id="id14">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 7021,12975 v -398 h 265 v 795 h -265 z"
    id="path15809"
-   d="m 7021,12975 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g15817"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15817">
        <g
    id="id15">
         <path
-   style="fill:#ffc000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6887,6888 691,-5247 c 483,64 884,171 1334,358 z"
    id="path15814"
-   d="m 6887,6888 691,-5247 c 483,64 884,171 1334,358 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ffc000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15824"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15824">
        <g
    id="id16">
         <path
-   style="fill:#ffc000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 8066,1011 V 613 h 795 v 795 h -795 z"
    id="path15819"
-   d="M 8066,1011 V 613 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ffc000;stroke:none" />
+        <path
+   d="M 8066,1011 V 613 h 795 v 795 h -795 z"
    id="path15821"
-   d="M 8066,1011 V 613 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g15829"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15829">
        <g
    id="id17">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 8065,1011 V 613 h 265 v 795 h -265 z"
    id="path15826"
-   d="M 8065,1011 V 613 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15834"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15834">
        <g
    id="id18">
         <path
-   style="fill:#00c000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 8332,1011 V 613 h 265 v 795 h -265 z"
    id="path15831"
-   d="M 8332,1011 V 613 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00c000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15839"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15839">
        <g
    id="id19">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 8594,1011 V 613 h 265 v 795 h -265 z"
    id="path15836"
-   d="M 8594,1011 V 613 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15844"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15844">
        <g
    id="id20">
         <path
-   style="fill:#003fff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6889,6885 -690,5247 c -483,-64 -885,-171 -1335,-358 z"
    id="path15841"
-   d="m 6889,6885 -690,5247 c -483,-64 -885,-171 -1335,-358 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#003fff;stroke:none" />
        </g>
       </g>
       <g
-   id="g15851"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15851">
        <g
    id="id21">
         <path
-   style="fill:#003fff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 4914,12766 v -398 h 795 v 795 h -795 z"
    id="path15846"
-   d="m 4914,12766 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#003fff;stroke:none" />
+        <path
+   d="m 4914,12766 v -398 h 795 v 795 h -795 z"
    id="path15848"
-   d="m 4914,12766 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g15856"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15856">
        <g
    id="id22">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 4917,12766 v -398 h 265 v 795 h -265 z"
    id="path15853"
-   d="m 4917,12766 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15861"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15861">
        <g
    id="id23">
         <path
-   style="fill:#003f00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 5180,12766 v -398 h 265 v 795 h -265 z"
    id="path15858"
-   d="m 5180,12766 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#003f00;stroke:none" />
        </g>
       </g>
       <g
-   id="g15866"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15866">
        <g
    id="id24">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 5446,12766 v -398 h 265 v 795 h -265 z"
    id="path15863"
-   d="m 5446,12766 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g15871"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15871">
        <g
    id="id25">
         <path
-   style="fill:#ff8000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6887,6887 8912,1998 c 451,186 810,394 1197,691 z"
    id="path15868"
-   d="M 6887,6887 8912,1998 c 451,186 810,394 1197,691 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff8000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15878"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15878">
        <g
    id="id26">
         <path
-   style="fill:#ff8000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 9532,1618 v -398 h 795 v 795 h -795 z"
    id="path15873"
-   d="m 9532,1618 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ff8000;stroke:none" />
+        <path
+   d="m 9532,1618 v -398 h 795 v 795 h -795 z"
    id="path15875"
-   d="m 9532,1618 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g15883"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15883">
        <g
    id="id27">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 9535,1618 v -398 h 265 v 795 h -265 z"
    id="path15880"
-   d="m 9535,1618 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15888"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15888">
        <g
    id="id28">
         <path
-   style="fill:#008000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 9797,1618 v -398 h 265 v 795 h -265 z"
    id="path15885"
-   d="m 9797,1618 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#008000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15893"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15893">
        <g
    id="id29">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 10064,1618 v -398 h 265 v 795 h -265 z"
    id="path15890"
-   d="m 10064,1618 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15898"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15898">
        <g
    id="id30">
         <path
-   style="fill:#007fff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6887,6887 -2025,4889 c -450,-186 -810,-394 -1196,-691 z"
    id="path15895"
-   d="m 6887,6887 -2025,4889 c -450,-186 -810,-394 -1196,-691 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#007fff;stroke:none" />
        </g>
       </g>
       <g
-   id="g15905"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15905">
        <g
    id="id31">
         <path
-   style="fill:#007fff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 3448,12157 v -398 h 795 v 795 h -795 z"
    id="path15900"
-   d="m 3448,12157 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#007fff;stroke:none" />
+        <path
+   d="m 3448,12157 v -398 h 795 v 795 h -795 z"
    id="path15902"
-   d="m 3448,12157 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g15910"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15910">
        <g
    id="id32">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 3447,12157 v -398 h 265 v 795 h -265 z"
    id="path15907"
-   d="m 3447,12157 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15915"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15915">
        <g
    id="id33">
         <path
-   style="fill:#007f00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 3714,12157 v -398 h 265 v 795 h -265 z"
    id="path15912"
-   d="m 3714,12157 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#007f00;stroke:none" />
        </g>
       </g>
       <g
-   id="g15920"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15920">
        <g
    id="id34">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 3977,12157 v -398 h 265 v 795 h -265 z"
    id="path15917"
-   d="m 3977,12157 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g15925"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15925">
        <g
    id="id35">
         <path
-   style="fill:#ff4000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6889,6885 3222,-4198 c 386,296 680,590 977,976 z"
    id="path15922"
-   d="m 6889,6885 3222,-4198 c 386,296 680,590 977,976 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff4000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15932"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15932">
        <g
    id="id36">
         <path
-   style="fill:#ff4000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 10793,2584 v -398 h 795 v 795 h -795 z"
    id="path15927"
-   d="m 10793,2584 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ff4000;stroke:none" />
+        <path
+   d="m 10793,2584 v -398 h 795 v 795 h -795 z"
    id="path15929"
-   d="m 10793,2584 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g15937"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15937">
        <g
    id="id37">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 10794,2586 v -398 h 265 v 795 h -265 z"
    id="path15934"
-   d="m 10794,2586 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15942"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15942">
        <g
    id="id38">
         <path
-   style="fill:#004000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 11059,2586 v -398 h 265 v 795 h -265 z"
    id="path15939"
-   d="m 11059,2586 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#004000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15947"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15947">
        <g
    id="id39">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 11321,2586 v -398 h 265 v 795 h -265 z"
    id="path15944"
-   d="m 11321,2586 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15952"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15952">
        <g
    id="id40">
         <path
-   style="fill:#00bfff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6887,6887 -3221,4198 c -387,-296 -681,-590 -977,-976 z"
    id="path15949"
-   d="m 6887,6887 -3221,4198 c -387,-296 -681,-590 -977,-976 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00bfff;stroke:none" />
        </g>
       </g>
       <g
-   id="g15959"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15959">
        <g
    id="id41">
         <path
-   style="fill:#00bfff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 2187,11190 v -398 h 795 v 795 h -795 z"
    id="path15954"
-   d="m 2187,11190 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#00bfff;stroke:none" />
+        <path
+   d="m 2187,11190 v -398 h 795 v 795 h -795 z"
    id="path15956"
-   d="m 2187,11190 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g15964"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15964">
        <g
    id="id42">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 2188,11192 v -398 h 265 v 795 h -265 z"
    id="path15961"
-   d="m 2188,11192 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15969"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15969">
        <g
    id="id43">
         <path
-   style="fill:#00bf00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 2453,11192 v -398 h 265 v 795 h -265 z"
    id="path15966"
-   d="m 2453,11192 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00bf00;stroke:none" />
        </g>
       </g>
       <g
-   id="g15974"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15974">
        <g
    id="id44">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 2717,11192 v -398 h 265 v 795 h -265 z"
    id="path15971"
-   d="m 2717,11192 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g15979"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g15979">
        <g
    id="id45">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6889,6887 4199,-3222 c 296,387 504,747 691,1197 v 0 z"
    id="path15976"
-   d="m 6889,6887 4199,-3222 c 296,387 504,747 691,1197 v 0 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15986"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15986">
        <g
    id="id46">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 11758,3846 v -398 h 795 v 795 h -795 z"
    id="path15981"
-   d="m 11758,3846 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
+        <path
+   d="m 11758,3846 v -398 h 795 v 795 h -795 z"
    id="path15983"
-   d="m 11758,3846 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g15991"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15991">
        <g
    id="id47">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 11761,3846 v -398 h 265 v 795 h -265 z"
    id="path15988"
-   d="m 11761,3846 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g15996"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g15996">
        <g
    id="id48">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12023,3846 v -398 h 265 v 795 h -265 z"
    id="path15993"
-   d="m 12023,3846 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16001"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16001">
        <g
    id="id49">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12290,3846 v -398 h 265 v 795 h -265 z"
    id="path15998"
-   d="m 12290,3846 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16006"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16006">
        <g
    id="id50">
         <path
-   style="fill:#00ffff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6887,6887 2689,10109 C 2392,9722 2185,9362 1998,8912 Z"
    id="path16003"
-   d="M 6887,6887 2689,10109 C 2392,9722 2185,9362 1998,8912 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ffff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16013"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16013">
        <g
    id="id51">
         <path
-   style="fill:#00ffff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1219,9931 v -398 h 795 v 795 h -795 z"
    id="path16008"
-   d="m 1219,9931 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#00ffff;stroke:none" />
+        <path
+   d="m 1219,9931 v -398 h 795 v 795 h -795 z"
    id="path16010"
-   d="m 1219,9931 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16018"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16018">
        <g
    id="id52">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1220,9931 v -398 h 265 v 795 h -265 z"
    id="path16015"
-   d="m 1220,9931 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16023"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16023">
        <g
    id="id53">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1484,9931 v -398 h 265 v 795 h -265 z"
    id="path16020"
-   d="m 1484,9931 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16028"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16028">
        <g
    id="id54">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1749,9931 v -398 h 265 v 795 h -265 z"
    id="path16025"
-   d="m 1749,9931 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16033"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16033">
        <g
    id="id55">
         <path
-   style="fill:#ff003f;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6887,6887 4890,-2025 c 186,450 293,851 357,1334 z"
    id="path16030"
-   d="m 6887,6887 4890,-2025 c 186,450 293,851 357,1334 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff003f;stroke:none" />
        </g>
       </g>
       <g
-   id="g16040"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16040">
        <g
    id="id56">
         <path
-   style="fill:#ff003f;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12368,5313 v -398 h 795 v 795 h -795 z"
    id="path16035"
-   d="m 12368,5313 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ff003f;stroke:none" />
+        <path
+   d="m 12368,5313 v -398 h 795 v 795 h -795 z"
    id="path16037"
-   d="m 12368,5313 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16045"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16045">
        <g
    id="id57">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12369,5313 v -398 h 265 v 795 h -265 z"
    id="path16042"
-   d="m 12369,5313 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16050"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16050">
        <g
    id="id58">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12634,5313 v -398 h 265 v 795 h -265 z"
    id="path16047"
-   d="m 12634,5313 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16055"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16055">
        <g
    id="id59">
         <path
-   style="fill:#00003f;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12898,5313 v -398 h 265 v 795 h -265 z"
    id="path16052"
-   d="m 12898,5313 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00003f;stroke:none" />
        </g>
       </g>
       <g
-   id="g16060"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16060">
        <g
    id="id60">
         <path
-   style="fill:#00ffc0;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6889,6887 2000,8912 v 0 C 1814,8462 1706,8061 1643,7578 Z"
    id="path16057"
-   d="M 6889,6887 2000,8912 v 0 C 1814,8462 1706,8061 1643,7578 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ffc0;stroke:none" />
        </g>
       </g>
       <g
-   id="g16067"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16067">
        <g
    id="id61">
         <path
-   style="fill:#00ffc0;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 612,8463 v -398 h 795 v 795 H 612 Z"
    id="path16062"
-   d="m 612,8463 v -398 h 795 v 795 H 612 Z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#00ffc0;stroke:none" />
+        <path
+   d="m 612,8463 v -398 h 795 v 795 H 612 Z"
    id="path16064"
-   d="m 612,8463 v -398 h 795 v 795 H 612 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16072"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16072">
        <g
    id="id62">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 613,8465 v -398 h 265 v 795 H 613 Z"
    id="path16069"
-   d="m 613,8465 v -398 h 265 v 795 H 613 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16077"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16077">
        <g
    id="id63">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 877,8465 v -398 h 265 v 795 H 877 Z"
    id="path16074"
-   d="m 877,8465 v -398 h 265 v 795 H 877 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16082"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16082">
        <g
    id="id64">
         <path
-   style="fill:#0000c0;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1142,8465 v -398 h 265 v 795 h -265 z"
    id="path16079"
-   d="m 1142,8465 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000c0;stroke:none" />
        </g>
       </g>
       <g
-   id="g16087"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16087">
        <g
    id="id65">
         <path
-   style="fill:#ff007f;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6887,6887 5247,-691 c 64,483 64,899 0,1382 z"
    id="path16084"
-   d="m 6887,6887 5247,-691 c 64,483 64,899 0,1382 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff007f;stroke:none" />
        </g>
       </g>
       <g
-   id="g16094"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16094">
        <g
    id="id66">
         <path
-   style="fill:#ff007f;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12575,6888 v -398 h 795 v 795 h -795 z"
    id="path16089"
-   d="m 12575,6888 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ff007f;stroke:none" />
+        <path
+   d="m 12575,6888 v -398 h 795 v 795 h -795 z"
    id="path16091"
-   d="m 12575,6888 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16099"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16099">
        <g
    id="id67">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12576,6888 v -398 h 265 v 795 h -265 z"
    id="path16096"
-   d="m 12576,6888 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16104"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16104">
        <g
    id="id68">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12842,6888 v -398 h 265 v 795 h -265 z"
    id="path16101"
-   d="m 12842,6888 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16109"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16109">
        <g
    id="id69">
         <path
-   style="fill:#00007f;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 13106,6888 v -398 h 265 v 795 h -265 z"
    id="path16106"
-   d="m 13106,6888 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00007f;stroke:none" />
        </g>
       </g>
       <g
-   id="g16114"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16114">
        <g
    id="id70">
         <path
-   style="fill:#00ff80;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6889,6887 -5246,691 c -64,-483 -64,-899 0,-1382 z"
    id="path16111"
-   d="m 6889,6887 -5246,691 c -64,-483 -64,-899 0,-1382 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff80;stroke:none" />
        </g>
       </g>
       <g
-   id="g16121"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16121">
        <g
    id="id71">
         <path
-   style="fill:#00ff80;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 406,6888 v -398 h 795 v 795 H 406 Z"
    id="path16116"
-   d="m 406,6888 v -398 h 795 v 795 H 406 Z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#00ff80;stroke:none" />
+        <path
+   d="m 406,6888 v -398 h 795 v 795 H 406 Z"
    id="path16118"
-   d="m 406,6888 v -398 h 795 v 795 H 406 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16126"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16126">
        <g
    id="id72">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 406,6888 v -398 h 265 v 795 H 406 Z"
    id="path16123"
-   d="m 406,6888 v -398 h 265 v 795 H 406 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16131"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16131">
        <g
    id="id73">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 671,6888 v -398 h 265 v 795 H 671 Z"
    id="path16128"
-   d="m 671,6888 v -398 h 265 v 795 H 671 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16136"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16136">
        <g
    id="id74">
         <path
-   style="fill:#000080;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 936,6888 v -398 h 265 v 795 H 936 Z"
    id="path16133"
-   d="m 936,6888 v -398 h 265 v 795 H 936 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000080;stroke:none" />
        </g>
       </g>
       <g
-   id="g16141"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16141">
        <g
    id="id75">
         <path
-   style="fill:#ff00bf;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6889,6887 5247,691 c -64,483 -171,884 -357,1334 z"
    id="path16138"
-   d="m 6889,6887 5247,691 c -64,483 -171,884 -357,1334 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff00bf;stroke:none" />
        </g>
       </g>
       <g
-   id="g16148"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16148">
        <g
    id="id76">
         <path
-   style="fill:#ff00bf;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12368,8463 v -398 h 795 v 795 h -795 z"
    id="path16143"
-   d="m 12368,8463 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ff00bf;stroke:none" />
+        <path
+   d="m 12368,8463 v -398 h 795 v 795 h -795 z"
    id="path16145"
-   d="m 12368,8463 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16153"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16153">
        <g
    id="id77">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12369,8465 v -398 h 265 v 795 h -265 z"
    id="path16150"
-   d="m 12369,8465 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16158"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16158">
        <g
    id="id78">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12634,8465 v -398 h 265 v 795 h -265 z"
    id="path16155"
-   d="m 12634,8465 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16163"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16163">
        <g
    id="id79">
         <path
-   style="fill:#0000bf;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12898,8465 v -398 h 265 v 795 h -265 z"
    id="path16160"
-   d="m 12898,8465 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000bf;stroke:none" />
        </g>
       </g>
       <g
-   id="g16168"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16168">
        <g
    id="id80">
         <path
-   style="fill:#00ff40;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6889,6887 1643,6196 c 63,-483 171,-884 357,-1334 z"
    id="path16165"
-   d="M 6889,6887 1643,6196 c 63,-483 171,-884 357,-1334 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff40;stroke:none" />
        </g>
       </g>
       <g
-   id="g16175"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16175">
        <g
    id="id81">
         <path
-   style="fill:#00ff40;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 612,5313 v -398 h 795 v 795 H 612 Z"
    id="path16170"
-   d="m 612,5313 v -398 h 795 v 795 H 612 Z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#00ff40;stroke:none" />
+        <path
+   d="m 612,5313 v -398 h 795 v 795 H 612 Z"
    id="path16172"
-   d="m 612,5313 v -398 h 795 v 795 H 612 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16180"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16180">
        <g
    id="id82">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 613,5313 v -398 h 265 v 795 H 613 Z"
    id="path16177"
-   d="m 613,5313 v -398 h 265 v 795 H 613 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16185"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16185">
        <g
    id="id83">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 877,5313 v -398 h 265 v 795 H 877 Z"
    id="path16182"
-   d="m 877,5313 v -398 h 265 v 795 H 877 Z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16190"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16190">
        <g
    id="id84">
         <path
-   style="fill:#000040;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1142,5313 v -398 h 265 v 795 h -265 z"
    id="path16187"
-   d="m 1142,5313 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000040;stroke:none" />
        </g>
       </g>
       <g
-   id="g16195"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16195">
        <g
    id="id85">
         <path
-   style="fill:#ff00ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6887,6887 4890,2025 c -187,450 -395,810 -691,1197 z"
    id="path16192"
-   d="m 6887,6887 4890,2025 c -187,450 -395,810 -691,1197 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff00ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16202"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16202">
        <g
    id="id86">
         <path
-   style="fill:#ff00ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 11760,9931 v -398 h 795 v 795 h -795 z"
    id="path16197"
-   d="m 11760,9931 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ff00ff;stroke:none" />
+        <path
+   d="m 11760,9931 v -398 h 795 v 795 h -795 z"
    id="path16199"
-   d="m 11760,9931 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16207"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16207">
        <g
    id="id87">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 11761,9931 v -398 h 265 v 795 h -265 z"
    id="path16204"
-   d="m 11761,9931 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16212"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16212">
        <g
    id="id88">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12025,9931 v -398 h 265 v 795 h -265 z"
    id="path16209"
-   d="m 12025,9931 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16217"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16217">
        <g
    id="id89">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 12290,9931 v -398 h 265 v 795 h -265 z"
    id="path16214"
-   d="m 12290,9931 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16222"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16222">
        <g
    id="id90">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6887,6887 1998,4862 c 187,-450 394,-810 691,-1197 z"
    id="path16219"
-   d="M 6887,6887 1998,4862 c 187,-450 394,-810 691,-1197 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16229"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16229">
        <g
    id="id91">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1219,3846 v -398 h 795 v 795 h -795 z"
    id="path16224"
-   d="m 1219,3846 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
+        <path
+   d="m 1219,3846 v -398 h 795 v 795 h -795 z"
    id="path16226"
-   d="m 1219,3846 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16234"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16234">
        <g
    id="id92">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1220,3846 v -398 h 265 v 795 h -265 z"
    id="path16231"
-   d="m 1220,3846 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16239"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16239">
        <g
    id="id93">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1484,3846 v -398 h 265 v 795 h -265 z"
    id="path16236"
-   d="m 1484,3846 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16244"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16244">
        <g
    id="id94">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 1749,3846 v -398 h 265 v 795 h -265 z"
    id="path16241"
-   d="m 1749,3846 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16249"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16249">
        <g
    id="id95">
         <path
-   style="fill:#c000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6887,6887 4199,3222 c -297,386 -591,680 -977,976 z"
    id="path16246"
-   d="m 6887,6887 4199,3222 c -297,386 -591,680 -977,976 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#c000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16256"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16256">
        <g
    id="id96">
         <path
-   style="fill:#c000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 10793,11190 v -398 h 795 v 795 h -795 z"
    id="path16251"
-   d="m 10793,11190 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#c000ff;stroke:none" />
+        <path
+   d="m 10793,11190 v -398 h 795 v 795 h -795 z"
    id="path16253"
-   d="m 10793,11190 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16261"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16261">
        <g
    id="id97">
         <path
-   style="fill:#c00000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 10794,11192 v -398 h 265 v 795 h -265 z"
    id="path16258"
-   d="m 10794,11192 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#c00000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16266"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16266">
        <g
    id="id98">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 11059,11192 v -398 h 265 v 795 h -265 z"
    id="path16263"
-   d="m 11059,11192 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16271"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16271">
        <g
    id="id99">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 11323,11192 v -398 h 265 v 795 h -265 z"
    id="path16268"
-   d="m 11323,11192 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16276"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16276">
        <g
    id="id100">
         <path
-   style="fill:#3fff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6889,6887 2691,3665 c 296,-386 590,-680 977,-976 z"
    id="path16273"
-   d="M 6889,6887 2691,3665 c 296,-386 590,-680 977,-976 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#3fff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16283"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16283">
        <g
    id="id101">
         <path
-   style="fill:#3fff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 2187,2584 v -398 h 795 v 795 h -795 z"
    id="path16278"
-   d="m 2187,2584 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#3fff00;stroke:none" />
+        <path
+   d="m 2187,2584 v -398 h 795 v 795 h -795 z"
    id="path16280"
-   d="m 2187,2584 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16288"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16288">
        <g
    id="id102">
         <path
-   style="fill:#3f0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 2188,2586 v -398 h 265 v 795 h -265 z"
    id="path16285"
-   d="m 2188,2586 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#3f0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16293"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16293">
        <g
    id="id103">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 2453,2586 v -398 h 265 v 795 h -265 z"
    id="path16290"
-   d="m 2453,2586 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16298"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16298">
        <g
    id="id104">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 2717,2586 v -398 h 265 v 795 h -265 z"
    id="path16295"
-   d="m 2717,2586 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16303"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16303">
        <g
    id="id105">
         <path
-   style="fill:#8000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6889,6887 3222,4198 c -387,297 -746,505 -1197,691 z"
    id="path16300"
-   d="m 6889,6887 3222,4198 c -387,297 -746,505 -1197,691 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#8000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16310"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16310">
        <g
    id="id106">
         <path
-   style="fill:#8000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 9534,12157 v -398 h 795 v 795 h -795 z"
    id="path16305"
-   d="m 9534,12157 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#8000ff;stroke:none" />
+        <path
+   d="m 9534,12157 v -398 h 795 v 795 h -795 z"
    id="path16307"
-   d="m 9534,12157 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16315"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16315">
        <g
    id="id107">
         <path
-   style="fill:#800000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 9535,12157 v -398 h 265 v 795 h -265 z"
    id="path16312"
-   d="m 9535,12157 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#800000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16320"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16320">
        <g
    id="id108">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 9799,12157 v -398 h 265 v 795 h -265 z"
    id="path16317"
-   d="m 9799,12157 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16325"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16325">
        <g
    id="id109">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 10064,12157 v -398 h 265 v 795 h -265 z"
    id="path16322"
-   d="m 10064,12157 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16330"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16330">
        <g
    id="id110">
         <path
-   style="fill:#7fff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6889,6885 3668,2687 c 386,-297 746,-505 1196,-691 z"
    id="path16327"
-   d="M 6889,6885 3668,2687 c 386,-297 746,-505 1196,-691 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#7fff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16337"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16337">
        <g
    id="id111">
         <path
-   style="fill:#7fff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 3448,1616 v -398 h 795 v 795 h -795 z"
    id="path16332"
-   d="m 3448,1616 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#7fff00;stroke:none" />
+        <path
+   d="m 3448,1616 v -398 h 795 v 795 h -795 z"
    id="path16334"
-   d="m 3448,1616 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16342"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16342">
        <g
    id="id112">
         <path
-   style="fill:#7f0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 3449,1616 v -398 h 265 v 795 h -265 z"
    id="path16339"
-   d="m 3449,1616 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#7f0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16347"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16347">
        <g
    id="id113">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 3714,1616 v -398 h 265 v 795 h -265 z"
    id="path16344"
-   d="m 3714,1616 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16352"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16352">
        <g
    id="id114">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 3978,1616 v -398 h 265 v 795 h -265 z"
    id="path16349"
-   d="m 3978,1616 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16357"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16357">
        <g
    id="id115">
         <path
-   style="fill:#4000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6889,6885 2025,4889 v 0 c -450,187 -851,294 -1334,358 z"
    id="path16354"
-   d="m 6889,6885 2025,4889 v 0 c -450,187 -851,294 -1334,358 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#4000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16364"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16364">
        <g
    id="id116">
         <path
-   style="fill:#4000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 8066,12766 v -398 h 795 v 795 h -795 z"
    id="path16359"
-   d="m 8066,12766 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#4000ff;stroke:none" />
+        <path
+   d="m 8066,12766 v -398 h 795 v 795 h -795 z"
    id="path16361"
-   d="m 8066,12766 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16369"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16369">
        <g
    id="id117">
         <path
-   style="fill:#400000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 8067,12766 v -398 h 265 v 795 h -265 z"
    id="path16366"
-   d="m 8067,12766 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#400000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16374"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16374">
        <g
    id="id118">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 8332,12766 v -398 h 265 v 795 h -265 z"
    id="path16371"
-   d="m 8332,12766 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16379"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16379">
        <g
    id="id119">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 8596,12766 v -398 h 265 v 795 h -265 z"
    id="path16376"
-   d="m 8596,12766 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16384"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16384">
        <g
    id="id120">
         <path
-   style="fill:#bfff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 6889,6887 4864,1998 c 450,-187 852,-294 1335,-358 z"
    id="path16381"
-   d="M 6889,6887 4864,1998 c 450,-187 852,-294 1335,-358 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#bfff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16391"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16391">
        <g
    id="id121">
         <path
-   style="fill:#bfff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 4916,1009 V 611 h 795 v 795 h -795 z"
    id="path16386"
-   d="M 4916,1009 V 611 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#ffffff;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#bfff00;stroke:none" />
+        <path
+   d="M 4916,1009 V 611 h 795 v 795 h -795 z"
    id="path16388"
-   d="M 4916,1009 V 611 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#ffffff;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16396"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16396">
        <g
    id="id122">
         <path
-   style="fill:#bf0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 4917,1009 V 611 h 265 v 795 h -265 z"
    id="path16393"
-   d="M 4917,1009 V 611 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#bf0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16401"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16401">
        <g
    id="id123">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 5181,1009 V 611 h 265 v 795 h -265 z"
    id="path16398"
-   d="M 5181,1009 V 611 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16406"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16406">
        <g
    id="id124">
         <path
-   style="fill:#000000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="M 5446,1009 V 611 h 265 v 795 h -265 z"
    id="path16403"
-   d="M 5446,1009 V 611 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#000000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16411"
-   class="com.sun.star.drawing.EllipseShape">
+   class="com.sun.star.drawing.EllipseShape"
+   id="g16411">
        <g
    id="id125">
         <path
-   style="fill:#ffffff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 7565,8516 c -300,124 -584,162 -906,119 -322,-42 -586,-151 -844,-349 -257,-198 -431,-425 -556,-725 -124,-300 -161,-583 -119,-905 42,-322 152,-587 350,-844 197,-258 424,-432 724,-556 300,-125 584,-162 906,-119 322,42 586,151 844,349 257,198 431,425 556,725 124,300 161,583 119,905 -43,322 -152,586 -350,844 -197,258 -424,432 -724,556 z"
    id="path16408"
-   d="m 7565,8516 c -300,124 -584,162 -906,119 -322,-42 -586,-151 -844,-349 -257,-198 -431,-425 -556,-725 -124,-300 -161,-583 -119,-905 42,-322 152,-587 350,-844 197,-258 424,-432 724,-556 300,-125 584,-162 906,-119 322,42 586,151 844,349 257,198 431,425 556,725 124,300 161,583 119,905 -43,322 -152,586 -350,844 -197,258 -424,432 -724,556 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:none" />
        </g>
       </g>
       <g
-   id="g16418"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16418">
        <g
    id="id126">
         <path
-   style="fill:#ffffff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6491,6887 v -398 h 795 v 795 h -795 z"
    id="path16413"
-   d="m 6491,6887 v -398 h 795 v 795 h -795 z" />
-        <path
-   style="fill:none;stroke:#000000;stroke-width:106"
    inkscape:connector-curvature="0"
+   style="fill:#ffffff;stroke:none" />
+        <path
+   d="m 6491,6887 v -398 h 795 v 795 h -795 z"
    id="path16415"
-   d="m 6491,6887 v -398 h 795 v 795 h -795 z" />
+   inkscape:connector-curvature="0"
+   style="fill:none;stroke:#000000;stroke-width:106" />
        </g>
       </g>
       <g
-   id="g16423"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16423">
        <g
    id="id127">
         <path
-   style="fill:#ff0000;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6492,6887 v -398 h 265 v 795 h -265 z"
    id="path16420"
-   d="m 6492,6887 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#ff0000;stroke:none" />
        </g>
       </g>
       <g
-   id="g16428"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16428">
        <g
    id="id128">
         <path
-   style="fill:#00ff00;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 6756,6887 v -398 h 265 v 795 h -265 z"
    id="path16425"
-   d="m 6756,6887 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#00ff00;stroke:none" />
        </g>
       </g>
       <g
-   id="g16433"
-   class="com.sun.star.drawing.RectangleShape">
+   class="com.sun.star.drawing.RectangleShape"
+   id="g16433">
        <g
    id="id129">
         <path
-   style="fill:#0000ff;stroke:none"
-   inkscape:connector-curvature="0"
+   d="m 7021,6887 v -398 h 265 v 795 h -265 z"
    id="path16430"
-   d="m 7021,6887 v -398 h 265 v 795 h -265 z" />
+   inkscape:connector-curvature="0"
+   style="fill:#0000ff;stroke:none" />
        </g>
       </g>
      </g>
@@ -1947,132 +1957,84 @@
    </g>
   </g>
  </g><text
-         id="text18302"
-         y="572.79102"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
+       x="17955.398"
+       y="572.79102"
+       id="text18302"><tspan
+         sodipodi:role="line"
          x="17955.398"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           id="tspan2221"
-           style="stroke-width:746.70709229"
-           y="572.79102"
-           x="17955.398"
-           sodipodi:role="line">dark in cyan lens</tspan></text>
+         y="572.79102"
+         style="stroke-width:746.70709229"
+         id="tspan2221">dark in cyan lens</tspan></text>
 <text
-         id="text18302-8"
-         y="622.80243"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:423.33331299px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:746.70703125;stroke-linejoin:round"
+       x="-1289.7471"
+       y="622.80243"
+       id="text18302-8"><tspan
+         sodipodi:role="line"
          x="-1289.7471"
-         style="font-style:normal;font-weight:normal;font-size:423.33331299px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:746.70703125;stroke-linejoin:round"
-         xml:space="preserve"><tspan
-           id="tspan2219"
-           style="stroke-width:746.70703125"
-           y="622.80243"
-           x="-1289.7471"
-           sodipodi:role="line">dark in red lens</tspan></text>
+         y="622.80243"
+         style="stroke-width:746.70703125"
+         id="tspan2219">dark in red lens</tspan></text>
 <text
-         transform="rotate(-30)"
-         id="text18324"
-         y="5636.4082"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
+       x="-1646.465"
+       y="5636.4082"
+       id="text18324"
+       transform="rotate(-30)"><tspan
+         sodipodi:role="line"
+         id="tspan18322"
          x="-1646.465"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           style="stroke-width:746.70709229"
-           y="5636.4082"
-           x="-1646.465"
-           id="tspan18322"
-           sodipodi:role="line">Cyan 180</tspan></text>
+         y="5636.4082"
+         style="stroke-width:746.70709229">Cyan 180</tspan></text>
 <text
-         transform="rotate(-30)"
-         id="text18350"
-         y="5523.4941"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
+       x="16396.807"
+       y="5523.4941"
+       id="text18350"
+       transform="rotate(-30)"><tspan
+         sodipodi:role="line"
+         id="tspan18348"
          x="16396.807"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           style="stroke-width:746.70709229"
-           y="5523.4941"
-           x="16396.807"
-           id="tspan18348"
-           sodipodi:role="line">0 Red</tspan></text>
+         y="5523.4941"
+         style="stroke-width:746.70709229">0 Red</tspan></text>
 <text
-         transform="rotate(30)"
-         id="text1721"
-         y="-4379.3462"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
+       x="16845.521"
+       y="-4379.3462"
+       id="text1721"
+       transform="rotate(30)"><tspan
+         sodipodi:role="line"
+         id="tspan1719"
          x="16845.521"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           style="stroke-width:746.70709229"
-           y="-4379.3462"
-           x="16845.521"
-           id="tspan1719"
-           sodipodi:role="line">300</tspan></text>
+         y="-4379.3462"
+         style="stroke-width:746.70709229">300</tspan></text>
 <text
-         transform="rotate(45)"
-         id="text1725"
-         y="-6597.9541"
-         x="15368.759"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           style="stroke-width:746.70709229"
-           y="-6597.9541"
-           x="15368.759"
-           id="tspan1723"
-           sodipodi:role="line">285</tspan></text>
-<text
-         transform="rotate(60)"
-         id="text1729"
-         y="-8156.604"
-         x="13403.078"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           style="stroke-width:746.70709229"
-           y="-8156.604"
-           x="13403.078"
-           id="tspan1727"
-           sodipodi:role="line">270</tspan></text>
-<text
-         transform="rotate(-120)"
-         id="text1737"
-         y="8750.4873"
-         x="2628.1565"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           style="stroke-width:746.70709229"
-           y="8750.4873"
-           x="2628.1565"
-           id="tspan1735"
-           sodipodi:role="line">90</tspan></text>
-<text
-         transform="rotate(-105)"
-         id="text1741"
-         y="9772.0957"
-         x="4962.0327"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           style="stroke-width:746.70709229"
-           y="9772.0957"
-           x="4962.0327"
-           id="tspan1739"
-           sodipodi:role="line">75</tspan></text>
-<text
-         transform="rotate(-90)"
-         id="text1745"
-         y="10191.971"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
+       x="7527.229"
+       y="10191.971"
+       id="text1745"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan1743"
          x="7527.229"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           style="stroke-width:746.70709229"
-           y="10191.971"
-           x="7527.229"
-           id="tspan1743"
-           sodipodi:role="line">60</tspan></text>
+         y="10191.971"
+         style="stroke-width:746.70709229">60</tspan></text>
 <text
-         id="text3995"
-         y="8898.167"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
+       x="4385.3047"
+       y="8898.167"
+       id="text3995"><tspan
+         sodipodi:role="line"
          x="4385.3047"
-         style="font-style:normal;font-weight:normal;font-size:423.33334351px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:746.70709229"
-         xml:space="preserve"><tspan
-           id="tspan3997"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:423.33334351px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:746.70709229"
-           y="8898.167"
-           x="4385.3047"
-           sodipodi:role="line">Color wheel, seen through red-cyan glasses</tspan></text>
-</g></g></g></g></svg>
+         y="8898.167"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:423.33334351px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:746.70709229"
+         id="tspan3997">Color wheel, seen through red-cyan glasses</tspan></text>
+</g></g></g></svg>
