@@ -22,8 +22,8 @@ function hsv(h, s = 1, v = 1, a = 1, p, q, t) = (p == undef || q == undef || t =
 
 function hsv1(h, s, v) = hsv(h/360,s/100,v/100);
 
-module small_text(txt) {
-    linear_extrude(text_h) text(txt, size = 6, halign = "center", valign = "center");
+module small_text(txt, algn) {
+    linear_extrude(text_h) text(txt, font="FreeSans:style=Bold", size = 6, halign = algn, valign = "center");
 }
 
 module colorwheel() { 
@@ -31,57 +31,45 @@ module colorwheel() {
                     rotate([0,0,h]) {
                     translate([60, 0, 0])
                     color(hsv1(h, 100, 100))
-                    cube(10, center=true);
+                    cube(12, center=true);
                     translate([75,0,0])
                     rotate([0,0,-h])
                     color("Black")
-                    small_text(str(h));
+                    small_text(str(h),"center");
                 }
     }
     
     color("Black")
-    intersection() {
+    difference() {
         difference() {
-            cylinder(r = 91, h= text_h, center=true);
-            cylinder(r = 89, h= 2*text_h, center=true);
+            circle(r = 91);
+            circle(r = 89);
         }
         hull() {
-            rotate([0,0,30])
-            cube([200,1,1]);
-            rotate([0,0,-30])
-            cube([200,1,1]);
-             rotate([0,0,0])
-            cube([200,1,1]);
-        }
-    }
-        
-    color("Black")
-    intersection() {
-        difference() {
-            cylinder(r = 91, h= text_h, center=true);
-            cylinder(r = 89, h= 2*text_h, center=true);
+            rotate([0,0,45])
+            square([200,1]);
+            rotate([0,0,75])
+            square([200,1]);
         }
         hull() {
-            rotate([0,0,105])
-            cube([200,1,1]);
-            rotate([0,0,255])
-            cube([200,1,1]);
-            rotate([0,0,180])
-            cube([200,1,1]);
+            rotate([0,0,285])
+            square([200,1]);
+            rotate([0,0,315])
+            square([200,1]);
         }
     }
     
     color("Black")
-    translate([-130,0,0])
-    small_text("Dark in red lens");
+    translate([-100,0,0])
+    small_text("Dark in red lens","right");
     
     color("Black")
-    translate([125,0,0])
-    small_text("Dark in cyan lens");
+    translate([100,0,0])
+    small_text("Dark in cyan lens","left");
     
     color("Black")
     translate([0, -100,0])
-    small_text("Color wheel with hue numbers");
+    small_text("Color wheel with hue numbers","center");
 }
 
 colorwheel();

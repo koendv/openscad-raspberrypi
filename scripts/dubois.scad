@@ -32,7 +32,6 @@ function dubois(rl, gl, bl, rr, gr, br) = [
 function dubois1(c) = dubois(c[0], c[1], c[2], c[0], c[1], c[2]);
 
 // color wheel
-rotate([0,0,30])
 for (h = [0:15:360]) {
     // original color
     rotate([0, 0, h])

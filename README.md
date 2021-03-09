@@ -35,34 +35,36 @@ Select color scheme "3D Glasses".
 
 - Put 3D glasses on.
 
-- Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode. 
+- Click the 3D glasses icon ![anaglyph](images/Anaglyph-32.png) to toggle stereo mode.
 
 ## Preferences
 
 [![preferences](images/preferences.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/preferences.png)
 
-You can access the preference panel using the menu *Edit->Preferences->3D View*. The preferences panel has four settings for anaglyphs: color scheme, eye separation, out of screen, and near clipping plane. 
+The preference panel is accessed using the menu *Edit->Preferences->3D View*. The preferences panel has four settings for anaglyphs: color scheme, eye separation, out of screen, and near clipping plane.
 
 - *color scheme* A good color scheme for anaglyphs is "3D Glasses".
-- *eye separation* The *eye separation* slider sets the distance between the anaglyph "eyes". Too little eye separation and the 3D effect disappears; too much and you get eyestrain. Adjust for your viewing comfort.
-- *out of screen* Objects "behind" the screen are easier on the eye than objects that "stick out" from the screen. With the *out of screen* slider you can push the objects back, behind the screen.
-- *near clipping plane* The *near clipping plane* slider allows you to set the closest object you still want to see. To calibrate, slide *near clipping plane* completely to the left. Switch axis on, and turn the object so the axis points straight at you. Then move the *near clipping plane* slider to the right until comfortable. Do not set *near clipping plane* too much to the right, or the complete model will disappear.
+- *eye separation* The *eye separation* slider sets the horizontal distance between the left and right cameras, similar to the horizontal distance between left and right eye. Too little eye separation and the 3D effect disappears; too much and you get eyestrain. The optimum value depends upon screen size. Adjust for your viewing comfort.
+- *out of screen* Objects that appear behind the screen are easier on the eye than objects that appear to stick out from the screen. With the *out of screen* slider you can push the objects back, behind the screen. Adjust for your viewing comfort.
+- *near clipping plane* The *near clipping plane* slider allows you to set the closest object you still want to see. To calibrate, slide *near clipping plane* completely to the left. Switch axis on, and turn the object so the axis points straight at you. Move the *near clipping plane* slider to the right. Notice how the axis pointing at you becomes shorter. Adjust until comfortable. Do not set *near clipping plane* too much to the right, or the complete model will disappear.
 
 If the sliders for eye separation, out of screen, and near clipping distance are completely to the left, anaglyph is switched off and the 3D display behaves more or less like a normal 2D display.
 
-Not all colors are suitable for anaglyphs. First we discuss which colors are suitable, then list the measures taken to ensure all colors used are good for anaglyphs. 
+The *near clipping plane* setting can also be used to see inside a 3D model. As an example, we will look inside the OpenSCAD logo. From the menu, choose *File->Examples->Basics->logo.scad* and set 3D anaglyph mode ![anaglyph](images/Anaglyph-32.png). Open the preferences panel *Edit->Preferences->3D View* and adjust the *near clipping plane* setting to the middle. Observe how the logo is sliced in half and you can see inside the 3D model.
+
+Not all colors work well with anaglyphs. First we discuss which colors are suitable, then list the measures taken to ensure all colors used are suitable for anaglyphs.
 
 ## Colors suitable for anaglyph 3D
 
-[![colorwheel](images/colorwheel.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorwheel.svg)
+[![color wheel](images/wheel_small.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/wheel.png)
 
-This color wheel shows all colors of the rainbow. The numbers are the color [hue](https://en.wikipedia.org/wiki/HSL_and_HSV), a number from 0 to 360. 
+This color wheel shows all colors of the rainbow. The numbers are the color [hue](https://en.wikipedia.org/wiki/HSL_and_HSV), a number from 0 to 360.
 
 The glasses used to see 3D anaglyphs have red lenses for the left eye, and cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours. Complementary colours are in opposite positions on the colour wheel.
 
 To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail because only one eye gets an image. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green and purple. To some degree colors are subjective, and what colors to use is dependent upon the combination of display and 3D glasses used.
 
-Apart from hue, saturation also plays a role. The cyan lens dampens green and lets red pass through. However, if a color has strong green but weak red then, after filtering through the cyan lens, green and red may be more or less the same strength. The eye then sees two images superimposed. This is called *ghosting*. Less saturated colors have less *ghosting*.
+Apart from hue, saturation also plays a role. The cyan lens dampens green and lets red pass through. However, if a color has strong green but weak red after filtering through the cyan lens, green and red may be more or less the same strength. The eye then sees two images superimposed. This is called *ghosting*. Less saturated colors have less *ghosting*.
 
 To choose the correct colors, two solutions: a color scheme that uses greens, purple and grey, and Dubois shading.
 
@@ -70,10 +72,9 @@ To choose the correct colors, two solutions: a color scheme that uses greens, pu
 
 A color scheme for red/cyan anaglyphs on lcd displays is provided. The color scheme "3D Glasses" uses green, purple and grey. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
 
-The ideal color scheme depends upon display and glasses used. Colors are slightly different for different display technologies. As an example, if you wanted to print anaglyphs, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
+The ideal color scheme depends upon display and glasses used. As an example, if you wanted to print anaglyphs, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
 
-Note anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 degrees, or, for a printed anaglyph, if you turn the paper 90 degrees.
-
+Anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 degrees, or, for a printed anaglyph, if you turn the paper 90 degrees.
 
 ## Dubois shading
 
@@ -84,6 +85,10 @@ Note anaglyphs have an orientation. The 3D effect is lost if you turn your head 
 Usually, the Dubois algorithm is applied to the pixels after rendering. Here, the Dubois algorithm is applied to the color scheme before rendering.
 
 The color scheme is updated automatically when changing to or from 3D view. Clicking preview to update the colors is only necessary if the OpenSCAD script contains *color()* instructions.
+
+## Links
+- [Choose a good screen - glasses pair](http://www.david-romeuf.fr/3D/Anaglyphes/BonCoupleEL/GoodCoupleMonitorGlassesAnaglyph.html)
+- [Pull Request](https://github.com/openscad/openscad/pull/3693) at openscad
 
 ## Build notes
 
@@ -193,7 +198,7 @@ The 32-bit version for Raspberry Pi OS 2021-01-11-raspios-buster-armhf differs i
 export QT_SELECT=qt5.15.2-opengl
 qmake openscad.pro "PREFIX=/usr" "LIB3MF_INCLUDEPATH=/usr/include/Bindings/Cpp"  "LIB3MF_LIBPATH=-l3mf -lzip -lz"
 ```
-or. if using cmake, 
+or. if using cmake,
 ```
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DLIB3MF_INCLUDE_DIRS=/usr/include/Bindings/Cpp "-DLIB3MF_LIBRARIES=-l3mf -lzip -lz" ..
 ```
