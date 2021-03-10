@@ -9,9 +9,10 @@ This is the OpenSCAD CAD modeller, compiled for raspberry pi, with support for s
 
 [![screenshot](images/openscad_screenshot_big.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/openscad_screenshot_big.png)
 
-You need red/cyan colored glasses to see the 3D effect. A short, 15 second anaglyph video:
+You need red/cyan colored glasses to see the 3D effect. A short, 15 second anaglyph video to demonstrate:
 
-[![](http://img.youtube.com/vi/liOioQvY6qg/0.jpg)](http://www.youtube.com/watch?v=liOioQvY6qg "3D anaglyph video")
+[![](http://img.youtube.com/vi/ur4IqVoL11s/0.jpg)](http://www.youtube.com/watch?v=ur4IqVoL11s "3D video for red/cyan glasses")
+
 
 ## Downloads
 
