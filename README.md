@@ -52,7 +52,14 @@ The preference panel is accessed using the menu *Edit->Preferences->3D View*. Th
 
 If the sliders for eye separation, out of screen, and near clipping distance are completely to the left, anaglyph is switched off and the 3D display behaves more or less like a normal 2D display.
 
-The *near clipping plane* setting can also be used to see inside a 3D model. As an example, we will look inside the OpenSCAD logo. From the menu, choose *File->Examples->Basics->logo.scad*, reset view ![reset view](images/Command-Reset-32.png), zoom out ![view all](images/zoom-all.png) render ![render](images/render-32.png) and set 3D anaglyph mode ![anaglyph](images/Anaglyph-32.png). Open the preferences panel *Edit->Preferences->3D View* and slide the *near clipping plane* setting to the middle. Observe how the logo is sliced in half and you can see inside the 3D model.
+The *near clipping plane* setting can also be used to see inside a 3D model. As an example, we will look inside the OpenSCAD logo:
+
+- From the menu, choose *File->Examples->Basics->logo.scad*
+- reset view ![reset view](images/Command-Reset-32.png)
+- zoom out ![view all](images/zoom-all.png)
+- render ![render](images/render-32.png)
+- set 3D anaglyph mode ![anaglyph](images/Anaglyph-32.png)
+- Open the preferences panel *Edit->Preferences->3D View* and slide the *near clipping plane* setting to the middle. Observe how the logo is sliced in half and you can see inside the 3D model.
 
 Not all colors work well with anaglyphs. First we discuss which colors are suitable, then list the measures taken to ensure all colors used are suitable for anaglyphs.
 
