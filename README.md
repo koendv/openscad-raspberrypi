@@ -15,7 +15,7 @@ You need red/cyan colored glasses to see the 3D effect. A short, 15 second 3D vi
 
 ## Downloads
 
-- [Binaries](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi and others.
+- [Binaries](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi, linux, windows, and macosx.
 
 If you like this, maybe you want to buy me a cup of tea:
 
