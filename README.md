@@ -3,7 +3,7 @@
 
 ![Reel3D No. 7020 plastic flip-up clip-on](images/anaglyph_glasses.gif)
 
-This is the OpenSCAD CAD modeller, compiled for raspberry pi, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. The anaglyph 3D glasses used are glasses with red and cyan colored lenses.
+This is the [OpenSCAD](http://www.openscad.org/) CAD modeller, with support for showing your designs in 3D when viewed with anaglyph 3D glasses. The anaglyph 3D glasses used are glasses with red and cyan colored lenses. [Binaries](https://github.com/koendv/openscad-raspberrypi/releases) for raspberry pi, linux, windows, and macosx.
 
 ## Sample screen
 
