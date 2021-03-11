@@ -9,7 +9,7 @@ This is the OpenSCAD CAD modeller, compiled for raspberry pi, with support for s
 
 [![screenshot](images/openscad_screenshot_big.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/openscad_screenshot_big.png)
 
-You need red/cyan colored glasses to see the 3D effect. A short, 15 second video made with OpenSCAD:
+You need red/cyan colored glasses to see the 3D effect. A short, 15 second 3D video made with OpenSCAD (720p):
 
 [![](images/openscad_video.png)](http://www.youtube.com/watch?v=ur4IqVoL11s "3D video for red/cyan glasses")
 
