@@ -91,7 +91,7 @@ Anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 de
 
 [Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. The picture above shows on the inside a color wheel, and on the outside what the same colors look like after Dubois shading. Dubois shading maps the upper half of the color wheel to hues around 60, greenish yellow, and maps the lower half of the color wheel to hues around 300, blue-purple. Green-yellow and blue-purple are the colors which can be seen through both red lens and cyan lens. Also, after applying Dubois, colors are less saturated, more "washed out".
 
-Usually, the Dubois algorithm is applied to the pixels after rendering. Here, the Dubois algorithm is applied to the color scheme before rendering.
+Usually, the Dubois algorithm is applied to the pixels after rendering. Here, the Dubois algorithm is applied to the color scheme before rendering. This reduces the number of calculations.
 
 The color scheme is updated automatically when changing to or from 3D view. Clicking preview to update the colors is only necessary if the OpenSCAD script contains *color()* instructions.
 
