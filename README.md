@@ -61,9 +61,9 @@ The *near clipping plane* setting can also be used to see inside a 3D model. As 
 - set 3D anaglyph mode ![anaglyph](images/Anaglyph-32.png)
 - Open the preferences panel *Edit->Preferences->3D View* and slide the *near clipping plane* setting to the middle. Observe how the logo is sliced in half and you can see inside the 3D model.
 
-Not all colors work well with anaglyphs. First we discuss which colors are suitable, then list the measures taken to ensure all colors used are suitable for anaglyphs.
-
 ## Colors suitable for anaglyph 3D
+
+Not all colors work well with anaglyphs. First we discuss which colors are suitable, then list the measures taken to ensure all colors used are suitable for anaglyphs.
 
 [![color wheel](images/wheel_small.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/wheel.png)
 
@@ -71,9 +71,9 @@ This color wheel shows all colors of the rainbow. The numbers are the color [hue
 
 The glasses used to see 3D anaglyphs have red lenses for the left eye, and cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours. Complementary colours are in opposite positions on the colour wheel.
 
-To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail because only one eye gets an image. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green and purple. To some degree colors are subjective, and what colors to use is dependent upon the combination of display and 3D glasses used.
+To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail because only one eye gets an image. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, greenish yellow and purple. To some degree colors are subjective, and what colors to use is dependent upon the combination of display and 3D glasses used.
 
-Apart from hue, saturation also plays a role. The cyan lens dampens green and lets red pass through. However, if a color has strong green but weak red after filtering through the cyan lens, green and red may be more or less the same strength. The eye then sees two images superimposed. This is called *ghosting*. Less saturated colors have less *ghosting*.
+Apart from hue, saturation also plays a role. The cyan lens dampens green and lets red pass through. However, if a color has strong green but weak red, then after filtering through the cyan lens, green and red may be more or less the same strength. The eye then sees two images superimposed. This is called *ghosting*. Less saturated colors have less *ghosting*.
 
 To choose the correct colors, two solutions: a color scheme that uses greens, purple and grey, and Dubois shading.
 
@@ -89,7 +89,7 @@ Anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 de
 
 ![Dubois shading](images/dubois.png)
 
-[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. The picture above shows on the inside a color wheel, and on the outside what the same colors look like after Dubois shading. Notice how red and cyan change. Also, after applying Dubois, colors are less saturated, more "washed out".
+[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. The picture above shows on the inside a color wheel, and on the outside what the same colors look like after Dubois shading. Dubois shading maps the upper half of the color wheel to hues around 60, greenish yellow, and maps the lower half of the color wheel to hues around 300, blue-purple. These are the colors which can be seen through both red lens and cyan lens. Also, after applying Dubois, colors are less saturated, more "washed out".
 
 Usually, the Dubois algorithm is applied to the pixels after rendering. Here, the Dubois algorithm is applied to the color scheme before rendering.
 
