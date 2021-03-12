@@ -1,9 +1,3 @@
-commit c7ea679e2ad8d2f69d48d2621cc21884ba47937d
-Author: Koen De Vleeschauwer <kdv@kdvelectronics.eu>
-Date:   Mon Mar 8 11:32:13 2021 +0100
-
-    anaglyph
-
 diff --git a/color-schemes/render/beforedawn.json b/color-schemes/render/beforedawn.json
 index d4d98bba9..0f05c2f85 100644
 --- a/color-schemes/render/beforedawn.json
@@ -30,7 +24,7 @@ index 9ce164fdc..f5179c583 100644
          "opencsg-face-back" :  "#0babc8",
 diff --git a/color-schemes/render/gencolorscheme.py b/color-schemes/render/gencolorscheme.py
 new file mode 100755
-index 000000000..b09b99001
+index 000000000..e329eb708
 --- /dev/null
 +++ b/color-schemes/render/gencolorscheme.py
 @@ -0,0 +1,58 @@
@@ -56,7 +50,7 @@ index 000000000..b09b99001
 +
 +# color scheme
 +background =         rgb(255,255,255)
-+highlight =          hsv(0,0,20)
++highlight =          hsv(0,0,50)
 +axes_color =         hsv(290,50,100)
 +opencsg_face_front = hsv(75,50,100)
 +opencsg_face_back =  hsv(285,50,100)
@@ -130,7 +124,7 @@ index 6250e7a33..b71ec0b44 100644
          "opencsg-face-back" :  "#dbf4da",
 diff --git a/color-schemes/render/redcyanglasses.json b/color-schemes/render/redcyanglasses.json
 new file mode 100644
-index 000000000..94a843c6f
+index 000000000..24c1ceff2
 --- /dev/null
 +++ b/color-schemes/render/redcyanglasses.json
 @@ -0,0 +1,22 @@
@@ -143,7 +137,7 @@ index 000000000..94a843c6f
 +
 +    "colors" : {
 +        "background" :         "#ffffff",
-+        "highlight" :          "#33333380",
++        "highlight" :          "#80808080",
 +        "axes-color" :         "#ea80ff",
 +        "opencsg-face-front" : "#dfff80",
 +        "opencsg-face-back" :  "#df80ff",
@@ -251,27 +245,26 @@ index 4cd2859c3..17e326edc 100644
  	void setup(std::vector<double> params);
  	void gimbalDefaultTranslate();
 diff --git a/src/GLView.cc b/src/GLView.cc
-index 766387736..32fea7354 100644
+index 766387736..2c64e6400 100644
 --- a/src/GLView.cc
 +++ b/src/GLView.cc
-@@ -3,6 +3,7 @@
- #include "stdio.h"
- #include "colormap.h"
- #include "rendersettings.h"
-+#include "settings.h"
- #include "printutils.h"
- #include "renderer.h"
- #include "degree_trig.h"
-@@ -80,6 +81,107 @@ void GLView::resizeGL(int w, int h)
+@@ -30,6 +30,9 @@ GLView::GLView()
+   colorscheme = &ColorMap::inst()->defaultColorScheme();
+   cam = Camera();
+   far_far_away = RenderSettings::inst()->far_gl_clip_limit;
++  eyeSeparation = 12.0;
++  outOfScreen = 18.0;
++  nearClippingPlane = 1.0;
+ #ifdef ENABLE_OPENCSG
+   is_opencsg_capable = false;
+   has_shaders = false;
+@@ -80,6 +83,104 @@ void GLView::resizeGL(int w, int h)
  	if (this->renderer) { this->renderer->resize(cam.pixel_width,cam.pixel_height); }
  }
  
 +/* 3d anaglyph - set up camera for left or right eye */
 +/* after https://quiescentspark.blogspot.com/2011/05/rendering-3d-anaglyph-in-opengl.html */
 +void GLView::setup3dCamera(bool leftCamera) {
-+  double eyeSeparation = Settings::Settings::inst()->get(Settings::Settings::eyeSeparation).toDouble() * 0.1;
-+  double outOfScreen = Settings::Settings::inst()->get(Settings::Settings::outOfScreen).toDouble() * 0.1;
-+  double nearClippingPlane = Settings::Settings::inst()->get(Settings::Settings::nearClippingPlane).toDouble() * 0.1;
 +  float left, right, bottom, top;
 +  float convergence = (float)cam.zoomValue();
 +  float aspectRatio = aspectratio;
@@ -370,7 +363,7 @@ index 766387736..32fea7354 100644
  void GLView::setCamera(const Camera &cam)
  {
    this->cam = cam;
-@@ -117,6 +219,11 @@ void GLView::setupCamera() const
+@@ -117,6 +218,11 @@ void GLView::setupCamera() const
  
  void GLView::paintGL()
  {
@@ -383,7 +376,7 @@ index 766387736..32fea7354 100644
    auto bgcol = ColorMap::getColor(*this->colorscheme, RenderColor::BACKGROUND_COLOR);
    auto axescolor = ColorMap::getColor(*this->colorscheme, RenderColor::AXES_COLOR);
 diff --git a/src/GLView.h b/src/GLView.h
-index 1fcd31bc8..2de658b9f 100644
+index 1fcd31bc8..faa1198b7 100644
 --- a/src/GLView.h
 +++ b/src/GLView.h
 @@ -39,6 +39,10 @@ public:
@@ -397,11 +390,39 @@ index 1fcd31bc8..2de658b9f 100644
  	void setColorScheme(const ColorScheme &cs);
  	void setColorScheme(const std::string &cs);
  	void updateColorScheme();
+@@ -53,6 +57,9 @@ public:
+ 	void setShowFaces(bool enabled) { this->showfaces = enabled; }
+ 	bool showCrosshairs() const { return this->showcrosshairs; }
+ 	void setShowCrosshairs(bool enabled) { this->showcrosshairs = enabled; }
++	void setEyeSeparation(double val) { this->eyeSeparation = val; }
++	void setOutOfScreen(double val) { this->outOfScreen = val; }
++	void setNearClippingPlane(double val) { this->nearClippingPlane = val; }
+ 
+ 	virtual bool save(const char *filename) const = 0;
+ 	virtual std::string getRendererInfo() const = 0;
+@@ -70,6 +77,9 @@ public:
+ 	bool showedges;
+ 	bool showcrosshairs;
+ 	bool showscale;
++	double eyeSeparation;
++	double outOfScreen;
++	double nearClippingPlane;
+ 
+ #ifdef ENABLE_OPENCSG
+ 	bool is_opencsg_capable;
 diff --git a/src/MainWindow.h b/src/MainWindow.h
-index aaed0e139..25f08b381 100644
+index aaed0e139..1874688f1 100644
 --- a/src/MainWindow.h
 +++ b/src/MainWindow.h
-@@ -299,6 +299,7 @@ public slots:
+@@ -95,6 +95,7 @@ private slots:
+ 	void updatedAnimSteps();
+ 	void updatedAnimDump(bool checked);
+ 	void updateTVal();
++	void updateAnaglyph();
+ 	void updateUndockMode(bool undockMode);
+ 	void updateReorderMode(bool reorderMode);
+ 	void setFont(const QString &family, uint size);
+@@ -299,6 +300,7 @@ public slots:
  	void viewCenter();
  	void viewPerspective();
  	void viewOrthogonal();
@@ -410,7 +431,7 @@ index aaed0e139..25f08b381 100644
  	void viewResetView();
  	void viewAll();
 diff --git a/src/MainWindow.ui b/src/MainWindow.ui
-index c3ea8e0e9..fed2af765 100644
+index c3ea8e0e9..7e09f1f25 100644
 --- a/src/MainWindow.ui
 +++ b/src/MainWindow.ui
 @@ -251,6 +251,7 @@
@@ -429,10 +450,24 @@ index c3ea8e0e9..fed2af765 100644
      <addaction name="separator"/>
      <addaction name="viewActionHideEditorToolBar"/>
      <addaction name="viewActionHide3DViewToolBar"/>
-@@ -1302,6 +1304,24 @@
+@@ -1289,6 +1291,9 @@
+    <property name="text">
+     <string>&amp;Perspective</string>
+    </property>
++   <property name="shortcut">
++    <string>Alt+2</string>
++   </property>
+   </action>
+   <action name="viewActionOrthogonal">
+    <property name="checkable">
+@@ -1301,6 +1306,27 @@
+    <property name="text">
      <string>&amp;Orthogonal</string>
     </property>
-   </action>
++   <property name="shortcut">
++    <string>Alt+1</string>
++   </property>
++  </action>
 +  <action name="viewActionAnaglyph">
 +   <property name="checkable">
 +    <bool>true</bool>
@@ -448,14 +483,13 @@ index c3ea8e0e9..fed2af765 100644
 +    <string>Stereo Vision (Anaglyph) - requires special red-cyan glasses</string>
 +   </property>
 +   <property name="shortcut">
-+    <string>Alt+S</string>
++    <string>Alt+3</string>
 +   </property>
-+  </action>
+   </action>
    <action name="windowActionHideConsole">
     <property name="checkable">
-     <bool>true</bool>
 diff --git a/src/Preferences.cc b/src/Preferences.cc
-index 17b09b47e..f809ea880 100644
+index 17b09b47e..55f9f4582 100644
 --- a/src/Preferences.cc
 +++ b/src/Preferences.cc
 @@ -220,6 +220,10 @@ void Preferences::init() {
@@ -477,21 +511,21 @@ index 17b09b47e..f809ea880 100644
 +{
 +	Settings::Settings::inst()->set(Settings::Settings::eyeSeparation, Value(val));
 +	writeSettings();
-+	emit requestRedraw();
++	emit anaglyphSettingsChanged();
 +}
 +
 +void Preferences::on_horizontalSliderOutOfScreen_valueChanged(int val)
 +{
 +	Settings::Settings::inst()->set(Settings::Settings::outOfScreen, Value(val));
 +	writeSettings();
-+	emit requestRedraw();
++	emit anaglyphSettingsChanged();
 +}
 +
 +void Preferences::on_horizontalSliderNearClippingPlane_valueChanged(int val)
 +{
 +	Settings::Settings::inst()->set(Settings::Settings::nearClippingPlane, Value(val));
 +	writeSettings();
-+	emit requestRedraw();
++	emit anaglyphSettingsChanged();
 +}
 +
  void Preferences::writeSettings()
@@ -509,7 +543,7 @@ index 17b09b47e..f809ea880 100644
  	updateComboBox(this->comboBoxLineWrapIndentationStyle, Settings::Settings::lineWrapIndentationStyle);
  	updateComboBox(this->comboBoxLineWrapVisualizationStart, Settings::Settings::lineWrapVisualizationBegin);
 diff --git a/src/Preferences.h b/src/Preferences.h
-index d1fe1cc37..85aad15ec 100644
+index d1fe1cc37..7bf599d08 100644
 --- a/src/Preferences.h
 +++ b/src/Preferences.h
 @@ -61,6 +61,9 @@ public slots:
@@ -522,6 +556,14 @@ index d1fe1cc37..85aad15ec 100644
    //
  	// editor settings
    //
+@@ -109,6 +112,7 @@ signals:
+ 	void consoleFontChanged(const QString &family, uint size) const;
+ 	void colorSchemeChanged(const QString &scheme) const;
+ 	void openCSGSettingsChanged() const;
++	void anaglyphSettingsChanged() const;
+ 	void syntaxHighlightChanged(const QString &s) const;
+ 	void editorConfigChanged() const;
+ 	void ExperimentalChanged() const ;
 diff --git a/src/Preferences.ui b/src/Preferences.ui
 index 15311b69d..20e7f08e5 100644
 --- a/src/Preferences.ui
@@ -833,7 +875,7 @@ index c6543eb4d..d228f6788 100644
 \ No newline at end of file
 +};
 diff --git a/src/mainwin.cc b/src/mainwin.cc
-index 39bb52597..42cb15d75 100755
+index 39bb52597..2071b4e7c 100755
 --- a/src/mainwin.cc
 +++ b/src/mainwin.cc
 @@ -445,6 +445,7 @@ MainWindow::MainWindow(const QStringList &filenames)
@@ -844,7 +886,15 @@ index 39bb52597..42cb15d75 100755
  	connect(this->viewActionZoomIn, SIGNAL(triggered()), qglview, SLOT(ZoomIn()));
  	connect(this->viewActionZoomOut, SIGNAL(triggered()), qglview, SLOT(ZoomOut()));
  	connect(this->viewActionHideEditorToolBar, SIGNAL(triggered()), this, SLOT(hideEditorToolbar()));
-@@ -530,6 +531,7 @@ MainWindow::MainWindow(const QStringList &filenames)
+@@ -476,6 +477,7 @@ MainWindow::MainWindow(const QStringList &filenames)
+ 					this, SLOT(openCSGSettingsChanged()));
+ 	connect(Preferences::inst(), SIGNAL(colorSchemeChanged(const QString&)),
+ 					this, SLOT(setColorScheme(const QString&)));
++	connect(Preferences::inst(), SIGNAL(anaglyphSettingsChanged()), this, SLOT(updateAnaglyph()));
+ 
+ 	Preferences::inst()->apply_win(); // not sure if to be commented, checked must not be commented(done some changes in apply())
+ 
+@@ -530,6 +532,7 @@ MainWindow::MainWindow(const QStringList &filenames)
  	initActionIcon(viewActionShowCrosshairs, ":/images/cross.png", ":/images/crosswhite.png");
  	initActionIcon(viewActionPerspective, ":/images/perspective1.png", ":/images/perspective1white.png");
  	initActionIcon(viewActionOrthogonal, ":/images/orthogonal.png", ":/images/orthogonalwhite.png");
@@ -852,7 +902,7 @@ index 39bb52597..42cb15d75 100755
  	initActionIcon(designActionPreview, ":/images/preview-32.png", ":/images/preview-32-white.png");
  	initActionIcon(viewActionAnimate, ":/images/animate.png", ":/images/animate.png");
  	initActionIcon(fileActionExportSTL, ":/images/STL.png", ":/images/STL-white.png");
-@@ -755,7 +757,9 @@ void MainWindow::loadViewSettings(){
+@@ -755,7 +758,9 @@ void MainWindow::loadViewSettings(){
          viewActionShowScaleProportional->setChecked(true);
          viewModeShowScaleProportional();
      }
@@ -863,7 +913,7 @@ index 39bb52597..42cb15d75 100755
  		viewOrthogonal();
  	} else {
  		viewPerspective();
-@@ -2772,9 +2776,12 @@ void MainWindow::viewCenter()
+@@ -2772,9 +2777,12 @@ void MainWindow::viewCenter()
  void MainWindow::viewPerspective()
  {
  	QSettingsCached settings;
@@ -876,7 +926,7 @@ index 39bb52597..42cb15d75 100755
  	this->qglview->setOrthoMode(false);
  	this->qglview->updateGL();
  }
-@@ -2782,13 +2789,29 @@ void MainWindow::viewPerspective()
+@@ -2782,13 +2790,29 @@ void MainWindow::viewPerspective()
  void MainWindow::viewOrthogonal()
  {
  	QSettingsCached settings;
@@ -906,6 +956,21 @@ index 39bb52597..42cb15d75 100755
  void MainWindow::viewTogglePerspective()
  {
  	QSettingsCached settings;
+@@ -3210,6 +3234,14 @@ void MainWindow::setFont(const QString &family, uint size)
+ 	activeEditor->setFont(font);
+ }
+ 
++void MainWindow::updateAnaglyph() {
++	auto s = Settings::Settings::inst();
++	this->qglview->setEyeSeparation(s->get(Settings::Settings::eyeSeparation).toDouble() * 0.1);
++	this->qglview->setOutOfScreen(s->get(Settings::Settings::outOfScreen).toDouble() * 0.1);
++	this->qglview->setNearClippingPlane(s->get(Settings::Settings::nearClippingPlane).toDouble() * 0.1);
++	this->qglview->updateGL();
++}
++
+ void MainWindow::quit()
+ {
+ 	QCloseEvent ev;
 diff --git a/src/renderer.cc b/src/renderer.cc
 index 7964e1961..a61941882 100644
 --- a/src/renderer.cc
