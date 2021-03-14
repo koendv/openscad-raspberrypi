@@ -52,6 +52,8 @@ The preference panel is accessed using the menu *Edit->Preferences->3D View*. Th
 
 If the sliders for eye separation, out of screen, and near clipping distance are completely to the left, anaglyph is switched off and the 3D display behaves more or less like a normal 2D display.
 
+In an anaglyph, objects have two outlines: one red outline, and one blue outline. For objects that appear in front of the screen, the blue outline is to the right, and the red outline is to the left. For objects that appear behind the screen, the red outline is to the right, and the blue outline is to the left. If red and blue outline coincide, the object appears to be at the screen itself.
+
 The *near clipping plane* setting can also be used to see inside a 3D model. As an example, we will look inside the OpenSCAD logo:
 
 - From the menu, choose *File->Examples->Basics->logo.scad*
@@ -97,6 +99,7 @@ The color scheme is updated automatically when changing to or from 3D view. Clic
 
 ## Links
 - [Choose a good screen - glasses pair](http://www.david-romeuf.fr/3D/Anaglyphes/BonCoupleEL/GoodCoupleMonitorGlassesAnaglyph.html)
+- [Rendering 3D Anaglyph in OpenGL](https://quiescentspark.blogspot.com/2011/05/rendering-3d-anaglyph-in-opengl.html)
 - [Pull Request](https://github.com/openscad/openscad/pull/3693) at openscad
 
 ## Build notes
