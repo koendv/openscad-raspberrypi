@@ -81,7 +81,7 @@ To choose the correct colors, two solutions: a color scheme that uses greens, pu
 
 ## Color Scheme
 
-A color scheme for red/cyan anaglyphs on lcd displays is provided. The color scheme "3D Glasses" uses green, purple and grey. Because colors are a matter of personal taste, a small [python script](gencolorscheme.py) is included to allow adapting the color scheme.
+A color scheme for red/cyan anaglyphs on lcd displays is provided. The color scheme "3D Glasses" uses green, purple and grey. If you want to adapt the color scheme this [OpenSCAD script](scripts/colorscheme.scad) may be useful.
 
 The ideal color scheme depends upon display and glasses used. As an example, if you wanted to print anaglyphs, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
 
