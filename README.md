@@ -100,6 +100,7 @@ The color scheme is updated automatically when changing to or from 3D view. Clic
 ## Links
 - [Choose a good screen - glasses pair](http://www.david-romeuf.fr/3D/Anaglyphes/BonCoupleEL/GoodCoupleMonitorGlassesAnaglyph.html)
 - [Rendering 3D Anaglyph in OpenGL](https://quiescentspark.blogspot.com/2011/05/rendering-3d-anaglyph-in-opengl.html)
+- [Calculating Stereo Pairs](http://paulbourke.net/stereographics/stereorender/)
 - [Pull Request](https://github.com/openscad/openscad/pull/3693) at openscad
 
 ## Build notes
