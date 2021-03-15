@@ -1,4 +1,7 @@
 // color scheme generator
+
+// adapt colors to your taste
+// run script in openscad
 // copy and paste console output to /usr/share/openscad/color-schemes/render/redcyanglasses.json
 
 background = hsv(0, 0, 100);
