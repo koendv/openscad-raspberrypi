@@ -52,7 +52,7 @@ The preference panel is accessed using the menu *Edit->Preferences->3D View*. Th
 
 If the sliders for eye separation, out of screen, and near clipping distance are completely to the left, anaglyph is switched off and the 3D display behaves more or less like a normal 2D display.
 
-In an anaglyph, objects have two outlines: one red outline, and one blue outline. For objects that appear in front of the screen, the blue outline is to the right, and the red outline is to the left. For objects that appear behind the screen, the red outline is to the right, and the blue outline is to the left. If red and blue outline coincide, the object appears to be at the screen itself.
+Standard anaglyph glasses have the blue lens for the right eye, red lens for the left eye. In an anaglyph, objects are drawn twice: once in red, once in blue. If the blue image is to the right of the red image, the object appears to be in front of the screen. If the blue image is to the left of the red image, the object appears to be behind the screen. If red and blue outline coincide, the object appears to be located at the screen itself. If you want to locate an object *exactly* at the screen, take a look without 3D glasses and set the *out of screen* slider so blue and red image of the object coincide. 
 
 The *near clipping plane* setting can also be used to see inside a 3D model. As an example, we will look inside the OpenSCAD logo:
 

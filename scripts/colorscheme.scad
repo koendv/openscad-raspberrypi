@@ -43,7 +43,7 @@ function color_to_hex(c) = str(hex(c[0]*255), hex(c[1]*255), hex(c[2]*255));
 cs = str(
     "copy and paste to .json:\n",
     "{\n",
-    "    \"name\" : \"Red Cyan Glasses\",\n",
+    "    \"name\" : \"3D Glasses\",\n",
     "    \"index\" : 2001,\n",
     "    \"show-in-gui\" : true,\n",
     "    \"description\" : \"3d anaglyph\",\n",
