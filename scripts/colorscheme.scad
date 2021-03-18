@@ -17,6 +17,11 @@ cgal_edge_back = hsv(315,100,100);
 cgal_edge_2d = hsv(315,100,100);
 crosshair =  hsv(300,100,50);
 
+// set viewport
+$vpt=[68, 88, 5];
+$vpr=[0, 0, 0];
+$vpd=550;
+
 function hsv(h, s, v) = hsv1(h/360,s/100,v/100, 1);
 function hsv1(h, s = 1, v = 1, a = 1, p, q, t) = (p == undef || q == undef || t == undef) // by LightAtPlay
 	? hsv1(
