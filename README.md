@@ -63,6 +63,8 @@ The *near clipping plane* setting can also be used to see inside a 3D model. As 
 - set 3D anaglyph mode ![anaglyph](images/Anaglyph-32.png)
 - Open the preferences panel *Edit->Preferences->3D View* and slide the *near clipping plane* setting to the middle. Observe how the logo is sliced in half and you can see inside the 3D model.
 
+Anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 degrees, or, for a printed anaglyph, if you turn the paper 90 degrees.
+
 ## Colors suitable for anaglyph 3D
 
 Not all colors work well with anaglyphs. First we discuss which colors are suitable, then list the measures taken to ensure all colors used are suitable for anaglyphs.
@@ -84,8 +86,6 @@ To choose the correct colors, two solutions: a color scheme that uses greens, pu
 A color scheme for red/cyan anaglyphs on lcd displays is provided. The color scheme "3D Glasses" uses green, purple and grey. If you want to adapt the color scheme this [OpenSCAD script](scripts/colorscheme.scad) may be useful.
 
 The ideal color scheme depends upon display and glasses used. As an example, if you wanted to print anaglyphs, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
-
-Anaglyphs have an orientation. The 3D effect is lost if you turn your head 90 degrees, or, for a printed anaglyph, if you turn the paper 90 degrees.
 
 ## Dubois shading
 
