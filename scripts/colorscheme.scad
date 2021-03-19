@@ -1,19 +1,16 @@
 // color scheme generator
-
-// adapt colors to your taste
-// run script in openscad
 // copy and paste console output to /usr/share/openscad/color-schemes/render/redcyanglasses.json
 
 background = hsv(0, 0, 100);
-highlight = hsv(300,100,100);
+highlight = hsv(300,70,100);
 axes_color = hsv(300,100,50);
-opencsg_face_front = hsv(60,100,100);
-opencsg_face_back = hsv(75,100,100);
-cgal_face_front = hsv(60,100,100);
-cgal_face_back = hsv(75,100,100);
-cgal_face_2d = hsv(60,100,100);
-cgal_edge_front = hsv(315,100,100);
-cgal_edge_back = hsv(315,100,100);
+opencsg_face_front = hsv(60,80,100);
+opencsg_face_back = hsv(315,60,100);
+cgal_face_front = hsv(60,80,100);
+cgal_face_back = hsv(315,60,100);
+cgal_face_2d = hsv(75,80,100);
+cgal_edge_front = hsv(60,80,100);
+cgal_edge_back = hsv(315,60,100);
 cgal_edge_2d = hsv(315,100,100);
 crosshair =  hsv(300,100,50);
 
