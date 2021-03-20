@@ -75,17 +75,17 @@ This color wheel shows all colors of the rainbow. The numbers are the color [hue
 
 The glasses used to see 3D anaglyphs have red lenses for the left eye, and cyan (blue-green) lenses for the right eye. Red (hue 0) and cyan (hue 180) are complementary colours. Complementary colours are in opposite positions on the colour wheel.
 
-To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail because only one eye gets an image. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, greenish yellow and purple. To some degree colors are subjective, and what colors to use is dependent upon the combination of display and 3D glasses used.
+To see depth, both eyes need to see an image. If you look at a color wheel through 3D glasses, blue-green colors appear dark through the red lens; red colors appear dark through the cyan lens. If an object has pure red or cyan color, the depth illusion will fail because only one eye gets an image. Colors most suitable for anaglyph are a mix of red and cyan; this way both left and right eye see an image. These colors include grey, green-yellow and purple. To some degree colors are subjective, and what colors to use is dependent upon the combination of display and 3D glasses used.
 
 Apart from hue, saturation also plays a role. The cyan lens dampens green and lets red pass through. However, if a color has strong green but weak red, then after filtering through the cyan lens, green and red may be more or less the same strength. The eye then sees two images superimposed. This is called *ghosting*. Less saturated colors have less *ghosting*.
 
-To choose the correct colors, two solutions: a color scheme that uses greens, purple and grey, and Dubois shading.
+To choose the correct colors, two solutions: a color scheme that uses green yellow, purple and grey, and Dubois shading.
 
 ## Color Scheme
 
-A color scheme for red/cyan anaglyphs on lcd displays is provided. The color scheme "3D Glasses" uses green, purple and grey. If you want to adapt the color scheme this [OpenSCAD script](scripts/colorscheme.scad) may be useful.
+A color scheme for red/cyan anaglyphs on lcd displays is provided. The color scheme "3D Glasses" uses the colors discussed above. If you want to adapt the color scheme this [OpenSCAD script](scripts/colorscheme.scad) may be useful.
 
-The ideal color scheme depends upon display and glasses used. As an example, if you wanted to print anaglyphs, you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
+The ideal color scheme depends upon display and glasses used. As an example, if you wanted to [print anaglyphs](https://www.spiedigitallibrary.org/journals/Optical-Engineering/volume-52/issue-04/043203/Characterizing-and-reducing-crosstalk-in-printed-anaglyph-stereoscopic-3D-images/10.1117/1.OE.52.4.043203.pdf), you might want to print a color wheel and look at the printed color wheel, once through the left lens, and once through the right lens, and this way choose the colors to use.
 
 ## Dubois shading
 
