@@ -5,7 +5,7 @@
 // vertical axis is saturation, 0.20 ... 1.00 in steps of 0.2
 
 // measure transmission function of filter this way:
-// look through left (red) filter of 3D anaglyph glasses.
+// close right eye, and look at drawing through left (red) filter of 3D anaglyph glasses.
 // for every column, mark the lowest square which is invisible.
 // this gives the transmission function for the left (red) filter.
 // repeat for right (cyan) filter.
