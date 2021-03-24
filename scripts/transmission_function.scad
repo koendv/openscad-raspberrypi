@@ -47,10 +47,12 @@ for (h = [0:10:360]) {
 for (h = [0:10:360]) {
     translate([h*1.5+5, -20, 0])
     rotate([0, 0, 90])
+    color("LightGrey")
     text(str(h), valign="center");
 }
 
 // draw 5% grey background
+if (1)
 translate([-10, 5, -20])
 color(hsv(0, 0, 95))
 cube([38*15, 6*15, 10]); 
