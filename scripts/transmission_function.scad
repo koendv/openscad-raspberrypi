@@ -43,6 +43,13 @@ for (h = [0:10:360]) {
   }
 }
 
+// hue in degrees
+for (h = [0:10:360]) {
+    translate([h*1.5+5, -20, 0])
+    rotate([0, 0, 90])
+    text(str(h), valign="center");
+}
+
 // draw 5% grey background
 translate([-10, 5, -20])
 color(hsv(0, 0, 95))
