@@ -1,27 +1,27 @@
 // color scheme generator
 // copy and paste console output to /usr/share/openscad/color-schemes/render/redcyanglasses.json
 
-background = hsv(0, 0, 100);
-highlight = hsv(300,70,100);
-axes_color = hsv(300,100,50);
-opencsg_face_front = hsv(60,80,100);
-opencsg_face_back = hsv(315,60,100);
-cgal_face_front = hsv(60,80,100);
-cgal_face_back = hsv(315,60,100);
-cgal_face_2d = hsv(75,80,100);
-cgal_edge_front = hsv(60,80,100);
-cgal_edge_back = hsv(315,60,100);
-cgal_edge_2d = hsv(315,100,100);
-crosshair =  hsv(300,100,50);
+background         = hsv_deg(0, 0, 95);
+highlight          = hsv_deg(300,90,100);
+axes_color         = hsv_deg(300,90,100);
+opencsg_face_front = hsv_deg(60,90,100);
+opencsg_face_back  = hsv_deg(300,90,100);
+cgal_face_front    = hsv_deg(60,90,100);
+cgal_face_back     = hsv_deg(300,90,100);
+cgal_face_2d       = hsv_deg(60,90,100);
+cgal_edge_front    = hsv_deg(300,90,100);
+cgal_edge_back     = hsv_deg(300,90,100);
+cgal_edge_2d       = hsv_deg(300,90,100);
+crosshair          = hsv_deg(300,90,100);
 
 // set viewport
 $vpt=[68, 88, 5];
 $vpr=[0, 0, 0];
 $vpd=550;
 
-function hsv(h, s, v) = hsv1(h/360,s/100,v/100, 1);
-function hsv1(h, s = 1, v = 1, a = 1, p, q, t) = (p == undef || q == undef || t == undef) // by LightAtPlay
-	? hsv1(
+function hsv_deg(h, s, v) = hsv(h/360,s/100,v/100, 1);
+function hsv(h, s = 1, v = 1, a = 1, p, q, t) = (p == undef || q == undef || t == undef) // by LightAtPlay
+	? hsv(
 		(h%1) * 6,
 		s<0?0:s>1?1:s,
 		v<0?0:v>1?1:v,
