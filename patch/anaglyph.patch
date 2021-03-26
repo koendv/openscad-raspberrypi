@@ -1,3 +1,9 @@
+commit 8842e4fede801a9417ea8483b82b16c6be8a2146
+Author: Koen De Vleeschauwer <kdv@kdvelectronics.eu>
+Date:   Mon Mar 8 11:32:13 2021 +0100
+
+    anaglyph
+
 diff --git a/color-schemes/render/beforedawn.json b/color-schemes/render/beforedawn.json
 index d4d98bba9..0f05c2f85 100644
 --- a/color-schemes/render/beforedawn.json
@@ -10,6 +16,124 @@ index d4d98bba9..0f05c2f85 100644
          "axes-color" :         "#c1c1c1",
          "opencsg-face-front" : "#cccccc",
          "opencsg-face-back" :  "#5563dd",
+diff --git a/color-schemes/render/colorscheme.scad b/color-schemes/render/colorscheme.scad
+new file mode 100644
+index 000000000..0e19bfc5d
+--- /dev/null
++++ b/color-schemes/render/colorscheme.scad
+@@ -0,0 +1,111 @@
++// color scheme generator
++// copy and paste console output to /usr/share/openscad/color-schemes/render/redcyanglasses.json
++
++background         = hsv_deg(0, 0, 95);
++highlight          = hsv_deg(300,90,100);
++axes_color         = hsv_deg(300,90,100);
++opencsg_face_front = hsv_deg(60,90,100);
++opencsg_face_back  = hsv_deg(300,90,100);
++cgal_face_front    = hsv_deg(60,90,100);
++cgal_face_back     = hsv_deg(300,90,100);
++cgal_face_2d       = hsv_deg(60,90,100);
++cgal_edge_front    = hsv_deg(300,90,100);
++cgal_edge_back     = hsv_deg(300,90,100);
++cgal_edge_2d       = hsv_deg(300,90,100);
++crosshair          = hsv_deg(300,90,100);
++
++// set viewport
++$vpt=[68, 88, 5];
++$vpr=[0, 0, 0];
++$vpd=550;
++
++function hsv_deg(h, s, v) = hsv(h/360,s/100,v/100, 1);
++function hsv(h, s = 1, v = 1, a = 1, p, q, t) = (p == undef || q == undef || t == undef) // by LightAtPlay
++	? hsv(
++		(h%1) * 6,
++		s<0?0:s>1?1:s,
++		v<0?0:v>1?1:v,
++		a,
++		(v<0?0:v>1?1:v) * (1 - (s<0?0:s>1?1:s)),
++		(v<0?0:v>1?1:v) * (1 - (s<0?0:s>1?1:s) * ((h%1)*6-floor((h%1)*6))),
++		(v<0?0:v>1?1:v) * (1 - (s<0?0:s>1?1:s) * (1 - ((h%1)*6-floor((h%1)*6))))
++	)
++	:
++	h < 1 ? [v,t,p,a] :
++	h < 2 ? [q,v,p,a] :
++	h < 3 ? [p,v,t,a] :
++	h < 4 ? [p,q,v,a] :
++	h < 5 ? [t,p,v,a] :
++	        [v,p,q,a];
++
++hexchars="0123456789ABCDEF";
++function hex(a) = str(hexchars[(a / 16) % 16] , hexchars[a % 16]);
++function color_to_hex(c) = str(hex(c[0]*255), hex(c[1]*255), hex(c[2]*255));
++
++cs = str(
++    "copy and paste to .json:\n",
++    "{\n",
++    "    \"name\" : \"3D Glasses\",\n",
++    "    \"index\" : 2001,\n",
++    "    \"show-in-gui\" : true,\n",
++    "    \"description\" : \"3d anaglyph\",\n",
++    "    \"_comment\" : \"created by colorscheme.scad\",\n",
++    "\n",
++    "    \"colors\" : {\n",
++    "        \"background\" :         \"#", color_to_hex(background), "\",\n",
++    "        \"highlight\" :          \"#", color_to_hex(highlight), "80\",\n",
++    "        \"axes-color\" :         \"#", color_to_hex(axes_color), "\",\n",
++    "        \"opencsg-face-front\" : \"#", color_to_hex(opencsg_face_front), "\",\n",
++    "        \"opencsg-face-back\" :  \"#", color_to_hex(opencsg_face_back), "\",\n",
++    "        \"cgal-face-front\" :    \"#", color_to_hex(cgal_face_front), "\",\n",
++    "        \"cgal-face-back\" :     \"#", color_to_hex(cgal_face_back), "\",\n",
++    "        \"cgal-face-2d\" :       \"#", color_to_hex(cgal_face_2d), "\",\n",
++    "        \"cgal-edge-front\" :    \"#", color_to_hex(cgal_edge_front), "\",\n",
++    "        \"cgal-edge-back\" :     \"#", color_to_hex(cgal_edge_back), "\",\n",
++    "        \"cgal-edge-2d\" :       \"#", color_to_hex(cgal_edge_2d), "\",\n",
++    "        \"crosshair\" :          \"#", color_to_hex(crosshair), "\"\n",
++    "    }\n",
++    "}\n"
++    );
++    
++echo(cs);    
++
++// display colors
++
++colors = [
++    background,
++    highlight,
++    axes_color,
++    opencsg_face_front,
++    opencsg_face_back,
++    cgal_face_front,
++    cgal_face_back,
++    cgal_face_2d,
++    cgal_edge_front,
++    cgal_edge_back,
++    cgal_edge_2d,
++    crosshair];
++    
++names = [
++    "background",
++    "highlight",
++    "axes_color",
++    "opencsg_face_front",
++    "opencsg_face_back",
++    "cgal_face_front",
++    "cgal_face_back",
++    "cgal_face_2d",
++    "cgal_edge_front",
++    "cgal_edge_back",
++    "cgal_edge_2d",
++    "crosshair"];
++  
++for (i = [0:len(colors)-1]) {
++    translate([0, i*15, 0])
++    color(colors[i])
++    cube(10);
++    translate([15, i*15, 0])
++    text(names[i], valign = "bottom");
++}
++
++// not truncated
+\ No newline at end of file
 diff --git a/color-schemes/render/deepocean.json b/color-schemes/render/deepocean.json
 index 9ce164fdc..f5179c583 100644
 --- a/color-schemes/render/deepocean.json
@@ -22,70 +146,6 @@ index 9ce164fdc..f5179c583 100644
          "axes-color" :         "#c1c1c1",
          "opencsg-face-front" : "#eeeeee",
          "opencsg-face-back" :  "#0babc8",
-diff --git a/color-schemes/render/gencolorscheme.py b/color-schemes/render/gencolorscheme.py
-new file mode 100755
-index 000000000..e329eb708
---- /dev/null
-+++ b/color-schemes/render/gencolorscheme.py
-@@ -0,0 +1,58 @@
-+#!/usr/bin/python3
-+# print openscad color scheme
-+#
-+# $ ./gencolorscheme.py > redcyanglasses.json
-+#
-+
-+import colorsys
-+
-+# print rgb as hex string
-+# r=0..255, g=0..255, b=0.255
-+def rgb(r, g, b):
-+  hexval = hex(256*256*256+r*256*256+g*256+b)
-+  return hexval[3:9]
-+
-+# print hsv as hex string
-+# h=0..360, s=0..100, v=0..100
-+def hsv(h, s, v):
-+  color = tuple(int(round(i * 255)) for i in colorsys.hsv_to_rgb(h/360.0,s/100.0,v/100.0))
-+  return rgb(color[0], color[1], color[2])
-+
-+# color scheme
-+background =         rgb(255,255,255)
-+highlight =          hsv(0,0,50)
-+axes_color =         hsv(290,50,100)
-+opencsg_face_front = hsv(75,50,100)
-+opencsg_face_back =  hsv(285,50,100)
-+cgal_face_front =    hsv(75,50,100)
-+cgal_face_back =     hsv(285,50,100)
-+cgal_face_2d =       hsv(90,50,100)
-+cgal_edge_front =    hsv(75,50,100)
-+cgal_edge_back =     hsv(290,50,100)
-+cgal_edge_2d =       hsv(275,50,100)
-+crosshair =          hsv(290,50,50)
-+
-+print (f'''{{
-+    "name" : "3D Glasses",
-+    "index" : 2001,
-+    "show-in-gui" : true,
-+    "description" : "3d anaglyph",
-+    "_comment" : "created by gencolorscheme.py",
-+
-+    "colors" : {{
-+        "background" :         "#{background}",
-+        "highlight" :          "#{highlight}80",
-+        "axes-color" :         "#{axes_color}",
-+        "opencsg-face-front" : "#{opencsg_face_front}",
-+        "opencsg-face-back" :  "#{opencsg_face_back}",
-+        "cgal-face-front" :    "#{cgal_face_front}",
-+        "cgal-face-back" :     "#{cgal_face_back}",
-+        "cgal-face-2d" :       "#{cgal_face_2d}",
-+        "cgal-edge-front" :    "#{cgal_edge_front}",
-+        "cgal-edge-back" :     "#{cgal_edge_back}",
-+        "cgal-edge-2d" :       "#{cgal_edge_2d}",
-+        "crosshair" :          "#{crosshair}"
-+    }}
-+}}''')
-+
-+#not truncated
 diff --git a/color-schemes/render/metallic.json b/color-schemes/render/metallic.json
 index 838558769..08e91129e 100644
 --- a/color-schemes/render/metallic.json
@@ -124,7 +184,7 @@ index 6250e7a33..b71ec0b44 100644
          "opencsg-face-back" :  "#dbf4da",
 diff --git a/color-schemes/render/redcyanglasses.json b/color-schemes/render/redcyanglasses.json
 new file mode 100644
-index 000000000..24c1ceff2
+index 000000000..fce1a5a95
 --- /dev/null
 +++ b/color-schemes/render/redcyanglasses.json
 @@ -0,0 +1,22 @@
@@ -133,21 +193,21 @@ index 000000000..24c1ceff2
 +    "index" : 2001,
 +    "show-in-gui" : true,
 +    "description" : "3d anaglyph",
-+    "_comment" : "created by gencolorscheme.py",
++    "_comment" : "created by colorscheme.scad",
 +
 +    "colors" : {
-+        "background" :         "#ffffff",
-+        "highlight" :          "#80808080",
-+        "axes-color" :         "#ea80ff",
-+        "opencsg-face-front" : "#dfff80",
-+        "opencsg-face-back" :  "#df80ff",
-+        "cgal-face-front" :    "#dfff80",
-+        "cgal-face-back" :     "#df80ff",
-+        "cgal-face-2d" :       "#bfff80",
-+        "cgal-edge-front" :    "#dfff80",
-+        "cgal-edge-back" :     "#ea80ff",
-+        "cgal-edge-2d" :       "#ca80ff",
-+        "crosshair" :          "#754080"
++        "background" :         "#F2F2F2",
++        "highlight" :          "#FF19FF80",
++        "axes-color" :         "#FF19FF",
++        "opencsg-face-front" : "#FFFF19",
++        "opencsg-face-back" :  "#FF19FF",
++        "cgal-face-front" :    "#FFFF19",
++        "cgal-face-back" :     "#FF19FF",
++        "cgal-face-2d" :       "#FFFF19",
++        "cgal-edge-front" :    "#FF19FF",
++        "cgal-edge-back" :     "#FF19FF",
++        "cgal-edge-2d" :       "#FF19FF",
++        "crosshair" :          "#FF19FF"
 +    }
 +}
 diff --git a/color-schemes/render/solarized.json b/color-schemes/render/solarized.json
@@ -245,20 +305,20 @@ index 4cd2859c3..17e326edc 100644
  	void setup(std::vector<double> params);
  	void gimbalDefaultTranslate();
 diff --git a/src/GLView.cc b/src/GLView.cc
-index 766387736..2c64e6400 100644
+index 766387736..d08c4703a 100644
 --- a/src/GLView.cc
 +++ b/src/GLView.cc
 @@ -30,6 +30,9 @@ GLView::GLView()
    colorscheme = &ColorMap::inst()->defaultColorScheme();
    cam = Camera();
    far_far_away = RenderSettings::inst()->far_gl_clip_limit;
-+  eyeSeparation = 12.0;
++  eyeSeparation = 100.0;
 +  outOfScreen = 18.0;
 +  nearClippingPlane = 1.0;
  #ifdef ENABLE_OPENCSG
    is_opencsg_capable = false;
    has_shaders = false;
-@@ -80,6 +83,104 @@ void GLView::resizeGL(int w, int h)
+@@ -80,6 +83,110 @@ void GLView::resizeGL(int w, int h)
  	if (this->renderer) { this->renderer->resize(cam.pixel_width,cam.pixel_height); }
  }
  
@@ -269,16 +329,22 @@ index 766387736..2c64e6400 100644
 +  float convergence = (float)cam.zoomValue();
 +  float aspectRatio = aspectratio;
 +  float fov = cam.fov;
-+  double offset = - cam.zoomValue() * outOfScreen * 0.01;
++
++  /* outOfScreen is the distance the world is translated to the back of the screen.
++     Better would be that outOfScreen is the percentage of the world that should stick out from the screen,
++     and have OpenSCAD calculate the translation.  */
++
++  double offset = - cam.zoomValue() * outOfScreen * 0.01; // distance the world is translated to the back of the screen
 +  float nearClippingDistance = 0.01 * cam.zoomValue() * nearClippingPlane;
-+  float farClippingDistance = 100.0 * cam.zoomValue() * nearClippingPlane; // ratio of 10000 between near and far- ought to be no problem for floats
++  float farClippingDistance = 1000.0 * cam.zoomValue() * nearClippingPlane; // ratio of 100000 between near and far - ought to be no problem for floats
++  float eyeSeparationDistance = eyeSeparation / 100.0 * cam.zoomValue() / 30.0;
 +
 +  // calculate frustum
 +  top = nearClippingDistance * tan_degrees(fov / 2.0);
 +  bottom = -top;
 +  float a = aspectRatio * tan_degrees(fov / 2.0) * convergence;
-+  float b = a - eyeSeparation / 2;
-+  float c = a + eyeSeparation / 2;
++  float b = a - eyeSeparationDistance / 2;
++  float c = a + eyeSeparationDistance / 2;
 +  if (leftCamera) { // left camera
 +    left = -b * nearClippingDistance / convergence;
 +    right = c * nearClippingDistance / convergence;
@@ -294,10 +360,10 @@ index 766387736..2c64e6400 100644
 +  glMatrixMode(GL_MODELVIEW);
 +  glLoadIdentity();
 +  if (leftCamera) { // left camera
-+    glTranslatef(eyeSeparation / 2, 0.0, 0.0);
++    glTranslatef(eyeSeparationDistance / 2, 0.0, 0.0);
 +  }
 +  else { // right camera
-+    glTranslatef(-eyeSeparation / 2, 0.0, 0.0);
++    glTranslatef(-eyeSeparationDistance / 2, 0.0, 0.0);
 +  }
 +  glTranslatef(0.0, 0.0, offset);
 +  gluLookAt(0.0, -cam.zoomValue(), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
@@ -363,7 +429,7 @@ index 766387736..2c64e6400 100644
  void GLView::setCamera(const Camera &cam)
  {
    this->cam = cam;
-@@ -117,6 +218,11 @@ void GLView::setupCamera() const
+@@ -117,6 +224,11 @@ void GLView::setupCamera() const
  
  void GLView::paintGL()
  {
@@ -376,7 +442,7 @@ index 766387736..2c64e6400 100644
    auto bgcol = ColorMap::getColor(*this->colorscheme, RenderColor::BACKGROUND_COLOR);
    auto axescolor = ColorMap::getColor(*this->colorscheme, RenderColor::AXES_COLOR);
 diff --git a/src/GLView.h b/src/GLView.h
-index 1fcd31bc8..faa1198b7 100644
+index 1fcd31bc8..bb63cef41 100644
 --- a/src/GLView.h
 +++ b/src/GLView.h
 @@ -39,6 +39,10 @@ public:
@@ -404,9 +470,9 @@ index 1fcd31bc8..faa1198b7 100644
  	bool showedges;
  	bool showcrosshairs;
  	bool showscale;
-+	double eyeSeparation;
-+	double outOfScreen;
-+	double nearClippingPlane;
++	double eyeSeparation; // in % of convergence distance / 30.0. Rule of thumb: convergence distance / 30.0
++	double outOfScreen;   // in % of screen width. Ought to be: in % of body depth. Rule of thumb: 18%
++	double nearClippingPlane; // in % of convergence distance. Rule of thumb: begin with 20-30%
  
  #ifdef ENABLE_OPENCSG
  	bool is_opencsg_capable;
@@ -565,28 +631,10 @@ index d1fe1cc37..7bf599d08 100644
  	void editorConfigChanged() const;
  	void ExperimentalChanged() const ;
 diff --git a/src/Preferences.ui b/src/Preferences.ui
-index 15311b69d..20e7f08e5 100644
+index 15311b69d..fdeb78f16 100644
 --- a/src/Preferences.ui
 +++ b/src/Preferences.ui
-@@ -6,7 +6,7 @@
-    <rect>
-     <x>0</x>
-     <y>0</y>
--    <width>636</width>
-+    <width>653</width>
-     <height>539</height>
-    </rect>
-   </property>
-@@ -27,7 +27,7 @@
-     <item row="0" column="0">
-      <widget class="QStackedWidget" name="stackedWidget">
-       <property name="currentIndex">
--       <number>1</number>
-+       <number>0</number>
-       </property>
-       <widget class="QWidget" name="page3DView">
-        <layout class="QVBoxLayout" name="verticalLayout_4">
-@@ -87,6 +87,58 @@
+@@ -87,6 +87,70 @@
            </item>
           </layout>
          </item>
@@ -604,6 +652,12 @@ index 15311b69d..20e7f08e5 100644
 +            <property name="orientation">
 +             <enum>Qt::Horizontal</enum>
 +            </property>
++            <property name="tickPosition">
++             <enum>QSlider::TicksAbove</enum>
++            </property>
++            <property name="tickInterval">
++             <number>500</number>
++            </property>
 +           </widget>
 +          </item>
 +          <item row="1" column="0">
@@ -619,10 +673,10 @@ index 15311b69d..20e7f08e5 100644
 +             <enum>Qt::Horizontal</enum>
 +            </property>
 +            <property name="tickPosition">
-+             <enum>QSlider::NoTicks</enum>
++             <enum>QSlider::TicksAbove</enum>
 +            </property>
 +            <property name="tickInterval">
-+             <number>0</number>
++             <number>250</number>
 +            </property>
 +           </widget>
 +          </item>
@@ -638,6 +692,12 @@ index 15311b69d..20e7f08e5 100644
 +            <property name="orientation">
 +             <enum>Qt::Horizontal</enum>
 +            </property>
++            <property name="tickPosition">
++             <enum>QSlider::TicksAbove</enum>
++            </property>
++            <property name="tickInterval">
++             <number>500</number>
++            </property>
 +           </widget>
 +          </item>
 +         </layout>
@@ -645,41 +705,6 @@ index 15311b69d..20e7f08e5 100644
          <item>
           <widget class="QCheckBox" name="checkBoxShowWarningsIn3dView">
            <property name="text">
-@@ -135,9 +187,9 @@
-            <property name="geometry">
-             <rect>
-              <x>0</x>
--             <y>-450</y>
--             <width>602</width>
--             <height>901</height>
-+             <y>0</y>
-+             <width>590</width>
-+             <height>980</height>
-             </rect>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_5">
-@@ -1292,8 +1344,8 @@
-               <rect>
-                <x>0</x>
-                <y>0</y>
--               <width>84</width>
--               <height>26</height>
-+               <width>100</width>
-+               <height>30</height>
-               </rect>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_10">
-@@ -1615,8 +1667,8 @@
-             <rect>
-              <x>0</x>
-              <y>0</y>
--             <width>548</width>
--             <height>747</height>
-+             <width>640</width>
-+             <height>978</height>
-             </rect>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_12">
 diff --git a/src/QGLView.cc b/src/QGLView.cc
 index 0234ea662..416c4bb3d 100644
 --- a/src/QGLView.cc
@@ -719,7 +744,7 @@ index 195852972..1a45aec11 100644
  	void setShowScaleProportional(bool enabled) { this->showscale = enabled; }
  	std::string getRendererInfo() const override;
 diff --git a/src/colormap.cc b/src/colormap.cc
-index 6b794be17..1dd4559e0 100644
+index 6b794be17..675b6da40 100644
 --- a/src/colormap.cc
 +++ b/src/colormap.cc
 @@ -8,6 +8,7 @@
@@ -790,9 +815,9 @@ index 6b794be17..1dd4559e0 100644
 +  if (anaglyphmode) {
 +    // Numbers are for lcd and red/cyan glasses, from "Producing Anaglyphs from Synthetic Images",
 +    // https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.7.6968&rep=rep1&type=pdf#page=4
-+    c_out[0] = (0.4561   -.0434706)*c_in[0]+ ( .500484 -.0879388)*c_in[1]+( .176381 -0.00155529)*c_in[2];
-+    c_out[1] = (-.0400822+.378476) *c_in[0]+ (-.0378246+.73364)  *c_in[1]+(-.0157589 -.0184503) *c_in[2];
-+    c_out[2] = (-.0152161-.0721527)*c_in[0]+ (-.0205971-.112961) *c_in[1]+(-.00546856+1.2264)   *c_in[2];
++    c_out[0] = (0.4561   -.0434706)*c_in[0]+ ( .500484 -.0879388)*c_in[1]+( .176381  -0.00155529)*c_in[2];
++    c_out[1] = (-.0400822+.378476) *c_in[0]+ (-.0378246+.73364)  *c_in[1]+(-.0157589  -.0184503) *c_in[2];
++    c_out[2] = (-.0152161-.0721527)*c_in[0]+ (-.0205971-.112961) *c_in[1]+(-.00546856+1.2264)    *c_in[2];
 +    c_out[3] = c_in[3];
 +    for (int i = 0; i < 3; i++) {
 +      if (c_out[i] < 0.0) c_out[i] = 0.0;
@@ -971,6 +996,32 @@ index 39bb52597..2071b4e7c 100755
  void MainWindow::quit()
  {
  	QCloseEvent ev;
+diff --git a/src/openscad.cc b/src/openscad.cc
+index a6f648d2a..12f3b49a9 100644
+--- a/src/openscad.cc
++++ b/src/openscad.cc
+@@ -239,8 +239,11 @@ Camera get_camera(const po::variables_map &vm)
+ 		else if (proj=="p" || proj=="perspective") {
+ 			camera.projection = Camera::ProjectionType::PERSPECTIVE;
+ 		}
++		else if (proj=="a" || proj=="anaglyph") {
++			camera.projection = Camera::ProjectionType::ANAGLYPH;
++		}
+ 		else {
+-			LOG(message_group::None,Location::NONE,"","projection needs to be 'o' or 'p' for ortho or perspective\n");
++			LOG(message_group::None,Location::NONE,"","projection needs to be 'o', 'p' or 'a' for ortho, perspective or anaglyph\n");
+ 			exit(1);
+ 		}
+ 	}
+@@ -965,7 +968,7 @@ int main(int argc, char **argv)
+ 		("preview", po::value<string>()->implicit_value(""), "[=throwntogether] -for ThrownTogether preview png")
+ 		("animate", po::value<unsigned>(), "export N animated frames")
+ 		("view", po::value<CommaSeparatedVector>(), ("=view options: " + boost::join(viewOptions.names(), " | ")).c_str())
+-		("projection", po::value<string>(), "=(o)rtho or (p)erspective when exporting png")
++		("projection", po::value<string>(), "=(o)rtho, (p)erspective or (a)naglyph when exporting png")
+ 		("csglimit", po::value<unsigned int>(), "=n -stop rendering at n CSG elements when exporting png")
+ 		("colorscheme", po::value<string>(), ("=colorscheme: " +
+ 		                                      join(ColorMap::inst()->colorSchemeNames(), " | ",
 diff --git a/src/renderer.cc b/src/renderer.cc
 index 7964e1961..a61941882 100644
 --- a/src/renderer.cc
@@ -1000,16 +1051,16 @@ index 7964e1961..a61941882 100644
  }
  
 diff --git a/src/settings.cc b/src/settings.cc
-index 8888412e6..00e9dc636 100644
+index 8888412e6..23499b72d 100644
 --- a/src/settings.cc
 +++ b/src/settings.cc
 @@ -166,6 +166,9 @@ SettingsVisitor::~SettingsVisitor()
   */
  SettingsEntry Settings::showWarningsIn3dView("3dview", "showWarningsIn3dView", Value(true), Value(true));
  SettingsEntry Settings::mouseCentricZoom("3dview", "mouseCentricZoom", Value(true), Value(true));
-+SettingsEntry Settings::eyeSeparation("3dview", "eyeSeparation", Value(RangeType(0, 800)), Value(120)); // in 0.1 mm
++SettingsEntry Settings::eyeSeparation("3dview", "eyeSeparation", Value(RangeType(0, 2000)), Value(1000)); // in 0.1%
 +SettingsEntry Settings::outOfScreen("3dview", "outOfScreen", Value(RangeType(0, 1000)), Value(0)); // in 0.1 %
-+SettingsEntry Settings::nearClippingPlane("3dview", "nearClippingPlane", Value(RangeType(1, 2000)), Value(10)); // in 0.1 %
++SettingsEntry Settings::nearClippingPlane("3dview", "nearClippingPlane", Value(RangeType(1, 2000)), Value(300)); // in 0.1 %
  SettingsEntry Settings::indentationWidth("editor", "indentationWidth", Value(RangeType(1, 16)), Value(4));
  SettingsEntry Settings::tabWidth("editor", "tabWidth", Value(RangeType(1, 16)), Value(4));
  SettingsEntry Settings::lineWrap("editor", "lineWrap", values("None", _("None"), "Char", _("Wrap at character boundaries"), "Word", _("Wrap at word boundaries")), Value("Word"));
@@ -1027,3 +1078,50 @@ index eb442b0be..1b19bff6c 100644
      static SettingsEntry indentationWidth;
      static SettingsEntry tabWidth;
      static SettingsEntry lineWrap;
+diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
+index 68f258d23..783567554 100644
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -1227,6 +1227,18 @@ add_cmdline_test(openscad-camvp-override EXE ${OPENSCAD_BINPATH}
+                  SUFFIX png
+                  FILES ${CMAKE_CURRENT_SOURCE_DIR}/../testdata/scad/3D/misc/camera-vp.scad)
+ 
++# anaglyph
++
++add_cmdline_test(openscad-anaglyph-preview EXE ${OPENSCAD_BINPATH}
++                 ARGS --colorscheme=3D\ Glasses --projection=a --preview -o 
++                 SUFFIX png 
++                 FILES ${CMAKE_CURRENT_SOURCE_DIR}/../examples/Basics/logo.scad)
++
++add_cmdline_test(openscad-anaglyph-render EXE ${OPENSCAD_BINPATH}
++                 ARGS --colorscheme=3D\ Glasses --projection=a --render -o 
++                 SUFFIX png 
++                 FILES ${CMAKE_CURRENT_SOURCE_DIR}/../examples/Basics/logo.scad)
++
+ # View Options tests
+ add_cmdline_test(openscad-viewoptions-axes EXE ${OPENSCAD_BINPATH} ARGS --imgsize=500,500 --camera=16,14,13,0,0,0 --viewall --view axes -o SUFFIX png FILES ${CMAKE_CURRENT_SOURCE_DIR}/../testdata/scad/3D/misc/view-options-tests.scad)
+ add_cmdline_test(openscad-viewoptions-axes-scales EXE ${OPENSCAD_BINPATH} ARGS --imgsize=500,500 --camera=16,14,13,0,0,0 --viewall --view axes,scales -o SUFFIX png FILES ${CMAKE_CURRENT_SOURCE_DIR}/../testdata/scad/3D/misc/view-options-tests.scad)
+@@ -1261,6 +1273,11 @@ add_cmdline_test(openscad-colorscheme-metallic-render EXE ${OPENSCAD_BINPATH}
+                  SUFFIX png 
+                  FILES ${CMAKE_CURRENT_SOURCE_DIR}/../examples/Basics/CSG.scad)
+ 
++add_cmdline_test(openscad-colorscheme-3dglasses EXE ${OPENSCAD_BINPATH}
++                 ARGS --colorscheme 3D\ Glasses -o 
++                 SUFFIX png 
++                 FILES ${CMAKE_CURRENT_SOURCE_DIR}/../examples/Basics/logo.scad)
++
+ #message("Available test configurations: ${TEST_CONFIGS}")
+ #foreach(CONF ${TEST_CONFIGS})
+ #  message("${CONF}: ${${CONF}_TEST_CONFIG}")
+diff --git a/tests/regression/openscad-anaglyph-preview/logo-expected.png b/tests/regression/openscad-anaglyph-preview/logo-expected.png
+new file mode 100644
+index 000000000..9aee64ba9
+Binary files /dev/null and b/tests/regression/openscad-anaglyph-preview/logo-expected.png differ
+diff --git a/tests/regression/openscad-anaglyph-render/logo-expected.png b/tests/regression/openscad-anaglyph-render/logo-expected.png
+new file mode 100644
+index 000000000..45fff12f5
+Binary files /dev/null and b/tests/regression/openscad-anaglyph-render/logo-expected.png differ
+diff --git a/tests/regression/openscad-colorscheme-3dglasses/logo-expected.png b/tests/regression/openscad-colorscheme-3dglasses/logo-expected.png
+new file mode 100644
+index 000000000..c578955e6
+Binary files /dev/null and b/tests/regression/openscad-colorscheme-3dglasses/logo-expected.png differ

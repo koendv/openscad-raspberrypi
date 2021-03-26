@@ -1,4 +1,6 @@
 
+text_h=2.5;
+
 function hsv(h, s = 1, v = 1, a = 1, p, q, t) = (p == undef || q == undef || t == undef) // by LightAtPlay
 	? hsv(
 		(h%1) * 6,
@@ -31,8 +33,12 @@ function dubois(rl, gl, bl, rr, gr, br) = [
 
 function dubois1(c) = dubois(c[0], c[1], c[2], c[0], c[1], c[2]);
 
+module small_text(txt, algn) {
+    linear_extrude(text_h) text(txt, font="FreeSans:style=Bold", size = 6, halign = algn, valign = "center");
+}
+
 // color wheel
-for (h = [0:15:360]) {
+for (h = [0:15:359]) {
     // original color
     rotate([0, 0, h])
     translate([50,0,0])
@@ -43,4 +49,11 @@ for (h = [0:15:360]) {
     translate([65,0,0])
     color(dubois1(hsv1(h,100,100)))
     cube(10, center=true);
+    // label
+    rotate([0, 0, h])
+    translate([80,0,0])
+    rotate([0,0,-h])
+    color("Black")
+    small_text(str(h),"center");
+
 }

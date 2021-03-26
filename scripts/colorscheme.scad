@@ -1,18 +1,36 @@
 // color scheme generator
+// use customizer to select colors
+// switch between perspective and 3d anaglyph to see what the colors look like
 // copy and paste console output to /usr/share/openscad/color-schemes/render/redcyanglasses.json
 
-background         = hsv_deg(0, 0, 95);
-highlight          = hsv_deg(300,90,100);
-axes_color         = hsv_deg(300,90,100);
-opencsg_face_front = hsv_deg(60,90,100);
-opencsg_face_back  = hsv_deg(300,90,100);
-cgal_face_front    = hsv_deg(60,90,100);
-cgal_face_back     = hsv_deg(300,90,100);
-cgal_face_2d       = hsv_deg(60,90,100);
-cgal_edge_front    = hsv_deg(300,90,100);
-cgal_edge_back     = hsv_deg(300,90,100);
-cgal_edge_2d       = hsv_deg(300,90,100);
-crosshair          = hsv_deg(300,90,100);
+// customizer variables
+
+light_hue = 75; // [45:105]
+dark_hue = 285; // [255:315]
+saturation = 95; // [0:100]
+dark_scheme = false;
+
+module __end_of_customizer_variables__ () {}  // marks end of customizer variables
+
+hue_front = dark_scheme ? dark_hue : light_hue;
+hue_back = dark_scheme ? light_hue : dark_hue;
+lightness_background = dark_scheme ? 0 : 100;
+
+// color scheme.
+// parameters to hsv_deg are hue [0:360], saturation [0:100] and value [0:100]
+
+background         = hsv_deg(0, 0, lightness_background);
+highlight          = hsv_deg(hue_back,saturation,100);
+axes_color         = hsv_deg(hue_back,saturation,100);
+opencsg_face_front = hsv_deg(hue_front,saturation,100);
+opencsg_face_back  = hsv_deg(hue_back,saturation,100);
+cgal_face_front    = hsv_deg(hue_front,saturation,100);
+cgal_face_back     = hsv_deg(hue_back,saturation,100);
+cgal_face_2d       = hsv_deg(hue_front,saturation,100);
+cgal_edge_front    = hsv_deg(hue_back,saturation,100);
+cgal_edge_back     = hsv_deg(hue_back,saturation,100);
+cgal_edge_2d       = hsv_deg(hue_back,saturation,100);
+crosshair          = hsv_deg(hue_back,saturation,100);
 
 // set viewport
 $vpt=[68, 88, 5];
@@ -43,13 +61,13 @@ function hex(a) = str(hexchars[(a / 16) % 16] , hexchars[a % 16]);
 function color_to_hex(c) = str(hex(c[0]*255), hex(c[1]*255), hex(c[2]*255));
 
 cs = str(
-    "copy and paste to .json:\n",
+    "copy and paste to redcyanglasses.json:\n",
     "{\n",
     "    \"name\" : \"3D Glasses\",\n",
     "    \"index\" : 2001,\n",
     "    \"show-in-gui\" : true,\n",
     "    \"description\" : \"3d anaglyph\",\n",
-    "    \"_comment\" : \"created by colorscheme.scad\",\n",
+    "    \"_comment\" : \"created by colorscheme.scad, ", dark_scheme ? "dark" : "light", " scheme, light hue ", str(light_hue), ", dark hue ", str(dark_hue), ", saturation ", str(saturation), "\",\n",
     "\n",
     "    \"colors\" : {\n",
     "        \"background\" :         \"#", color_to_hex(background), "\",\n",
