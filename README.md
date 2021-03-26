@@ -206,14 +206,10 @@ Run the AppImage on a clean install of the operating system to check all depende
 
 ### 32-bit version
 
-The 32-bit version for Raspberry Pi OS 2021-01-11-raspios-buster-armhf differs in that Qt5, lib3mf and QScintilla have been [compiled from source](https://github.com/koendv/qt5-opengl-raspberrypi). Configuration command line:
+The 32-bit version for Raspberry Pi OS 2021-03-04-raspios-buster-armhf. It differs in that Qt5, lib3mf and QScintilla have been [compiled from source](https://github.com/koendv/qt5-opengl-raspberrypi). Configuration command line:
 ```
 export QT_SELECT=qt5.15.2-opengl
 qmake openscad.pro "PREFIX=/usr" "LIB3MF_INCLUDEPATH=/usr/include/Bindings/Cpp"  "LIB3MF_LIBPATH=-l3mf -lzip -lz"
-```
-or. if using cmake,
-```
-cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DLIB3MF_INCLUDE_DIRS=/usr/include/Bindings/Cpp "-DLIB3MF_LIBRARIES=-l3mf -lzip -lz" ..
 ```
 
 ## Credits
