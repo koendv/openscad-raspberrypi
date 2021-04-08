@@ -52,7 +52,7 @@ for (h = [0:10:360]) {
 }
 
 // draw 5% grey background
-if (1)
+if (0)
 translate([-10, 5, -20])
 color(hsv(0, 0, 95))
 cube([38*15, 6*15, 10]); 
