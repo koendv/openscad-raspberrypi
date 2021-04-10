@@ -170,7 +170,7 @@ If you wish to edit, add or remove a file in an existing AppImage, there is no n
 $ OpenSCAD.AppImage --appimage-extract
 $ gedit squashfs-root/usr/share/openscad/color-schemes/render/redcyanglasses.json
 $ ./squashfs-root/AppRun
-$ appimagetool.AppImage squashfs-root/ OpenSCAD.AppImage
+$ appimagetool.AppImage squashfs-root/ OpenSCAD-new.AppImage
 ```
 
 ## Build notes
