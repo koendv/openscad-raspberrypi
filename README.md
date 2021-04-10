@@ -160,7 +160,18 @@ A simpler test is shining a red laser pointer through the cyan lens. If no light
 - [Rendering 3D Anaglyph in OpenGL](https://quiescentspark.blogspot.com/2011/05/rendering-3d-anaglyph-in-opengl.html) - Geometry calculations used in file ``GLView.cc``, method ``GLView::setup3dCamera()``
 - [Calculating Stereo Pairs](http://paulbourke.net/stereographics/stereorender/) - How to render and how not to.
 - [Producing Anaglyphs from Synthetic Images](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.7.6968&rep=rep1&type=pdf#page=4) -  The coefficients used in file ``colormap.cc``, method ``ColorMap::anaglyphColor()``, are on page 4.
-- [Pull Request](https://github.com/openscad/openscad/pull/3693) at openscad
+- [Pull Request](https://github.com/openscad/openscad/pull/3693) at openscad. Contribute to the source code.
+
+## Editing an AppImage
+
+If you wish to edit, add or remove a file in an existing AppImage, there is no need to recompile. Simply extract the file tree from the AppImage, edit, test and re-package:
+
+```
+$ OpenSCAD.AppImage --appimage-extract
+$ gedit squashfs-root/usr/share/openscad/color-schemes/render/redcyanglasses.json
+$ ./squashfs-root/AppRun
+$ appimagetool.AppImage squashfs-root/ OpenSCAD.AppImage
+```
 
 ## Build notes
 
