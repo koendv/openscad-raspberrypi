@@ -162,17 +162,6 @@ A simpler test is shining a red laser pointer through the cyan lens. If no light
 - [Producing Anaglyphs from Synthetic Images](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.7.6968&rep=rep1&type=pdf#page=4) -  The coefficients used in file ``colormap.cc``, method ``ColorMap::anaglyphColor()``, are on page 4.
 - [Pull Request](https://github.com/openscad/openscad/pull/3693) at openscad. Contribute to the source code.
 
-## Editing an AppImage
-
-If you wish to edit, add or remove a file in an existing AppImage, there is no need to recompile. Simply extract the file tree from the AppImage, edit, test and re-package:
-
-```
-$ OpenSCAD.AppImage --appimage-extract
-$ gedit squashfs-root/usr/share/openscad/color-schemes/render/redcyanglasses.json
-$ ./squashfs-root/AppRun
-$ appimagetool.AppImage squashfs-root/ OpenSCAD-new.AppImage
-```
-
 ## Build notes
 
 These are build notes on compiling [OpenSCAD](http://www.openscad.org) to an [AppImage](http://www.appimage.org) on a [raspberry pi 4](https://www.raspberrypi.org) running 2020-08-20-raspios-buster-arm64.
@@ -280,6 +269,17 @@ The 32-bit version for Raspberry Pi OS 2021-03-04-raspios-buster-armhf. It diffe
 ```
 export QT_SELECT=qt5.15.2-opengl
 qmake openscad.pro "PREFIX=/usr" "LIB3MF_INCLUDEPATH=/usr/include/Bindings/Cpp"  "LIB3MF_LIBPATH=-l3mf -lzip -lz"
+```
+
+## Editing an AppImage
+
+If you wish to edit, add or remove a file in an existing AppImage, there is no need to recompile. Simply extract the file tree from the AppImage, edit, test and re-package:
+
+```
+$ OpenSCAD.AppImage --appimage-extract
+$ gedit squashfs-root/usr/share/openscad/color-schemes/render/redcyanglasses.json
+$ ./squashfs-root/AppRun
+$ appimagetool.AppImage squashfs-root/ OpenSCAD-new.AppImage
 ```
 
 ## Credits
