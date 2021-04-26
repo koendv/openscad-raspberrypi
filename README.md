@@ -110,6 +110,8 @@ To choose the correct colors, two solutions: a color scheme that uses green yell
 
 ## Color Scheme
 
+A color scheme "3D Glasses" for red/cyan 3D anaglyphs is provided. However, as the anaglyph 3d effect depends upon the combination of display and glasses used, a single color scheme may not fit all.
+
 [![Several 3D Glasses](images/several_3d_glasses_small.jpg)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/several_3d_glasses.jpg)
 
 3D glasses. From top to bottom:
@@ -118,7 +120,7 @@ Note the variation in color, especially in cyan.
 
 [![Dubois shading](images/colorscheme_customizer_small.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorscheme_customizer.png)
 
-A color scheme "3D Glasses" for red/cyan 3D anaglyphs is provided. However, as the anaglyph 3d effect depends upon the combination of display and glasses used, a single color scheme may not fit all. If you wish to tune the color scheme for your display and 3D glasses run the [``colorscheme.scad``](scripts/colorscheme.scad) OpenSCAD script through the customizer. Select color values using the slider. Switch between perspective and 3D anaglyph mode to see what the colors look like. The chosen color scheme is printed on the OpenSCAD console window. Copy and paste the color scheme to the file ``redcyanglasses.json`` and restart.
+If you wish to tune the color scheme for your display and 3D glasses run the [``colorscheme.scad``](scripts/colorscheme.scad) OpenSCAD script through the customizer. Select color values using the slider. Switch between perspective and 3D anaglyph mode to see what the colors look like. The chosen color scheme is printed on the OpenSCAD console window. Copy and paste the color scheme to the file ``redcyanglasses.json`` and restart.
 
 ## Dubois shading
 
