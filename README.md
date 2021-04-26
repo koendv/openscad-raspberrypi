@@ -110,7 +110,7 @@ To choose the correct colors, two solutions: a color scheme that uses green yell
 
 ## Color Scheme
 
-[![Several 3D Glasses](images/ several_3d_glasses_small.jpg)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/several_3d_glasses.jpg)
+[![Several 3D Glasses](images/several_3d_glasses_small.jpg)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/several_3d_glasses.jpg)
 
 3D glasses. From top to bottom:
 - [stereoeye](https://stereoeye.jp/shop_e/index.html)
