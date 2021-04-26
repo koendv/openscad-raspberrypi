@@ -54,7 +54,7 @@ The preference panel is accessed using the menu *Edit->Preferences->3D View*. Th
 
 If the sliders for eye separation, out of screen, and near clipping distance are completely to the left, anaglyph is switched off and the 3D display behaves more or less like a normal 2D display.
 
-Standard anaglyph glasses have the blue lens for the right eye, red lens for the left eye. In an anaglyph, objects are drawn twice: once in red, once in blue. If the blue image is to the right of the red image, the object appears to be in front of the screen. If the blue image is to the left of the red image, the object appears to be behind the screen. If red and blue outline coincide, the object appears to be located at the screen itself. If you want to locate an object *exactly* at the screen, take a look without 3D glasses and set the *out of screen* slider so blue and red image of the object coincide. 
+Standard anaglyph glasses have the blue lens for the right eye, red lens for the left eye. In an anaglyph, objects are drawn twice: once in red, once in blue. If the blue image is to the right of the red image, the object appears to be in front of the screen. If the blue image is to the left of the red image, the object appears to be behind the screen. If red and blue outline coincide, the object appears to be located at the screen itself. If you want to locate an object *exactly* at the screen, take a look without 3D glasses and set the *out of screen* slider so blue and red image of the object coincide.
 
 The *near clipping plane* setting can also be used to see inside a 3D model. As an example, we will look inside the OpenSCAD logo:
 
@@ -110,6 +110,16 @@ To choose the correct colors, two solutions: a color scheme that uses green yell
 
 ## Color Scheme
 
+[![Several 3D Glasses](images/ several_3d_glasses_small.jpg)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/several_3d_glasses.jpg)
+
+3D glasses. From top to bottom:
+- [stereoeye](https://stereoeye.jp/shop_e/index.html)
+- [acb3d](http://www.acb3d.com/acbviewers.html)
+- [noname, China](https://www.aliexpress.com/item/4000683023634.html)
+- [Reel3D No. 7020 copy, China](https://www.aliexpress.com/item/32999369805.html)
+
+It seems there is more variation in cyan than in red.
+
 [![Dubois shading](images/colorscheme_customizer_small.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorscheme_customizer.png)
 
 A color scheme "3D Glasses" for red/cyan 3D anaglyphs is provided. However, as the anaglyph 3d effect depends upon the combination of display and glasses used, a single color scheme may not fit all. If you wish to tune the color scheme for your display and 3D glasses run the [``colorscheme.scad``](scripts/colorscheme.scad) OpenSCAD script through the customizer. Select color values using the slider. Switch between perspective and 3D anaglyph mode to see what the colors look like. The chosen color scheme is printed on the OpenSCAD console window. Copy and paste the color scheme to the file ``redcyanglasses.json`` and restart.
@@ -118,7 +128,7 @@ A color scheme "3D Glasses" for red/cyan 3D anaglyphs is provided. However, as t
 
 [![Dubois shading](images/dubois_small.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/dubois.png)
 
-[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. The picture above shows on the inside a color wheel, and on the outside what the same colors look like after Dubois shading. 
+[Dubois shading](http://www.site.uottawa.ca/~edubois/anaglyph/) is an algorithm that replaces all colors with the closest color suitable for anaglyphs. The picture above shows on the inside a color wheel, and on the outside what the same colors look like after Dubois shading.
 
 One of the reasons Dubois shading is popular is that Dubois shading is a matrix multiplication in the RGB domain; something easily implemented in a GPU as an OpenGL shader. The coefficients used in the matrix multiplication are not universal but depend upon display and 3D glasses. The coefficients used in OpenSCAD are for LCD and common commercial red/cyan glasses.
 
@@ -128,7 +138,7 @@ One of the reasons Dubois shading is popular is that Dubois shading is a matrix 
 
 This is a graph of color hue after Dubois shading in function of color hue before Dubois shading. In this graph, Dubois shading was applied to the colors of the color wheel. The x axis is the color hue before Dubois, the y axis the color hue after Dubois. In purple actual values, in green a stylized model.
 
-Note the colors with hue 75 and 255 remain unchanged, while colors with hue 165 and 345 show the biggest changes. 
+Note the colors with hue 75 and 255 remain unchanged, while colors with hue 165 and 345 show the biggest changes.
 
 Dubois shading maps half of the color wheel to hues around 75, greenish yellow, and maps the other half of the color wheel to hues around 255, blue-purple. Green-yellow and blue-purple are the colors which can be seen through both red lens and cyan lens.
 
@@ -141,7 +151,7 @@ One could characterize an implementation of Dubois shading by central color (her
 
 All in all, Dubois shading is quite nifty for a single matrix multiplication.
 
-Usually, the Dubois algorithm is applied to the pixels after rendering. In the OpenSCAD implementation, the Dubois algorithm is applied to the color scheme before rendering. This reduces the number of calculations. 
+Usually, the Dubois algorithm is applied to the pixels after rendering. In the OpenSCAD implementation, the Dubois algorithm is applied to the color scheme before rendering. This reduces the number of calculations.
 
 The color scheme is updated automatically when changing to or from 3D view. Clicking preview to update the colors is only necessary if the OpenSCAD script contains *color()* instructions.
 
