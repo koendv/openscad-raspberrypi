@@ -113,12 +113,8 @@ To choose the correct colors, two solutions: a color scheme that uses green yell
 [![Several 3D Glasses](images/several_3d_glasses_small.jpg)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/several_3d_glasses.jpg)
 
 3D glasses. From top to bottom:
-- [stereoeye](https://stereoeye.jp/shop_e/index.html)
-- [acb3d](http://www.acb3d.com/acbviewers.html)
-- [noname, China](https://www.aliexpress.com/item/4000683023634.html)
-- [Reel3D No. 7020 copy, China](https://www.aliexpress.com/item/32999369805.html)
-
-It seems there is more variation in cyan than in red.
+ [stereoeye](https://stereoeye.jp/shop_e/index.html), [acb3d](http://www.acb3d.com/acbviewers.html), [noname](https://www.aliexpress.com/item/4000683023634.html), [Reel3D No. 7020 copy](https://www.aliexpress.com/item/32999369805.html). 
+Note the variation in color, especially in cyan.
 
 [![Dubois shading](images/colorscheme_customizer_small.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorscheme_customizer.png)
 
