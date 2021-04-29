@@ -165,7 +165,7 @@ A simpler test is shining a red laser pointer through the cyan lens. If no light
 
 ## Developers
 
-Build notes are in [README-DEVELOPERS.md](README-DEVELOPERS.md)
+Build notes are in [README-DEVELOPER.md](README-DEVELOPER.md)
 
 ## Links
 - [Choose a good screen - glasses pair](http://www.david-romeuf.fr/3D/Anaglyphes/BonCoupleEL/GoodCoupleMonitorGlassesAnaglyph.html)
