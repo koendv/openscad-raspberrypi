@@ -168,11 +168,8 @@ A simpler test is shining a red laser pointer through the cyan lens. If no light
 Build notes are in [README-DEVELOPER.md](README-DEVELOPER.md)
 
 ## Links
+
 - [Choose a good screen - glasses pair](http://www.david-romeuf.fr/3D/Anaglyphes/BonCoupleEL/GoodCoupleMonitorGlassesAnaglyph.html)
-- [Rendering 3D Anaglyph in OpenGL](https://quiescentspark.blogspot.com/2011/05/rendering-3d-anaglyph-in-opengl.html) - Geometry calculations used in file ``GLView.cc``, method ``GLView::setup3dCamera()``
-- [Calculating Stereo Pairs](http://paulbourke.net/stereographics/stereorender/) - How to render and how not to.
-- [Producing Anaglyphs from Synthetic Images](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.7.6968&rep=rep1&type=pdf#page=4) -  The coefficients used in file ``colormap.cc``, method ``ColorMap::anaglyphColor()``, are on page 4.
-- [Pull Request](https://github.com/openscad/openscad/pull/3693) at openscad. Contribute to the source code.
 
 ## Credits
 After a patch by Josef Pavlik
