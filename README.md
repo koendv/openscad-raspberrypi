@@ -85,6 +85,20 @@ As a quick fix, either
 - Zoom out ![view all](images/zoom-all.png) until all objects are inside the window, or
 - Move the *Out of Screen* slider to the right until all objects are behind the screen
 
+## Color Scheme
+
+A color scheme "3D Glasses" for red/cyan 3D anaglyphs is provided. However, as the anaglyph 3d effect depends upon the combination of display and glasses used, a single color scheme may not fit all.
+
+[![Several 3D Glasses](images/several_3d_glasses_small.jpg)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/several_3d_glasses.jpg)
+
+3D glasses. From top to bottom:
+ [stereoeye](https://stereoeye.jp/shop_e/index.html), [acb3d](http://www.acb3d.com/acbviewers.html), [noname](https://www.aliexpress.com/item/4000683023634.html), [Reel3D No. 7020 copy](https://www.aliexpress.com/item/32999369805.html). 
+Note the variation in color, especially in cyan.
+
+[![Dubois shading](images/colorscheme_customizer_small.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorscheme_customizer.png)
+
+If you wish to tune the color scheme for your display and 3D glasses run the [``colorscheme.scad``](scripts/colorscheme.scad) OpenSCAD script through the customizer. Select color values using the slider. Switch between perspective and 3D anaglyph mode to see what the colors look like. The chosen color scheme is printed on the OpenSCAD console window. Copy and paste the color scheme to the file ``redcyanglasses.json`` and restart.
+
 This ends the practical guide.
 Below an explanation of the algorithms used.
 
@@ -107,20 +121,6 @@ Apart from hue, saturation also plays a role. The cyan lens dampens green and le
 In general, if the images of left and right eye are exactly the same, no depth is perceived. If the difference between the images of left and right eye consists of small, horizontal translations, you perceive depth. If the difference between the images of left and right eye is too big, stereo vision fails ([retinal rivalry](https://en.wikipedia.org/wiki/Binocular_rivalry)).
 
 To choose the correct colors, two solutions: a color scheme that uses green yellow, purple and gray, and Dubois shading.
-
-## Color Scheme
-
-A color scheme "3D Glasses" for red/cyan 3D anaglyphs is provided. However, as the anaglyph 3d effect depends upon the combination of display and glasses used, a single color scheme may not fit all.
-
-[![Several 3D Glasses](images/several_3d_glasses_small.jpg)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/several_3d_glasses.jpg)
-
-3D glasses. From top to bottom:
- [stereoeye](https://stereoeye.jp/shop_e/index.html), [acb3d](http://www.acb3d.com/acbviewers.html), [noname](https://www.aliexpress.com/item/4000683023634.html), [Reel3D No. 7020 copy](https://www.aliexpress.com/item/32999369805.html). 
-Note the variation in color, especially in cyan.
-
-[![Dubois shading](images/colorscheme_customizer_small.png)](https://raw.githubusercontent.com/koendv/openscad-raspberrypi/master/images/colorscheme_customizer.png)
-
-If you wish to tune the color scheme for your display and 3D glasses run the [``colorscheme.scad``](scripts/colorscheme.scad) OpenSCAD script through the customizer. Select color values using the slider. Switch between perspective and 3D anaglyph mode to see what the colors look like. The chosen color scheme is printed on the OpenSCAD console window. Copy and paste the color scheme to the file ``redcyanglasses.json`` and restart.
 
 ## Dubois shading
 
