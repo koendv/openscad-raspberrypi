@@ -35,11 +35,13 @@ Select color scheme "3D Glasses".
 
 - Put 3D glasses on.
 
-- Click the render icon ![render](images/render-32.png) to render your object. There are two buttons to display your model: preview and render. Preview ![render](images/preview-32.png) renders fast, colors and transparencies are preserved, but rotating the 3D model is somewhat sluggish. Render ![render](images/render-32.png) renders slower, colors and transparencies are lost, but rotating the model is fluid, and the rendering output can be written to an STL file for 3D printing.
+- Click the render icon ![render](images/render-32.png) to render your object.
 
 - Reset view ![reset view](images/Command-Reset-32.png) and zoom out ![view all](images/zoom-all.png) so the whole object is visible. This produces the sphere from the sample screen above.
 
 - Place the mouse above the render window, and drag the mouse with the left mouse button pushed down to rotate the view.
+
+There are two buttons to display your model: preview and render. Preview ![render](images/preview-32.png) renders fast, colors and transparencies are preserved, but rotating the 3D model is somewhat sluggish. Render ![render](images/render-32.png) renders slower, colors and transparencies are lost, but rotating the model is fluid, and the rendering output can be written to an STL file for 3D printing.
 
 ## Preferences
 
