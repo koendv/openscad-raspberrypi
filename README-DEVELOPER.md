@@ -36,67 +36,71 @@ make -j4
 ```
 ### Create appimage
 
-The AppImage contains the application, and all shared libraries and files needed to run the application.
+The AppImage contains the application, and all shared libraries and files needed to run the application. To create the AppImage, use [AppImageKit](https://github.com/AppImage/AppImageKit) and [linuxqtdeploy](https://github.com/probonopd/linuxdeployqt).
 
-Copy openSCAD binaries to appimage:
+Build and install AppImageKit:
 ```
+git clone --recursive https://github.com/AppImage/AppImageKit
+mkdir build
+cd build/
+cmake ..
+make
+sudo make install
+```
+Needed by linuxqtdeploy:
+```
+apt-get install patchelf
+```
+Get linuxdeployqt:
+```
+git clone --recursive https://github.com/probonopd/linuxdeployqt
+cd linuxdeployqt
+```
+Patch linuxdeployqt:
+```
+patch -p1 <<EOD
+diff --git a/tools/linuxdeployqt/main.cpp b/tools/linuxdeployqt/main.cpp
+index 338a0e2..47f2555 100644
+--- a/tools/linuxdeployqt/main.cpp
++++ b/tools/linuxdeployqt/main.cpp
+@@ -189,6 +189,7 @@ int main(int argc, char **argv)
+     
+     // We need to catch those errors at the source of the problem
+     // https://github.com/AppImage/appimage.github.io/search?q=GLIBC&unscoped_q=GLIBC&type=Issues
++#if 0
+     const char *glcv = gnu_get_libc_version ();
+     if(skipGlibcCheck) {
+         qInfo() << "WARNING: Not checking glibc on the host system.";
+@@ -210,6 +211,7 @@ int main(int argc, char **argv)
+             return 1;
+         }
+     }
++#endif
+ 
+     if (argc < 2 || (firstArgument.startsWith("-"))) {
+         qInfo() << "";
+EOD
+```
+Set path to qmake:
+```
+export PATH=/usr/lib/qt5/bin/:$PATH
+```
+Build and install linuxdeployqt:
+```
+qmake
+make
+sudo make install
+```
+Create OpenSCAD application AppDir:
+```
+cd src/openscad/build
 export INSTALL_ROOT=$HOME/OpenSCAD-aarch64.AppDir
 mkdir $INSTALL_ROOT
 make install DESTDIR=$INSTALL_ROOT
 ```
-Copy Qt translations:
+Create AppImage:
 ```
-(cd /; tar cvhf - usr/share/qt5/translations/) | (cd $INSTALL_ROOT; tar xvpf -)
-```
-Copy openSCAD library dependencies to AppImage.
-First make a list of all shared libraries used by openscad, then copy these libraries to the AppImage directory.
-
-```
-mkdir $INSTALL_ROOT/usr/lib/
-cd $INSTALL_ROOT
-LIBS=$(ldd usr/bin/openscad | sed -e 's/^.* => //' -e 's/ (0x.*$//' | grep '/usr/')
-for L in $LIBS
-do
-  cp --preserve $L $INSTALL_ROOT/usr/lib/
-done
-```
-If the app uses any Qt plugins, the plugins would need to be copied too, just like any other shared library.
-
-Copy AppImage files:
-
-From `https://github.com/AppImage/AppImageKit/releases/` download `AppRun-aarch64`.
-```
-cp ~/Downloads/AppRun-aarch64 $INSTALL_ROOT/AppRun
-chmod a+x $INSTALL_ROOT/AppRun
-```
-Copy desktop shortcut and icon:
-```
-cd $INSTALL_ROOT
-cp usr/share/icons/hicolor/256x256/apps/openscad.png .
-cp usr/share/applications/openscad.desktop .
-```
-Edit openscad.desktop and add X-AppImage-Version version info:
-```
-[Desktop Entry]
-Type=Application
-Version=1.0
-Name=OpenSCAD
-Icon=openscad
-Exec=openscad %f
-MimeType=application/x-openscad;
-Categories=Graphics;3DGraphics;Engineering;
-Keywords=3d;solid;geometry;csg;model;stl;
-X-AppImage-Version=2021.02.25
-```
-Create AppStream metadata:
-```
-cd $INSTALL_ROOT/usr/share/metainfo/
-cp org.openscad.OpenSCAD.appdata.xml openscad.appdata.xml
-```
-From `https://github.com/AppImage/AppImageKit/releases/` download `appimagetool-aarch64.AppImage`. Create AppImage:
-```
-cd $INSTALL_ROOT/..
-appimagetool-aarch64.AppImage $INSTALL_ROOT
+linuxdeployqt $HOME/OpenSCAD-aarch64.AppDir/usr/share/applications/openscad.desktop -appimage -no-strip 
 ```
 Test AppImage:
 ```

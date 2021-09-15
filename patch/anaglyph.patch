@@ -1,9 +1,16 @@
-commit 8842e4fede801a9417ea8483b82b16c6be8a2146
-Author: Koen De Vleeschauwer <kdv@kdvelectronics.eu>
-Date:   Mon Mar 8 11:32:13 2021 +0100
-
-    anaglyph
-
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1cf0fb6f1..85d5a1271 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -111,7 +111,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+   endif()
+ endif()
+ 
+-set(BOOST_DIRECTLY_REQUIRED_LIBRARIES filesystem system regex program_options)
++set(BOOST_DIRECTLY_REQUIRED_LIBRARIES filesystem thread system regex program_options)
+ 
+ find_package(PkgConfig)
+ 
 diff --git a/color-schemes/render/beforedawn.json b/color-schemes/render/beforedawn.json
 index d4d98bba9..0f05c2f85 100644
 --- a/color-schemes/render/beforedawn.json
@@ -16,124 +23,6 @@ index d4d98bba9..0f05c2f85 100644
          "axes-color" :         "#c1c1c1",
          "opencsg-face-front" : "#cccccc",
          "opencsg-face-back" :  "#5563dd",
-diff --git a/color-schemes/render/colorscheme.scad b/color-schemes/render/colorscheme.scad
-new file mode 100644
-index 000000000..0e19bfc5d
---- /dev/null
-+++ b/color-schemes/render/colorscheme.scad
-@@ -0,0 +1,111 @@
-+// color scheme generator
-+// copy and paste console output to /usr/share/openscad/color-schemes/render/redcyanglasses.json
-+
-+background         = hsv_deg(0, 0, 95);
-+highlight          = hsv_deg(300,90,100);
-+axes_color         = hsv_deg(300,90,100);
-+opencsg_face_front = hsv_deg(60,90,100);
-+opencsg_face_back  = hsv_deg(300,90,100);
-+cgal_face_front    = hsv_deg(60,90,100);
-+cgal_face_back     = hsv_deg(300,90,100);
-+cgal_face_2d       = hsv_deg(60,90,100);
-+cgal_edge_front    = hsv_deg(300,90,100);
-+cgal_edge_back     = hsv_deg(300,90,100);
-+cgal_edge_2d       = hsv_deg(300,90,100);
-+crosshair          = hsv_deg(300,90,100);
-+
-+// set viewport
-+$vpt=[68, 88, 5];
-+$vpr=[0, 0, 0];
-+$vpd=550;
-+
-+function hsv_deg(h, s, v) = hsv(h/360,s/100,v/100, 1);
-+function hsv(h, s = 1, v = 1, a = 1, p, q, t) = (p == undef || q == undef || t == undef) // by LightAtPlay
-+	? hsv(
-+		(h%1) * 6,
-+		s<0?0:s>1?1:s,
-+		v<0?0:v>1?1:v,
-+		a,
-+		(v<0?0:v>1?1:v) * (1 - (s<0?0:s>1?1:s)),
-+		(v<0?0:v>1?1:v) * (1 - (s<0?0:s>1?1:s) * ((h%1)*6-floor((h%1)*6))),
-+		(v<0?0:v>1?1:v) * (1 - (s<0?0:s>1?1:s) * (1 - ((h%1)*6-floor((h%1)*6))))
-+	)
-+	:
-+	h < 1 ? [v,t,p,a] :
-+	h < 2 ? [q,v,p,a] :
-+	h < 3 ? [p,v,t,a] :
-+	h < 4 ? [p,q,v,a] :
-+	h < 5 ? [t,p,v,a] :
-+	        [v,p,q,a];
-+
-+hexchars="0123456789ABCDEF";
-+function hex(a) = str(hexchars[(a / 16) % 16] , hexchars[a % 16]);
-+function color_to_hex(c) = str(hex(c[0]*255), hex(c[1]*255), hex(c[2]*255));
-+
-+cs = str(
-+    "copy and paste to .json:\n",
-+    "{\n",
-+    "    \"name\" : \"3D Glasses\",\n",
-+    "    \"index\" : 2001,\n",
-+    "    \"show-in-gui\" : true,\n",
-+    "    \"description\" : \"3d anaglyph\",\n",
-+    "    \"_comment\" : \"created by colorscheme.scad\",\n",
-+    "\n",
-+    "    \"colors\" : {\n",
-+    "        \"background\" :         \"#", color_to_hex(background), "\",\n",
-+    "        \"highlight\" :          \"#", color_to_hex(highlight), "80\",\n",
-+    "        \"axes-color\" :         \"#", color_to_hex(axes_color), "\",\n",
-+    "        \"opencsg-face-front\" : \"#", color_to_hex(opencsg_face_front), "\",\n",
-+    "        \"opencsg-face-back\" :  \"#", color_to_hex(opencsg_face_back), "\",\n",
-+    "        \"cgal-face-front\" :    \"#", color_to_hex(cgal_face_front), "\",\n",
-+    "        \"cgal-face-back\" :     \"#", color_to_hex(cgal_face_back), "\",\n",
-+    "        \"cgal-face-2d\" :       \"#", color_to_hex(cgal_face_2d), "\",\n",
-+    "        \"cgal-edge-front\" :    \"#", color_to_hex(cgal_edge_front), "\",\n",
-+    "        \"cgal-edge-back\" :     \"#", color_to_hex(cgal_edge_back), "\",\n",
-+    "        \"cgal-edge-2d\" :       \"#", color_to_hex(cgal_edge_2d), "\",\n",
-+    "        \"crosshair\" :          \"#", color_to_hex(crosshair), "\"\n",
-+    "    }\n",
-+    "}\n"
-+    );
-+    
-+echo(cs);    
-+
-+// display colors
-+
-+colors = [
-+    background,
-+    highlight,
-+    axes_color,
-+    opencsg_face_front,
-+    opencsg_face_back,
-+    cgal_face_front,
-+    cgal_face_back,
-+    cgal_face_2d,
-+    cgal_edge_front,
-+    cgal_edge_back,
-+    cgal_edge_2d,
-+    crosshair];
-+    
-+names = [
-+    "background",
-+    "highlight",
-+    "axes_color",
-+    "opencsg_face_front",
-+    "opencsg_face_back",
-+    "cgal_face_front",
-+    "cgal_face_back",
-+    "cgal_face_2d",
-+    "cgal_edge_front",
-+    "cgal_edge_back",
-+    "cgal_edge_2d",
-+    "crosshair"];
-+  
-+for (i = [0:len(colors)-1]) {
-+    translate([0, i*15, 0])
-+    color(colors[i])
-+    cube(10);
-+    translate([15, i*15, 0])
-+    text(names[i], valign = "bottom");
-+}
-+
-+// not truncated
-\ No newline at end of file
 diff --git a/color-schemes/render/deepocean.json b/color-schemes/render/deepocean.json
 index 9ce164fdc..f5179c583 100644
 --- a/color-schemes/render/deepocean.json
@@ -182,34 +71,6 @@ index 6250e7a33..b71ec0b44 100644
          "axes-color" :         "#323232",
          "opencsg-face-front" : "#16a085",
          "opencsg-face-back" :  "#dbf4da",
-diff --git a/color-schemes/render/redcyanglasses.json b/color-schemes/render/redcyanglasses.json
-new file mode 100644
-index 000000000..fce1a5a95
---- /dev/null
-+++ b/color-schemes/render/redcyanglasses.json
-@@ -0,0 +1,22 @@
-+{
-+    "name" : "3D Glasses",
-+    "index" : 2001,
-+    "show-in-gui" : true,
-+    "description" : "3d anaglyph",
-+    "_comment" : "created by colorscheme.scad",
-+
-+    "colors" : {
-+        "background" :         "#F2F2F2",
-+        "highlight" :          "#FF19FF80",
-+        "axes-color" :         "#FF19FF",
-+        "opencsg-face-front" : "#FFFF19",
-+        "opencsg-face-back" :  "#FF19FF",
-+        "cgal-face-front" :    "#FFFF19",
-+        "cgal-face-back" :     "#FF19FF",
-+        "cgal-face-2d" :       "#FFFF19",
-+        "cgal-edge-front" :    "#FF19FF",
-+        "cgal-edge-back" :     "#FF19FF",
-+        "cgal-edge-2d" :       "#FF19FF",
-+        "crosshair" :          "#FF19FF"
-+    }
-+}
 diff --git a/color-schemes/render/solarized.json b/color-schemes/render/solarized.json
 index 0fd5002b1..f7c482d4b 100644
 --- a/color-schemes/render/solarized.json
@@ -270,29 +131,21 @@ index 559e23fe3..1b098cbe1 100644
          "axes-color" :         "#181818",
          "opencsg-face-front" : "#4271ae",
          "opencsg-face-back" :  "#f5871f",
-diff --git a/images/Anaglyph-white.png b/images/Anaglyph-white.png
-new file mode 100644
-index 000000000..dfaa6fb15
-Binary files /dev/null and b/images/Anaglyph-white.png differ
-diff --git a/images/Anaglyph.png b/images/Anaglyph.png
-new file mode 100644
-index 000000000..b7bc5c4a0
-Binary files /dev/null and b/images/Anaglyph.png differ
 diff --git a/openscad.qrc b/openscad.qrc
-index 0b143032c..c68cba391 100644
+index 36d420d75..5147743b2 100644
 --- a/openscad.qrc
 +++ b/openscad.qrc
-@@ -106,6 +106,8 @@
-     <file>images/SVG-white.png</file>
-     <file>images/PDF.png</file>
-     <file>images/PDF-white.png</file>
-+    <file>images/Anaglyph.png</file>
-+    <file>images/Anaglyph-white.png</file>
-     <file>sounds/complete.wav</file>
-   </qresource>
- </RCC>
+@@ -94,6 +94,8 @@
+     <file>resources/icons/svg-default/perspective-white.svg</file>
+     <file>resources/icons/svg-default/orthogonal.svg</file>
+     <file>resources/icons/svg-default/orthogonal-white.svg</file>
++    <file>resources/icons/svg-default/anaglyph.svg</file>
++    <file>resources/icons/svg-default/anaglyph-white.svg</file>
+     <file>resources/icons/svg-default/axes.svg</file>
+     <file>resources/icons/svg-default/axes-white.svg</file>
+     <file>resources/icons/svg-default/scalemarkers.svg</file>
 diff --git a/src/Camera.h b/src/Camera.h
-index 4cd2859c3..17e326edc 100644
+index 5ea150efb..346916fbf 100644
 --- a/src/Camera.h
 +++ b/src/Camera.h
 @@ -24,7 +24,7 @@ projection, Perspective and Orthogonal.
@@ -305,7 +158,7 @@ index 4cd2859c3..17e326edc 100644
  	void setup(std::vector<double> params);
  	void gimbalDefaultTranslate();
 diff --git a/src/GLView.cc b/src/GLView.cc
-index 766387736..d08c4703a 100644
+index 20aced7fe..49ce99028 100644
 --- a/src/GLView.cc
 +++ b/src/GLView.cc
 @@ -30,6 +30,9 @@ GLView::GLView()
@@ -476,11 +329,145 @@ index 1fcd31bc8..bb63cef41 100644
  
  #ifdef ENABLE_OPENCSG
  	bool is_opencsg_capable;
+diff --git a/src/InitConfigurator.cc b/src/InitConfigurator.cc
+index 9fd7c25c8..64c66f771 100644
+--- a/src/InitConfigurator.cc
++++ b/src/InitConfigurator.cc
+@@ -51,3 +51,18 @@ void InitConfigurator::updateComboBox(const BlockSignals<QComboBox *> &comboBox,
+ 		comboBox->setCurrentIndex(0);
+ 	}
+ }
++ 
++void InitConfigurator::initSliderRange(const BlockSignals<QSlider *> &spinBox,const Settings::SettingsEntryInt &entry)
++{
++	spinBox->blockSignals(true);
++	spinBox->setMinimum(entry.minimum());
++	spinBox->setMaximum(entry.maximum());
++	spinBox->setValue(entry.value());
++	spinBox->blockSignals(false);
++}
++
++void InitConfigurator::initSliderDouble(const BlockSignals<QSlider *> &spinBox,const Settings::SettingsEntryInt &entry)
++{
++	spinBox->setValue(entry.value());
++}
++
+diff --git a/src/InitConfigurator.h b/src/InitConfigurator.h
+index 8533a2be3..f1f2247c8 100644
+--- a/src/InitConfigurator.h
++++ b/src/InitConfigurator.h
+@@ -39,4 +39,8 @@ protected:
+ 	void updateComboBox(const BlockSignals<QComboBox *> &comboBox,const Settings::SettingsEntryEnum &entry);
+ 	/** Update combobox from current settings */
+ 	void updateComboBox(const BlockSignals<QComboBox *> &comboBox,const std::string &value);
+-};
+\ No newline at end of file
++	/** Initialize slider min/max values from the settings range values */
++	void initSliderRange(const BlockSignals<QSlider *> &spinBox,const Settings::SettingsEntryInt &entry);
++	/** Initialize slider double value from the settings value */
++	void initSliderDouble(const BlockSignals<QSlider *> &spinBox, const Settings::SettingsEntryInt &entry);
++};
+diff --git a/src/MainWindow.cc b/src/MainWindow.cc
+index 58f9c1310..4774705ef 100755
+--- a/src/MainWindow.cc
++++ b/src/MainWindow.cc
+@@ -443,6 +443,7 @@ MainWindow::MainWindow(const QStringList &filenames)
+ 	connect(this->viewActionViewAll, SIGNAL(triggered()), this, SLOT(viewAll()));
+ 	connect(this->viewActionPerspective, SIGNAL(triggered()), this, SLOT(viewPerspective()));
+ 	connect(this->viewActionOrthogonal, SIGNAL(triggered()), this, SLOT(viewOrthogonal()));
++	connect(this->viewActionAnaglyph, SIGNAL(triggered()), this, SLOT(viewAnaglyph()));
+ 	connect(this->viewActionZoomIn, SIGNAL(triggered()), qglview, SLOT(ZoomIn()));
+ 	connect(this->viewActionZoomOut, SIGNAL(triggered()), qglview, SLOT(ZoomOut()));
+ 	connect(this->viewActionHideEditorToolBar, SIGNAL(triggered()), this, SLOT(hideEditorToolbar()));
+@@ -491,6 +492,7 @@ MainWindow::MainWindow(const QStringList &filenames)
+ 					this, SLOT(openCSGSettingsChanged()));
+ 	connect(Preferences::inst(), SIGNAL(colorSchemeChanged(const QString&)),
+ 					this, SLOT(setColorScheme(const QString&)));
++	connect(Preferences::inst(), SIGNAL(anaglyphSettingsChanged()), this, SLOT(updateAnaglyph()));
+ 
+ 	Preferences::inst()->apply_win(); // not sure if to be commented, checked must not be commented(done some changes in apply())
+ 
+@@ -546,6 +548,7 @@ MainWindow::MainWindow(const QStringList &filenames)
+ 	initActionIcon(viewActionThrownTogether, ":/resources/icons/svg-default/throwntogether.svg", ":/resources/icons/svg-default/throwntogether-white.svg");
+ 	initActionIcon(viewActionPerspective, ":/resources/icons/svg-default/perspective.svg", ":/resources/icons/svg-default/perspective-white.svg");
+ 	initActionIcon(viewActionOrthogonal, ":/resources/icons/svg-default/orthogonal.svg", ":/resources/icons/svg-default/orthogonal-white.svg");
++	initActionIcon(viewActionAnaglyph, ":/resources/icons/svg-default/anaglyph.svg", ":/resources/icons/svg-default/anaglyph-white.svg");
+ 	initActionIcon(designActionPreview, ":/resources/icons/svg-default/preview.svg", ":/resources/icons/svg-default/preview-white.svg");
+ 	initActionIcon(viewActionAnimate, ":/resources/icons/svg-default/animate.svg", ":/resources/icons/svg-default/animate-white.svg");
+ 	initActionIcon(fileActionExportSTL, ":/resources/icons/svg-default/export-stl.svg", ":/resources/icons/svg-default/export-stl-white.svg");
+@@ -772,7 +775,9 @@ void MainWindow::loadViewSettings(){
+         viewActionShowScaleProportional->setChecked(true);
+         viewModeShowScaleProportional();
+     }
+-	if (settings.value("view/orthogonalProjection").toBool()) {
++	if (settings.value("view/anaglyphProjection").toBool()) {
++		viewAnaglyph();
++	} else if (settings.value("view/orthogonalProjection").toBool()) {
+ 		viewOrthogonal();
+ 	} else {
+ 		viewPerspective();
+@@ -2788,9 +2793,12 @@ void MainWindow::viewCenter()
+ void MainWindow::viewPerspective()
+ {
+ 	QSettingsCached settings;
++	ColorMap::setAnaglyphMode(false);
+ 	settings.setValue("view/orthogonalProjection",false);
++	settings.setValue("view/anaglyphProjection",false);
+ 	viewActionPerspective->setChecked(true);
+ 	viewActionOrthogonal->setChecked(false);
++	viewActionAnaglyph->setChecked(false);
+ 	this->qglview->setOrthoMode(false);
+ 	this->qglview->updateGL();
+ }
+@@ -2798,13 +2806,29 @@ void MainWindow::viewPerspective()
+ void MainWindow::viewOrthogonal()
+ {
+ 	QSettingsCached settings;
++	ColorMap::setAnaglyphMode(false);
+ 	settings.setValue("view/orthogonalProjection",true);
++	settings.setValue("view/anaglyphProjection",false);
+ 	viewActionPerspective->setChecked(false);
+ 	viewActionOrthogonal->setChecked(true);
++	viewActionAnaglyph->setChecked(false);
+ 	this->qglview->setOrthoMode(true);
+ 	this->qglview->updateGL();
+ }
+ 
++void MainWindow::viewAnaglyph()
++{
++	QSettingsCached settings;
++	ColorMap::setAnaglyphMode(true);
++	settings.setValue("view/orthogonalProjection",false);
++	settings.setValue("view/anaglyphProjection",true);
++	viewActionPerspective->setChecked(false);
++	viewActionOrthogonal->setChecked(false);
++	viewActionAnaglyph->setChecked(true);
++	this->qglview->setAnaglyphMode(true);
++	this->qglview->updateGL();
++}
++
+ void MainWindow::viewTogglePerspective()
+ {
+ 	QSettingsCached settings;
+@@ -3236,6 +3260,13 @@ void MainWindow::setFont(const QString &family, uint size)
+ 	activeEditor->setFont(font);
+ }
+ 
++void MainWindow::updateAnaglyph() {
++	this->qglview->setEyeSeparation(Settings::Settings::eyeSeparation.value() * 0.1);
++	this->qglview->setOutOfScreen(Settings::Settings::outOfScreen.value() * 0.1);
++	this->qglview->setNearClippingPlane(Settings::Settings::nearClippingPlane.value() * 0.1);
++	this->qglview->updateGL();
++}
++
+ void MainWindow::quit()
+ {
+ 	QCloseEvent ev;
 diff --git a/src/MainWindow.h b/src/MainWindow.h
-index aaed0e139..1874688f1 100644
+index b5a3af25d..becaed55c 100644
 --- a/src/MainWindow.h
 +++ b/src/MainWindow.h
-@@ -95,6 +95,7 @@ private slots:
+@@ -98,6 +98,7 @@ private slots:
  	void updatedAnimSteps();
  	void updatedAnimDump(bool checked);
  	void updateTVal();
@@ -488,7 +475,7 @@ index aaed0e139..1874688f1 100644
  	void updateUndockMode(bool undockMode);
  	void updateReorderMode(bool reorderMode);
  	void setFont(const QString &family, uint size);
-@@ -299,6 +300,7 @@ public slots:
+@@ -303,6 +304,7 @@ public slots:
  	void viewCenter();
  	void viewPerspective();
  	void viewOrthogonal();
@@ -497,7 +484,7 @@ index aaed0e139..1874688f1 100644
  	void viewResetView();
  	void viewAll();
 diff --git a/src/MainWindow.ui b/src/MainWindow.ui
-index c3ea8e0e9..7e09f1f25 100644
+index dc72b2751..a95c0f7d6 100644
 --- a/src/MainWindow.ui
 +++ b/src/MainWindow.ui
 @@ -251,6 +251,7 @@
@@ -516,7 +503,7 @@ index c3ea8e0e9..7e09f1f25 100644
      <addaction name="separator"/>
      <addaction name="viewActionHideEditorToolBar"/>
      <addaction name="viewActionHide3DViewToolBar"/>
-@@ -1289,6 +1291,9 @@
+@@ -1181,6 +1183,9 @@
     <property name="text">
      <string>&amp;Perspective</string>
     </property>
@@ -526,7 +513,7 @@ index c3ea8e0e9..7e09f1f25 100644
    </action>
    <action name="viewActionOrthogonal">
     <property name="checkable">
-@@ -1301,6 +1306,27 @@
+@@ -1189,6 +1194,23 @@
     <property name="text">
      <string>&amp;Orthogonal</string>
     </property>
@@ -537,10 +524,6 @@ index c3ea8e0e9..7e09f1f25 100644
 +  <action name="viewActionAnaglyph">
 +   <property name="checkable">
 +    <bool>true</bool>
-+   </property>
-+   <property name="icon">
-+    <iconset resource="../openscad.qrc">
-+     <normaloff>:/images/Anaglyph.png</normaloff>:/images/Anaglyph.png</iconset>
 +   </property>
 +   <property name="text">
 +    <string>&amp;Stereo Vision (Anaglyph)</string>
@@ -555,10 +538,10 @@ index c3ea8e0e9..7e09f1f25 100644
    <action name="windowActionHideConsole">
     <property name="checkable">
 diff --git a/src/Preferences.cc b/src/Preferences.cc
-index 17b09b47e..55f9f4582 100644
+index d4eb6a062..dd4d51081 100644
 --- a/src/Preferences.cc
 +++ b/src/Preferences.cc
-@@ -220,6 +220,10 @@ void Preferences::init() {
+@@ -182,6 +182,10 @@ void Preferences::init() {
  	this->lineEditCharacterThreshold->setValidator(validator1);
  	this->lineEditStepSize->setValidator(validator1);
  
@@ -569,35 +552,35 @@ index 17b09b47e..55f9f4582 100644
  	initComboBox(this->comboBoxIndentUsing, Settings::Settings::indentStyle);
  	initComboBox(this->comboBoxLineWrap, Settings::Settings::lineWrap);
  	initComboBox(this->comboBoxLineWrapIndentationStyle, Settings::Settings::lineWrapIndentationStyle);
-@@ -845,6 +849,27 @@ void Preferences::on_comboBoxOctoPrintSlicingProfile_activated(int val)
+@@ -823,6 +827,27 @@ void Preferences::on_comboBoxOctoPrintSlicingProfile_activated(int val)
  	writeSettings();
  }
  
 +void Preferences::on_horizontalSliderEyeSeparation_valueChanged(int val)
 +{
-+	Settings::Settings::inst()->set(Settings::Settings::eyeSeparation, Value(val));
++	Settings::Settings::eyeSeparation.setValue(val);
 +	writeSettings();
 +	emit anaglyphSettingsChanged();
 +}
 +
 +void Preferences::on_horizontalSliderOutOfScreen_valueChanged(int val)
 +{
-+	Settings::Settings::inst()->set(Settings::Settings::outOfScreen, Value(val));
++	Settings::Settings::outOfScreen.setValue(val);
 +	writeSettings();
 +	emit anaglyphSettingsChanged();
 +}
 +
 +void Preferences::on_horizontalSliderNearClippingPlane_valueChanged(int val)
 +{
-+	Settings::Settings::inst()->set(Settings::Settings::nearClippingPlane, Value(val));
++	Settings::Settings::nearClippingPlane.setValue(val);
 +	writeSettings();
 +	emit anaglyphSettingsChanged();
 +}
 +
  void Preferences::writeSettings()
  {
- 	SettingsWriter settingsWriter;
-@@ -986,6 +1011,10 @@ void Preferences::updateGUI()
+ 	Settings::Settings::visit(SettingsWriter());
+@@ -966,6 +991,10 @@ void Preferences::updateGUI()
  	this->lineEditCharacterThreshold->setEnabled(getValue("editor/enableAutocomplete").toBool());
  	this->lineEditStepSize->setEnabled(getValue("editor/stepSize").toBool());
  
@@ -609,10 +592,10 @@ index 17b09b47e..55f9f4582 100644
  	updateComboBox(this->comboBoxLineWrapIndentationStyle, Settings::Settings::lineWrapIndentationStyle);
  	updateComboBox(this->comboBoxLineWrapVisualizationStart, Settings::Settings::lineWrapVisualizationBegin);
 diff --git a/src/Preferences.h b/src/Preferences.h
-index d1fe1cc37..7bf599d08 100644
+index 69a268d9c..12fadcfb0 100644
 --- a/src/Preferences.h
 +++ b/src/Preferences.h
-@@ -61,6 +61,9 @@ public slots:
+@@ -64,6 +64,9 @@ public slots:
  	void on_consoleFontSize_currentIndexChanged(const QString &);
  	void on_checkBoxEnableAutocomplete_toggled(bool);
  	void on_lineEditCharacterThreshold_textChanged(const QString &);
@@ -622,7 +605,7 @@ index d1fe1cc37..7bf599d08 100644
    //
  	// editor settings
    //
-@@ -109,6 +112,7 @@ signals:
+@@ -112,6 +115,7 @@ signals:
  	void consoleFontChanged(const QString &family, uint size) const;
  	void colorSchemeChanged(const QString &scheme) const;
  	void openCSGSettingsChanged() const;
@@ -631,7 +614,7 @@ index d1fe1cc37..7bf599d08 100644
  	void editorConfigChanged() const;
  	void ExperimentalChanged() const ;
 diff --git a/src/Preferences.ui b/src/Preferences.ui
-index 15311b69d..fdeb78f16 100644
+index f485faf9a..2e7f5b920 100644
 --- a/src/Preferences.ui
 +++ b/src/Preferences.ui
 @@ -87,6 +87,70 @@
@@ -743,6 +726,34 @@ index 195852972..1a45aec11 100644
  	bool showScaleProportional() const { return this->showscale; }
  	void setShowScaleProportional(bool enabled) { this->showscale = enabled; }
  	std::string getRendererInfo() const override;
+diff --git a/src/Settings.cc b/src/Settings.cc
+index 8437bb7d6..9dec9c0dc 100644
+--- a/src/Settings.cc
++++ b/src/Settings.cc
+@@ -93,6 +93,9 @@ static std::vector<SettingsEntryEnum::Item> axisValues() {
+ 
+ SettingsEntryBool   Settings::showWarningsIn3dView("3dview", "showWarningsIn3dView", true);
+ SettingsEntryBool   Settings::mouseCentricZoom("3dview", "mouseCentricZoom", true);
++SettingsEntryInt    Settings::eyeSeparation("3dview", "eyeSeparation", 0, 2000, 1000); // in 0.1%
++SettingsEntryInt    Settings::outOfScreen("3dview", "outOfScreen", 0, 1000, 0); // in 0.1%
++SettingsEntryInt    Settings::nearClippingPlane("3dview", "nearClippingPlane", 0, 2000, 300); // in 0.1%
+ SettingsEntryInt    Settings::indentationWidth("editor", "indentationWidth", 1, 16, 4);
+ SettingsEntryInt    Settings::tabWidth("editor", "tabWidth", 1, 16, 4);
+ SettingsEntryEnum   Settings::lineWrap("editor", "lineWrap", {{"None", _("None")}, {"Char", _("Wrap at character boundaries")}, {"Word", _("Wrap at word boundaries")}}, "Word");
+diff --git a/src/Settings.h b/src/Settings.h
+index 86bf6e58a..6935a9b8a 100644
+--- a/src/Settings.h
++++ b/src/Settings.h
+@@ -158,6 +158,9 @@ class Settings
+ public:
+ 	static SettingsEntryBool   showWarningsIn3dView;
+ 	static SettingsEntryBool   mouseCentricZoom;
++        static SettingsEntryInt    eyeSeparation;
++        static SettingsEntryInt    outOfScreen;
++        static SettingsEntryInt    nearClippingPlane;
+ 	static SettingsEntryInt    indentationWidth;
+ 	static SettingsEntryInt    tabWidth;
+ 	static SettingsEntryEnum   lineWrap;
 diff --git a/src/colormap.cc b/src/colormap.cc
 index 6b794be17..675b6da40 100644
 --- a/src/colormap.cc
@@ -855,152 +866,11 @@ index a0dd9c350..06a859012 100644
          colorscheme_set_t colorSchemeSet;
 +        static bool anaglyphmode;
  };
-diff --git a/src/initConfig.cc b/src/initConfig.cc
-index 712839f8b..ddad1712d 100644
---- a/src/initConfig.cc
-+++ b/src/initConfig.cc
-@@ -21,6 +21,19 @@ void InitConfigurator::initComboBox(QComboBox *comboBox, const Settings::Setting
- 	}
- }
- 
-+void InitConfigurator::initSliderRange(const BlockSignals<QSlider *> &spinBox,const Settings::SettingsEntry &entry)
-+{
-+	const RangeType &range = entry.range().toRange();
-+	spinBox->setMinimum(range.begin_value());
-+	spinBox->setMaximum(range.end_value());
-+}
-+
-+void InitConfigurator::initSliderDouble(const BlockSignals<QSlider *> &spinBox,const Settings::SettingsEntry &entry)
-+{
-+	const Settings::Settings *s = Settings::Settings::inst();
-+	spinBox->setValue(s->get(entry).toDouble());
-+}
-+
- void InitConfigurator::initSpinBoxRange(const BlockSignals<QSpinBox *> &spinBox,const Settings::SettingsEntry &entry)
- {
- 	const RangeType &range = entry.range().toRange();
-diff --git a/src/initConfig.h b/src/initConfig.h
-index c6543eb4d..d228f6788 100644
---- a/src/initConfig.h
-+++ b/src/initConfig.h
-@@ -35,9 +35,13 @@ protected:
- 	void initSpinBoxRange(const BlockSignals<QSpinBox *> &spinBox,const Settings::SettingsEntry &entry);
- 	/** Initialize spinbox double value from the settings value */
- 	void initSpinBoxDouble(const BlockSignals<QSpinBox *> &spinBox, const Settings::SettingsEntry &entry);
-+	/** Initialize slider min/max values from the settings range values */
-+	void initSliderRange(const BlockSignals<QSlider *> &spinBox,const Settings::SettingsEntry &entry);
-+	/** Initialize slider double value from the settings value */
-+	void initSliderDouble(const BlockSignals<QSlider *> &spinBox, const Settings::SettingsEntry &entry);
- 	/** Update combobox from current settings */
- 	void updateComboBox(const BlockSignals<QComboBox *> &comboBox,const Settings::SettingsEntry &entry);
- 	/** used in AxisConfigWidget class **/
- 	void initDoubleSpinBox(QDoubleSpinBox *spinBox,const Settings::SettingsEntry &entry);
- 
--};
-\ No newline at end of file
-+};
-diff --git a/src/mainwin.cc b/src/mainwin.cc
-index 39bb52597..2071b4e7c 100755
---- a/src/mainwin.cc
-+++ b/src/mainwin.cc
-@@ -445,6 +445,7 @@ MainWindow::MainWindow(const QStringList &filenames)
- 	connect(this->viewActionViewAll, SIGNAL(triggered()), this, SLOT(viewAll()));
- 	connect(this->viewActionPerspective, SIGNAL(triggered()), this, SLOT(viewPerspective()));
- 	connect(this->viewActionOrthogonal, SIGNAL(triggered()), this, SLOT(viewOrthogonal()));
-+	connect(this->viewActionAnaglyph, SIGNAL(triggered()), this, SLOT(viewAnaglyph()));
- 	connect(this->viewActionZoomIn, SIGNAL(triggered()), qglview, SLOT(ZoomIn()));
- 	connect(this->viewActionZoomOut, SIGNAL(triggered()), qglview, SLOT(ZoomOut()));
- 	connect(this->viewActionHideEditorToolBar, SIGNAL(triggered()), this, SLOT(hideEditorToolbar()));
-@@ -476,6 +477,7 @@ MainWindow::MainWindow(const QStringList &filenames)
- 					this, SLOT(openCSGSettingsChanged()));
- 	connect(Preferences::inst(), SIGNAL(colorSchemeChanged(const QString&)),
- 					this, SLOT(setColorScheme(const QString&)));
-+	connect(Preferences::inst(), SIGNAL(anaglyphSettingsChanged()), this, SLOT(updateAnaglyph()));
- 
- 	Preferences::inst()->apply_win(); // not sure if to be commented, checked must not be commented(done some changes in apply())
- 
-@@ -530,6 +532,7 @@ MainWindow::MainWindow(const QStringList &filenames)
- 	initActionIcon(viewActionShowCrosshairs, ":/images/cross.png", ":/images/crosswhite.png");
- 	initActionIcon(viewActionPerspective, ":/images/perspective1.png", ":/images/perspective1white.png");
- 	initActionIcon(viewActionOrthogonal, ":/images/orthogonal.png", ":/images/orthogonalwhite.png");
-+	initActionIcon(viewActionAnaglyph, ":/images/Anaglyph.png", ":/images/Anaglyph-white.png");
- 	initActionIcon(designActionPreview, ":/images/preview-32.png", ":/images/preview-32-white.png");
- 	initActionIcon(viewActionAnimate, ":/images/animate.png", ":/images/animate.png");
- 	initActionIcon(fileActionExportSTL, ":/images/STL.png", ":/images/STL-white.png");
-@@ -755,7 +758,9 @@ void MainWindow::loadViewSettings(){
-         viewActionShowScaleProportional->setChecked(true);
-         viewModeShowScaleProportional();
-     }
--	if (settings.value("view/orthogonalProjection").toBool()) {
-+	if (settings.value("view/anaglyphProjection").toBool()) {
-+		viewAnaglyph();
-+	} else if (settings.value("view/orthogonalProjection").toBool()) {
- 		viewOrthogonal();
- 	} else {
- 		viewPerspective();
-@@ -2772,9 +2777,12 @@ void MainWindow::viewCenter()
- void MainWindow::viewPerspective()
- {
- 	QSettingsCached settings;
-+	ColorMap::setAnaglyphMode(false);
- 	settings.setValue("view/orthogonalProjection",false);
-+	settings.setValue("view/anaglyphProjection",false);
- 	viewActionPerspective->setChecked(true);
- 	viewActionOrthogonal->setChecked(false);
-+	viewActionAnaglyph->setChecked(false);
- 	this->qglview->setOrthoMode(false);
- 	this->qglview->updateGL();
- }
-@@ -2782,13 +2790,29 @@ void MainWindow::viewPerspective()
- void MainWindow::viewOrthogonal()
- {
- 	QSettingsCached settings;
-+	ColorMap::setAnaglyphMode(false);
- 	settings.setValue("view/orthogonalProjection",true);
-+	settings.setValue("view/anaglyphProjection",false);
- 	viewActionPerspective->setChecked(false);
- 	viewActionOrthogonal->setChecked(true);
-+	viewActionAnaglyph->setChecked(false);
- 	this->qglview->setOrthoMode(true);
- 	this->qglview->updateGL();
- }
- 
-+void MainWindow::viewAnaglyph()
-+{
-+	QSettingsCached settings;
-+	ColorMap::setAnaglyphMode(true);
-+	settings.setValue("view/orthogonalProjection",false);
-+	settings.setValue("view/anaglyphProjection",true);
-+	viewActionPerspective->setChecked(false);
-+	viewActionOrthogonal->setChecked(false);
-+	viewActionAnaglyph->setChecked(true);
-+	this->qglview->setAnaglyphMode(true);
-+	this->qglview->updateGL();
-+}
-+
- void MainWindow::viewTogglePerspective()
- {
- 	QSettingsCached settings;
-@@ -3210,6 +3234,14 @@ void MainWindow::setFont(const QString &family, uint size)
- 	activeEditor->setFont(font);
- }
- 
-+void MainWindow::updateAnaglyph() {
-+	auto s = Settings::Settings::inst();
-+	this->qglview->setEyeSeparation(s->get(Settings::Settings::eyeSeparation).toDouble() * 0.1);
-+	this->qglview->setOutOfScreen(s->get(Settings::Settings::outOfScreen).toDouble() * 0.1);
-+	this->qglview->setNearClippingPlane(s->get(Settings::Settings::nearClippingPlane).toDouble() * 0.1);
-+	this->qglview->updateGL();
-+}
-+
- void MainWindow::quit()
- {
- 	QCloseEvent ev;
 diff --git a/src/openscad.cc b/src/openscad.cc
-index a6f648d2a..12f3b49a9 100644
+index f8b4cfe05..8815ca984 100644
 --- a/src/openscad.cc
 +++ b/src/openscad.cc
-@@ -239,8 +239,11 @@ Camera get_camera(const po::variables_map &vm)
+@@ -240,8 +240,11 @@ Camera get_camera(const po::variables_map &vm)
  		else if (proj=="p" || proj=="perspective") {
  			camera.projection = Camera::ProjectionType::PERSPECTIVE;
  		}
@@ -1013,20 +883,20 @@ index a6f648d2a..12f3b49a9 100644
  			exit(1);
  		}
  	}
-@@ -965,7 +968,7 @@ int main(int argc, char **argv)
+@@ -979,7 +982,7 @@ int main(int argc, char **argv)
  		("preview", po::value<string>()->implicit_value(""), "[=throwntogether] -for ThrownTogether preview png")
  		("animate", po::value<unsigned>(), "export N animated frames")
  		("view", po::value<CommaSeparatedVector>(), ("=view options: " + boost::join(viewOptions.names(), " | ")).c_str())
 -		("projection", po::value<string>(), "=(o)rtho or (p)erspective when exporting png")
 +		("projection", po::value<string>(), "=(o)rtho, (p)erspective or (a)naglyph when exporting png")
  		("csglimit", po::value<unsigned int>(), "=n -stop rendering at n CSG elements when exporting png")
- 		("colorscheme", po::value<string>(), ("=colorscheme: " +
- 		                                      join(ColorMap::inst()->colorSchemeNames(), " | ",
+     ("summary", po::value<vector<string>>(), "enable additional render summary and statistics: all | cache | time | camera | geometry | bounding-box | area")
+     ("summary-file", po::value<string>(), "output summary information in JSON format to the given file, using '-' outputs to stdout")
 diff --git a/src/renderer.cc b/src/renderer.cc
-index 7964e1961..a61941882 100644
+index f3066fe4a..5660c0846 100644
 --- a/src/renderer.cc
 +++ b/src/renderer.cc
-@@ -186,12 +186,13 @@ void Renderer::setColor(const float color[4], const shaderinfo_t *shaderinfo) co
+@@ -158,12 +158,13 @@ void Renderer::setColor(const float color[4], const shaderinfo_t *shaderinfo) co
  	PRINTD("setColor a");
  	Color4f col;
  	getColor(ColorMode::MATERIAL,col);
@@ -1042,7 +912,7 @@ index 7964e1961..a61941882 100644
  #ifdef ENABLE_OPENCSG
  	if (shaderinfo) {
  		glUniform4f(shaderinfo->data.csg_rendering.color_area, c[0], c[1], c[2], c[3]);
-@@ -241,6 +242,7 @@ void Renderer::setColorScheme(const ColorScheme &cs) {
+@@ -213,6 +214,7 @@ void Renderer::setColorScheme(const ColorScheme &cs) {
  	colormap[ColorMode::MATERIAL_EDGES] = ColorMap::getColor(cs, RenderColor::CGAL_EDGE_FRONT_COLOR);
  	colormap[ColorMode::CUTOUT_EDGES] = ColorMap::getColor(cs, RenderColor::CGAL_EDGE_BACK_COLOR);
  	colormap[ColorMode::EMPTY_SPACE] = ColorMap::getColor(cs, RenderColor::BACKGROUND_COLOR);
@@ -1050,78 +920,37 @@ index 7964e1961..a61941882 100644
  	this->colorscheme = &cs;
  }
  
-diff --git a/src/settings.cc b/src/settings.cc
-index 8888412e6..23499b72d 100644
---- a/src/settings.cc
-+++ b/src/settings.cc
-@@ -166,6 +166,9 @@ SettingsVisitor::~SettingsVisitor()
-  */
- SettingsEntry Settings::showWarningsIn3dView("3dview", "showWarningsIn3dView", Value(true), Value(true));
- SettingsEntry Settings::mouseCentricZoom("3dview", "mouseCentricZoom", Value(true), Value(true));
-+SettingsEntry Settings::eyeSeparation("3dview", "eyeSeparation", Value(RangeType(0, 2000)), Value(1000)); // in 0.1%
-+SettingsEntry Settings::outOfScreen("3dview", "outOfScreen", Value(RangeType(0, 1000)), Value(0)); // in 0.1 %
-+SettingsEntry Settings::nearClippingPlane("3dview", "nearClippingPlane", Value(RangeType(1, 2000)), Value(300)); // in 0.1 %
- SettingsEntry Settings::indentationWidth("editor", "indentationWidth", Value(RangeType(1, 16)), Value(4));
- SettingsEntry Settings::tabWidth("editor", "tabWidth", Value(RangeType(1, 16)), Value(4));
- SettingsEntry Settings::lineWrap("editor", "lineWrap", values("None", _("None"), "Char", _("Wrap at character boundaries"), "Word", _("Wrap at word boundaries")), Value("Word"));
-diff --git a/src/settings.h b/src/settings.h
-index eb442b0be..1b19bff6c 100644
---- a/src/settings.h
-+++ b/src/settings.h
-@@ -37,6 +37,9 @@ class Settings
- public:
-     static SettingsEntry showWarningsIn3dView;
-     static SettingsEntry mouseCentricZoom;
-+    static SettingsEntry eyeSeparation;
-+    static SettingsEntry outOfScreen;
-+    static SettingsEntry nearClippingPlane;
-     static SettingsEntry indentationWidth;
-     static SettingsEntry tabWidth;
-     static SettingsEntry lineWrap;
 diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
-index 68f258d23..783567554 100644
+index 678e55f13..59e12788a 100644
 --- a/tests/CMakeLists.txt
 +++ b/tests/CMakeLists.txt
-@@ -1227,6 +1227,18 @@ add_cmdline_test(openscad-camvp-override EXE ${OPENSCAD_BINPATH}
+@@ -1241,6 +1241,18 @@ add_cmdline_test(openscad-camvp-override EXE ${OPENSCAD_BINPATH}
                   SUFFIX png
-                  FILES ${CMAKE_CURRENT_SOURCE_DIR}/../testdata/scad/3D/misc/camera-vp.scad)
+                  FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scad/3D/misc/camera-vp.scad)
  
 +# anaglyph
 +
 +add_cmdline_test(openscad-anaglyph-preview EXE ${OPENSCAD_BINPATH}
-+                 ARGS --colorscheme=3D\ Glasses --projection=a --preview -o 
-+                 SUFFIX png 
++                 ARGS --colorscheme=3D\ Glasses --projection=a --preview -o
++                 SUFFIX png
 +                 FILES ${CMAKE_CURRENT_SOURCE_DIR}/../examples/Basics/logo.scad)
 +
 +add_cmdline_test(openscad-anaglyph-render EXE ${OPENSCAD_BINPATH}
-+                 ARGS --colorscheme=3D\ Glasses --projection=a --render -o 
-+                 SUFFIX png 
++                 ARGS --colorscheme=3D\ Glasses --projection=a --render -o
++                 SUFFIX png
 +                 FILES ${CMAKE_CURRENT_SOURCE_DIR}/../examples/Basics/logo.scad)
 +
  # View Options tests
- add_cmdline_test(openscad-viewoptions-axes EXE ${OPENSCAD_BINPATH} ARGS --imgsize=500,500 --camera=16,14,13,0,0,0 --viewall --view axes -o SUFFIX png FILES ${CMAKE_CURRENT_SOURCE_DIR}/../testdata/scad/3D/misc/view-options-tests.scad)
- add_cmdline_test(openscad-viewoptions-axes-scales EXE ${OPENSCAD_BINPATH} ARGS --imgsize=500,500 --camera=16,14,13,0,0,0 --viewall --view axes,scales -o SUFFIX png FILES ${CMAKE_CURRENT_SOURCE_DIR}/../testdata/scad/3D/misc/view-options-tests.scad)
-@@ -1261,6 +1273,11 @@ add_cmdline_test(openscad-colorscheme-metallic-render EXE ${OPENSCAD_BINPATH}
+ add_cmdline_test(openscad-viewoptions-axes EXE ${OPENSCAD_BINPATH} ARGS --imgsize=500,500 --camera=16,14,13,0,0,0 --viewall --view axes -o SUFFIX png FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scad/3D/misc/view-options-tests.scad)
+ add_cmdline_test(openscad-viewoptions-axes-scales EXE ${OPENSCAD_BINPATH} ARGS --imgsize=500,500 --camera=16,14,13,0,0,0 --viewall --view axes,scales -o SUFFIX png FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scad/3D/misc/view-options-tests.scad)
+@@ -1274,6 +1286,10 @@ add_cmdline_test(openscad-colorscheme-metallic-render EXE ${OPENSCAD_BINPATH}
+                  ARGS --colorscheme=Metallic --render -o 
                   SUFFIX png 
                   FILES ${CMAKE_CURRENT_SOURCE_DIR}/../examples/Basics/CSG.scad)
- 
 +add_cmdline_test(openscad-colorscheme-3dglasses EXE ${OPENSCAD_BINPATH}
-+                 ARGS --colorscheme 3D\ Glasses -o 
-+                 SUFFIX png 
++                 ARGS --colorscheme 3D\ Glasses -o
++                 SUFFIX png
 +                 FILES ${CMAKE_CURRENT_SOURCE_DIR}/../examples/Basics/logo.scad)
-+
+ 
  #message("Available test configurations: ${TEST_CONFIGS}")
  #foreach(CONF ${TEST_CONFIGS})
- #  message("${CONF}: ${${CONF}_TEST_CONFIG}")
-diff --git a/tests/regression/openscad-anaglyph-preview/logo-expected.png b/tests/regression/openscad-anaglyph-preview/logo-expected.png
-new file mode 100644
-index 000000000..9aee64ba9
-Binary files /dev/null and b/tests/regression/openscad-anaglyph-preview/logo-expected.png differ
-diff --git a/tests/regression/openscad-anaglyph-render/logo-expected.png b/tests/regression/openscad-anaglyph-render/logo-expected.png
-new file mode 100644
-index 000000000..45fff12f5
-Binary files /dev/null and b/tests/regression/openscad-anaglyph-render/logo-expected.png differ
-diff --git a/tests/regression/openscad-colorscheme-3dglasses/logo-expected.png b/tests/regression/openscad-colorscheme-3dglasses/logo-expected.png
-new file mode 100644
-index 000000000..c578955e6
-Binary files /dev/null and b/tests/regression/openscad-colorscheme-3dglasses/logo-expected.png differ
